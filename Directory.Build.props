@@ -1,0 +1,24 @@
+<Project>
+  <PropertyGroup>
+    <!-- Language & framework defaults -->
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Code quality: fail on warnings -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <WarningsNotAsErrors />
+
+    <!-- Analysis -->
+    <AnalysisLevel>latest</AnalysisLevel>
+    <AnalysisMode>Recommended</AnalysisMode>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+
+    <!-- XML Documentation -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!-- CS1591: Missing XML comment for publicly visible type or member.
+         Suppressed globally for now; will be enforced per-project when real APIs land. -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+</Project>

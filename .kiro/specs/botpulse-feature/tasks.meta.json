@@ -1,0 +1,4493 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "0.1.1 Ejecutar `dotnet new sln -n BotPulse` en la raíz del repositorio": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012009367
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012061926
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012126521
+      }
+    ],
+    "0.1.2 Crear `src/BotPulse.Core` como `classlib` con `net8.0`, `Nullable=enable` e `ImplicitUsings=enable`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012009619
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012186093
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012271421
+      }
+    ],
+    "0.1.3 Crear `src/BotPulse.Shared` como `classlib` con `net8.0` (DTOs y constantes compartidas)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012010636
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012275193
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012313935
+      }
+    ],
+    "0.1.4 Crear `src/BotPulse.Infrastructure` como `classlib`, referenciando `BotPulse.Core`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012010744
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012319131
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012400963
+      }
+    ],
+    "0.1.5 Crear `src/BotPulse.Providers.UiPath` como `classlib`, referenciando `BotPulse.Core`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012010854
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012404511
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012559926
+      }
+    ],
+    "0.1.6 Crear `src/BotPulse.Api` como `webapi` (.NET 8, minimal hosting), referenciando Core, Infrastructure y Providers.UiPath": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012010976
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012563500
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012692419
+      }
+    ],
+    "0.1.7 Crear `src/BotPulse.Worker` como `worker`, referenciando Core, Infrastructure y Providers.UiPath": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012011130
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012696355
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012769547
+      }
+    ],
+    "0.1.8 Agregar los 6 proyectos al `.sln` con `dotnet sln add`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012011238
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012773071
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012875463
+      }
+    ],
+    "0.2.1 Añadir `.gitignore` estándar de .NET (bin/, obj/, .vs/, user secrets, logs/)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012011349
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012883400
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012948435
+      }
+    ],
+    "0.2.2 Añadir `.editorconfig` con reglas de estilo consistentes (indentación, `var`, `this.` prohibido, ordenamiento de using)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012011461
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012962175
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785013050900
+      }
+    ],
+    "0.2.3 Crear `Directory.Packages.props` con `ManagePackageVersionsCentrally=true` y versiones pinned de todas las dependencias del stack": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012011570
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785013124306
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785013300790
+      }
+    ],
+    "0.2.4 Habilitar `TreatWarningsAsErrors` en un `Directory.Build.props` compartido": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012011682
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785013305375
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785013692107
+      }
+    ],
+    "0.2.5 Habilitar `GenerateDocumentationFile=true` en el mismo `Directory.Build.props`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012011791
+      },
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785013696029
+      },
+      {
+        "executionId": "9abd3c6e-0d02-40f8-acdb-b3d904d0cb60",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785016651605
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017980780
+      }
+    ],
+    "0.3.1 Crear `docs/CodingStandards.md` alineado con la sección \"Coding Standards Summary\" del diseño": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012011937
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017980950
+      }
+    ],
+    "0.3.2 Crear `docs/Deployment.md` describiendo la matriz de despliegue (Docker Compose, Azure App Service, Azure Container Apps, IIS, Linux + Reverse Proxy)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012012050
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017981100
+      }
+    ],
+    "0.3.3 Crear `docs/Security.md` cubriendo credencial management, network security, data validation y audit trail": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012012154
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017981249
+      }
+    ],
+    "0.3.4 Crear `docs/Roadmap.md` con las fases MVP → Fase 2 → Fase 3 → Fase 4 informativas": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012012269
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017981413
+      }
+    ],
+    "0.4.1 Crear `docs/ADR/README.md` con el índice de ADRs y la plantilla estándar (Status/Context/Decision/Alternatives/Consequences)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012012383
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017981576
+      }
+    ],
+    "0.4.2 Redactar ADR-001 (Clean Architecture), ADR-002 (Provider Pattern Granular) y ADR-003 (Selective Persistence)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012012495
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017981722
+      }
+    ],
+    "0.4.3 Redactar ADR-004 (Docker as Primary Packaging), ADR-005 (OAuth2 Client Credentials for UiPath) y ADR-006 (JWT as Session Token Only)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012012603
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017981870
+      }
+    ],
+    "0.4.4 Redactar ADR-007 (PostgreSQL as Primary DB), ADR-008 (Independent Background Sync Services) y ADR-009 (Polling/SSE for MVP Real-Time)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012012717
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017982041
+      }
+    ],
+    "0.4.5 Redactar ADR-010 (Repository + UoW), ADR-011 (Pluggable Authentication), ADR-012 (API Versioning from Day 1) y ADR-013 (Vendor-Agnostic RPA Operations Platform)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012012829
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017982200
+      }
+    ],
+    "0.5.1 Añadir workflow `.github/workflows/ci.yml` (o equivalente) con setup de .NET 8, `dotnet restore`, `dotnet build --no-restore -c Release` y `dotnet test --no-build`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012012976
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017982348
+      }
+    ],
+    "0.5.2 Añadir un badge de estado del build en `README.md`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012013084
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017982492
+      }
+    ],
+    "1.1.1 Definir `IRobotProvider` con `GetRobotsAsync` y `GetRobotByIdAsync`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012013195
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017982648
+      }
+    ],
+    "1.1.2 Definir `IJobProvider` con `GetJobsAsync(JobQuery)`, `GetJobByIdAsync`, `StartJobAsync`, `StopJobAsync`, `CancelJobAsync`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012013310
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017982807
+      }
+    ],
+    "1.1.3 Definir `IQueueProvider` con `GetQueuesAsync` y `GetQueueItemsAsync(QueueItemQuery)`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012013421
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017982988
+      }
+    ],
+    "1.1.4 Definir `ILogProvider` con `GetExecutionLogsAsync(LogQuery)`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012013539
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017983143
+      }
+    ],
+    "1.1.5 Definir `IAssetProvider` con `GetAssetsAsync` (sin exponer valores secretos)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012013651
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017983342
+      }
+    ],
+    "1.1.6 Definir `IMachineProvider` con `GetMachinesAsync` y `GetMachineByIdAsync`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012013765
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017983503
+      }
+    ],
+    "1.1.7 Definir `IProcessProvider` con `GetProcessesAsync` y `GetProcessParametersAsync`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012013874
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017983653
+      }
+    ],
+    "1.1.8 Definir `IProviderVersionNegotiator` con `NegotiateAsync` y el record `ProviderVersion`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012013982
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017983803
+      }
+    ],
+    "1.2.1 Definir records `RobotSnapshot`, `MachineSnapshot`, `ProcessSnapshot`, `ProcessParameter`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012014092
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017983966
+      }
+    ],
+    "1.2.2 Definir records `JobSnapshot`, `StartJobRequest`, `StartJobResult`, `JobQuery`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012014204
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017984148
+      }
+    ],
+    "1.2.3 Definir records `QueueSnapshot`, `QueueItemSnapshot`, `QueueItemQuery`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012014320
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017984293
+      }
+    ],
+    "1.2.4 Definir records `ExecutionLogSnapshot`, `LogQuery`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012014436
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017984469
+      }
+    ],
+    "1.2.5 Definir record `AssetMetadata` (sin campo de secret value)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012014545
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017984647
+      }
+    ],
+    "1.3.1 Definir `IAuthenticationProvider` con `AuthenticateAsync`, `IsHealthyAsync` y propiedad `ProviderName`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012014656
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017984827
+      }
+    ],
+    "1.3.2 Definir records `AuthenticationRequest` y `AuthenticationResult`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012014807
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017985004
+      }
+    ],
+    "1.3.3 Definir `ISessionTokenService` con `IssueToken` y `ValidateToken`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012014916
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017985176
+      }
+    ],
+    "1.4.1 Definir `INotificationDelivery` con `PublishAsync` y `SubscribeAsync` (IAsyncEnumerable)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012015027
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017985363
+      }
+    ],
+    "1.4.2 Definir records `NotificationEvent` y `NotificationSubscription`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012015137
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017985531
+      }
+    ],
+    "1.4.3 Definir `INotificationThrottler` con `ShouldDeliver`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012015254
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017985672
+      }
+    ],
+    "1.5.1 Definir `ICacheService` con `GetAsync<T>`, `SetAsync<T>`, `RemoveAsync`, `InvalidatePatternAsync`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012015371
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017985825
+      }
+    ],
+    "1.6.1 Definir `IAlertChannel` con `Name`, `DeliverAsync`, `IsHealthyAsync`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012015481
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017985971
+      }
+    ],
+    "1.6.2 Definir `IAlertRuleEvaluator` con `RuleType` y `EvaluateAsync`, más el record `AlertCandidate`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012015590
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017986159
+      }
+    ],
+    "1.6.3 Definir `IAlertDeduplicator` con `ShouldEmit(rule, candidate, nowUtc)`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012015756
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017986343
+      }
+    ],
+    "1.7.1 Definir `IRepository<T>` con `GetByIdAsync`, `FindAsync(Expression)`, `AddAsync`, `Update`, `Remove`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012015862
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017986494
+      }
+    ],
+    "1.7.2 Definir `IUnitOfWork` con `SaveChangesAsync` y `BeginTransactionAsync`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012015973
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017986643
+      }
+    ],
+    "1.7.3 Definir `IAuditRepository` append-only con solo `RecordAsync` y consultas de lectura": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012016086
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017986797
+      }
+    ],
+    "1.8.1 Definir `ISystemClock` con `UtcNow` para permitir testing determinista": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012016199
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017986979
+      }
+    ],
+    "1.9.1 Implementar `Job` con constructor privado y método factory `FromSnapshot` / `UpdateFromSnapshot`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012016324
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017987138
+      }
+    ],
+    "1.9.2 Implementar `QueueItem` con enlace opcional a `OriginalItemId` (retries)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012016451
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017987291
+      }
+    ],
+    "1.9.3 Implementar `ExecutionLog` con `PropertiesJson` como string estructurado": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012016561
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017987439
+      }
+    ],
+    "1.9.4 Implementar `MetricPoint` y `MetricRollup` con `DimensionsJson`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012016672
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017987588
+      }
+    ],
+    "1.9.5 Implementar `AuditRecord` inmutable con factory `For(user, action, resource, outcome, ...)`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012016789
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017987756
+      }
+    ],
+    "1.9.6 Implementar `User` (con `AuthProvider`, `Role`, `PasswordHash` opcional)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012016922
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017987937
+      }
+    ],
+    "1.9.7 Implementar `Alert` y `AlertRule` con métodos factory `Raise` y `Configure`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012017040
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017988079
+      }
+    ],
+    "1.9.8 Implementar `DashboardLayout` (relación 1:1 con `User`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012017151
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017988227
+      }
+    ],
+    "1.10.1 Definir enums fuertemente tipados `JobStatus`, `QueueItemStatus`, `LogSeverity`, `AlertSeverity`, `RollupGranularity`, `Role`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012017265
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017988385
+      }
+    ],
+    "1.10.2 Escribir pruebas unitarias que validen paridad entre `enum` y strings usados en persistencia": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012017399
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017988565
+      }
+    ],
+    "1.11.1 Definir `JobStateChanged`, `AlertRaised`, `QueueItemProcessed`, `JobActionRequested`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012017524
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017988706
+      }
+    ],
+    "1.11.2 Escribir pruebas unitarias que validen los invariantes de cada evento (campos obligatorios no nulos)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012017649
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017988855
+      }
+    ],
+    "1.12.1 Definir `BotPulseException` base y `ProviderException`, `AuthenticationException`, `AuthorizationException`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012017775
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017989032
+      }
+    ],
+    "1.12.2 Definir `ValidationException` (con lista de errores por campo) y `EntityNotFoundException`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012017908
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017989187
+      }
+    ],
+    "1.13.1 Escribir tests unitarios para value objects, factory methods de entidades y domain events (proyecto `tests/BotPulse.UnitTests`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012018028
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017989341
+      }
+    ],
+    "1.13.2 Configurar xUnit + FluentAssertions + NSubstitute en el proyecto de tests": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012018152
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017989506
+      }
+    ],
+    "1.14 Checkpoint - Compilación y tests unitarios verdes": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012018270
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017989682
+      }
+    ],
+    "2.1.1 Crear `BotPulseDbContext` con `DbSet` solo para entidades persistidas (Users, Jobs, QueueItems, ExecutionLogs, MetricsRaw, MetricsHourly, MetricsDaily, Alerts, AlertRules, DashboardLayouts, AuditRecords)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012018405
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017989849
+      }
+    ],
+    "2.1.2 Cargar configuraciones via `ApplyConfigurationsFromAssembly` y evitar `EnsureCreated`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012018614
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017990004
+      }
+    ],
+    "2.2.1 Configurar `JobConfiguration` con clave única `(provider_name, external_job_id)` e índices en `status`, `start_time_utc`, `robot_external_id`, `process_external_id`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012018735
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017990153
+      }
+    ],
+    "2.2.2 Configurar `QueueItemConfiguration` con clave única y self-reference para `OriginalItemId`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012018853
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017990315
+      }
+    ],
+    "2.2.3 Configurar `ExecutionLogConfiguration` con índices en `timestamp_utc`, `severity` y `job_external_id`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012018979
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017990494
+      }
+    ],
+    "2.2.4 Configurar `MetricPointConfiguration`, `MetricRollupConfiguration` (Hourly y Daily) con `DimensionsJson` mapeado a JSONB": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012019101
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017990639
+      }
+    ],
+    "2.2.5 Configurar `AlertConfiguration` y `AlertRuleConfiguration` con `ParametersJson` y `ChannelsJson` como JSONB": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012019215
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017990791
+      }
+    ],
+    "2.2.6 Configurar `UserConfiguration` con índice único en email y `(auth_provider, external_id)`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012019345
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017990969
+      }
+    ],
+    "2.2.7 Configurar `AuditRecordConfiguration` con índices en `timestamp_utc`, `user_id`, `action` y `DashboardLayoutConfiguration` con `UNIQUE (user_id)`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012019484
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017991155
+      }
+    ],
+    "2.3.1 Configurar Npgsql como provider y añadir `AddDbContextPool<BotPulseDbContext>` con connection pooling": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012019623
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017991307
+      }
+    ],
+    "2.3.2 Generar migración `Initial` con `dotnet ef migrations add Initial --project src/BotPulse.Infrastructure --startup-project src/BotPulse.Api`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012019769
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017991459
+      }
+    ],
+    "2.3.3 Verificar que la migración crea todas las tablas con nombres snake_case, JSONB donde aplique e índices definidos": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012019900
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017991647
+      }
+    ],
+    "2.4.1 Implementar `Repository<T>` genérico sobre `IRepository<T>`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012020051
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017991795
+      }
+    ],
+    "2.4.2 Implementar `JobRepository` con `GetByExternalIdAsync`, `GetMaxUpdatedAtAsync`, `QueryAsync(JobFilter)` y `UpsertAsync(JobSnapshot)`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012020185
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017991939
+      }
+    ],
+    "2.4.3 Implementar `QueueItemRepository` con soporte de upsert idempotente y consultas por `queue_name` y `status`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012020327
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017992105
+      }
+    ],
+    "2.4.4 Implementar `LogRepository` con inserción por lotes configurable (batch size default 500)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012020473
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017992290
+      }
+    ],
+    "2.4.5 Implementar `MetricsRepository` con `AddRawAsync`, `UpsertHourlyAsync`, `UpsertDailyAsync` y `QueryRangeAsync`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012020590
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017992440
+      }
+    ],
+    "2.4.6 Implementar `AlertRepository` (`AddAsync`, `AcknowledgeAsync`, `GetUnacknowledgedCriticalAsync`) y `AlertRuleRepository` (CRUD, `GetEnabledAsync`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012020719
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017992593
+      }
+    ],
+    "2.4.7 Implementar `UserRepository` con `FindByUserNameAsync`, `FindByExternalIdAsync` y `DashboardLayoutRepository`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012020838
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017992755
+      }
+    ],
+    "2.5.1 Implementar `UnitOfWork` sobre `BotPulseDbContext` con `SaveChangesAsync` y `BeginTransactionAsync`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012020954
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017992941
+      }
+    ],
+    "2.5.2 Implementar `AuditRepository` que solo expone `RecordAsync` y consultas de lectura filtradas (sin Update/Delete)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012021077
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017993100
+      }
+    ],
+    "2.6.1 Crear `InfrastructureServiceCollectionExtensions.AddBotPulsePersistence(configuration)` que registre DbContext, todos los repositorios, `UnitOfWork` y `AuditRepository`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012021207
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017993258
+      }
+    ],
+    "2.6.2 Aplicar validación de `IOptions<PostgreSqlOptions>` con `IValidateOptions<T>` (connection string obligatorio)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012021395
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017993424
+      }
+    ],
+    "2.7.1 Configurar `PostgreSqlContainerFixture` (imagen `postgres:15-alpine`) con `WaitStrategy` a `pg_isready`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012021509
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017993616
+      }
+    ],
+    "2.7.2 Escribir tests que apliquen migraciones y validen esquema (tablas, índices, unique constraints)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012021624
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017993804
+      }
+    ],
+    "2.7.3 Escribir tests de repositorios: upsert idempotente de `Job`, batching de logs, ack de `Alert`, append-only de `AuditRecord`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012021754
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017994012
+      }
+    ],
+    "2.7.4 Escribir property-based test: `upsert(snapshot) == upsert(upsert(snapshot))` para `JobRepository` (idempotencia)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012021873
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017994226
+      }
+    ],
+    "2.8 Checkpoint - Persistencia estable": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012021994
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017994429
+      }
+    ],
+    "3.1.1 Implementar `MemoryCacheService` con `IMemoryCache` + `ConcurrentDictionary<string, byte>` para poder invalidar por patrón": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012022119
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017994695
+      }
+    ],
+    "3.1.2 Escribir tests unitarios para get/set/remove y property-based test para invalidación por prefijo": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012022238
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017994904
+      }
+    ],
+    "3.2.1 Implementar `JwtSessionTokenService` (HMAC SHA-256, claims `sub`, `name`, `email`, `auth_provider`, `role`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012022381
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017995118
+      }
+    ],
+    "3.2.2 Configurar `JwtOptions` con `IValidateOptions<JwtOptions>` (SigningKeyBase64, Issuer, Audience, ExpirationMinutes ∈ [15, 480])": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012022501
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017995390
+      }
+    ],
+    "3.2.3 Cargar `SigningKeyBase64` desde configuración/secret store; fallar arranque si está vacío o insuficiente": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012022665
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017995618
+      }
+    ],
+    "3.2.4 Escribir tests unitarios de emisión y validación, incluyendo property-based test `validate(issue(x)) == x` para todo `AuthenticationResult` válido": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012022792
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017995848
+      }
+    ],
+    "3.3.1 Implementar `Argon2idPasswordHasher : IPasswordHasher` con parámetros seguros (`t=3, m=64 MiB, p=1`) usando Konscious.Security.Cryptography": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012022935
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017996133
+      }
+    ],
+    "3.3.2 Escribir tests unitarios: hash es único por invocación, `Verify` acepta correctos y rechaza incorrectos, resistente a timing (uso de `FixedTimeEquals`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012023071
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017996360
+      }
+    ],
+    "3.4.1 Implementar `LocalAuthenticationProvider : IAuthenticationProvider` que consulta `IUserRepository` y verifica con `IPasswordHasher`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012023217
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017996590
+      }
+    ],
+    "3.4.2 En caso de éxito, mapear el rol a `AuthenticationResult.Roles`; nunca revelar si falló el user o el password": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012023339
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017996836
+      }
+    ],
+    "3.4.3 En arranque, si el proveedor activo es `Local`, emitir warning \"intended for development environments only\"": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012023469
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017997066
+      }
+    ],
+    "3.4.4 Escribir tests unitarios cubriendo usuario inexistente, inactivo, provider distinto, password inválido y éxito": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012023609
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017997261
+      }
+    ],
+    "3.5.1 Crear `EntraIdAuthenticationProvider` con esqueleto y comentarios `// TODO Phase 2` para el flujo OpenID Connect": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012023746
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017997451
+      }
+    ],
+    "3.5.2 Crear `LdapAuthenticationProvider` con esqueleto e implementación mínima que lance `NotSupportedException`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012023870
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017997642
+      }
+    ],
+    "3.5.3 Implementar `AddPluggableAuthentication` con switch por `Authentication:Provider` (`EntraID`, `LDAP`, `Local`) que falle si el valor es inválido": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012024026
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017997904
+      }
+    ],
+    "3.6.1 Implementar `SerilogConfig.UseBotPulseSerilog(hostBuilder)` con sinks Console y File (rolling diario, retención 30 días)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012024214
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017998130
+      }
+    ],
+    "3.6.2 Enriquecer con `MachineName`, `EnvironmentName`, `Application=BotPulse` y propiedad `CorrelationId`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012024636
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017998328
+      }
+    ],
+    "3.6.3 Configurar `LogEventLevel` por namespace desde `appsettings.json`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012024813
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017998540
+      }
+    ],
+    "3.7.1 Implementar `CorrelationIdMiddleware` que lea o genere `X-Correlation-Id` y lo agregue a `LogContext`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012024946
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017998715
+      }
+    ],
+    "3.7.2 Implementar `RequestLoggingMiddleware` que logee método, path, status y duración": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012025089
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017998930
+      }
+    ],
+    "3.7.3 Implementar `ErrorHandlerMiddleware` que mapee excepciones del Core a `errorCode`/HTTP status y respuesta JSON estándar (`errorCode`, `message`, `correlationId`, `timestamp`, `details[]`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012025233
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017999109
+      }
+    ],
+    "3.7.4 Implementar `AuditMiddleware` que persista audit records para acciones sensibles (login, logout, job actions, alert rule changes, asset access, config changes)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012025360
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017999308
+      }
+    ],
+    "3.8.1 Ampliar `InfrastructureServiceCollectionExtensions` con `AddBotPulseInfrastructure(configuration)` que registre cache, hasher, session token, pluggable auth y logging": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012025493
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017999503
+      }
+    ],
+    "3.9.1 Cubrir middlewares con tests basados en `RequestDelegate` mockeado + `DefaultHttpContext`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012025635
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017999696
+      }
+    ],
+    "3.9.2 Cubrir el mapeo de excepciones del `ErrorHandlerMiddleware` a todos los `errorCode` definidos en diseño": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012025776
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785017999869
+      }
+    ],
+    "3.10 Checkpoint - Infraestructura lista para consumo": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012025907
+      },
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018000049
+      }
+    ],
+    "4.1.1 Definir `UiPathOptions` (BaseUrl, Tenant, ClientId, ClientSecret, TimeoutSeconds default 30, TokenSkewSeconds)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012026074
+      }
+    ],
+    "4.1.2 Implementar `UiPathOptionsValidator : IValidateOptions<UiPathOptions>` (BaseUrl válido, ClientId/Secret no vacíos, Timeout ∈ [5, 300])": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012026200
+      }
+    ],
+    "4.2.1 Registrar `HttpClient` tipado con `AddHttpClient<UiPathHttpClient>` y timeout configurable": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012026334
+      }
+    ],
+    "4.2.2 Añadir handler Polly `WaitAndRetryAsync` (jittered exponential backoff, 3 intentos por defecto) + `TimeoutPolicy`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012026468
+      }
+    ],
+    "4.2.3 Implementar métodos `GetOdataAsync<T>`, `PostAsync<TReq, TRes>`, `PostAsync(TReq)` reutilizables": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012026606
+      }
+    ],
+    "4.3.1 Implementar client credentials contra `{BaseUrl}/identity_/connect/token` con `client_id`/`client_secret`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012026734
+      }
+    ],
+    "4.3.2 Cachear token en memoria y refrescar antes de `expires_in - skew`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012026882
+      }
+    ],
+    "4.3.3 Ante fallo de refresh, intentar re-autenticación completa y logear; ante fallo final, marcar unhealthy para `/health/ready`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012027098
+      }
+    ],
+    "4.3.4 Escribir tests unitarios con `HttpMessageHandler` fake cubriendo éxito, expiración, refresh y fallo terminal": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012027228
+      }
+    ],
+    "4.4.1 Implementar `IProviderVersionNegotiator` que consulte la versión del Orchestrator y devuelva `ProviderVersion(ProviderName=\"UiPath\", VendorVersion, SupportedImplementation=\"V1\")`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012027356
+      }
+    ],
+    "4.4.2 Si el vendor devuelve versión no mapeable, retornar `SupportedImplementation=null` para que el arranque falle con mensaje descriptivo": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012027495
+      }
+    ],
+    "4.5.1 Implementar `UiPathProviderFactory` que negocie una vez al arranque y devuelva instancias V1 (con hueco para V2)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012027630
+      }
+    ],
+    "4.5.2 Bloquear el cambio dinámico de versión durante la vida de la sesión": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012027764
+      }
+    ],
+    "4.6.1 Implementar `GetRobotsAsync` (OData `/odata/Robots`) y `GetRobotByIdAsync`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012027897
+      }
+    ],
+    "4.6.2 Mapear DTO privado a `RobotSnapshot` con status normalizado (\"Online\" / \"Offline\" / \"Idle\" / \"Busy\")": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012028031
+      }
+    ],
+    "4.7.1 Implementar `GetJobsAsync(JobQuery)` traduciendo el query a filtros OData (`$filter`, `$top`, `$orderby`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012028162
+      }
+    ],
+    "4.7.2 Implementar `GetJobByIdAsync`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012028299
+      }
+    ],
+    "4.7.3 Implementar `StartJobAsync` (endpoint `Jobs/UiPath.Server.Configuration.OData.StartJobs`) y `StopJobAsync`, `CancelJobAsync`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012028427
+      }
+    ],
+    "4.7.4 Mapear estados nativos de UiPath a `JobStatus` neutral (Pending/Running/Success/Failed/Stopped/Cancelled)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012028568
+      }
+    ],
+    "4.8.1 Implementar `GetQueuesAsync` (endpoint `QueueDefinitions`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012028693
+      }
+    ],
+    "4.8.2 Implementar `GetQueueItemsAsync(QueueItemQuery)` con filtros por queue y ventana de actualización": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012028830
+      }
+    ],
+    "4.9.1 Implementar `GetExecutionLogsAsync(LogQuery)` (endpoint `RobotLogs`) mapeando severidad y properties estructuradas": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012028978
+      }
+    ],
+    "4.10.1 Implementar `GetAssetsAsync` mapeando a `AssetMetadata` **sin** exponer el valor secreto": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012029112
+      }
+    ],
+    "4.10.2 Test unitario que verifica que el DTO neutral nunca expone campos de valor": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012029259
+      }
+    ],
+    "4.11.1 Implementar `GetMachinesAsync` y `GetMachineByIdAsync` mapeando a `MachineSnapshot`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012029392
+      }
+    ],
+    "4.12.1 Implementar `GetProcessesAsync` (endpoint `Releases`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012029533
+      }
+    ],
+    "4.12.2 Implementar `GetProcessParametersAsync(processExternalId)` mapeando a `ProcessParameter`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012029669
+      }
+    ],
+    "4.13.1 Traducir errores HTTP y payloads de UiPath a `ProviderException`, `EntityNotFoundException` y `AuthenticationException` del Core": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012029891
+      }
+    ],
+    "4.13.2 Preservar el correlation id en el `Data` de la excepción para diagnóstico": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012030023
+      }
+    ],
+    "4.14.1 Crear carpeta `V2/` con archivos vacíos (`.gitkeep`) y notas de \"reserved for UiPath v2\"": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012030160
+      }
+    ],
+    "4.15.1 Implementar `UiPathProviderRegistration.AddUiPathProvider(configuration)` que registre options, HttpClient, token manager, factory, negotiator y las 7 interfaces granulares": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012030299
+      }
+    ],
+    "4.15.2 Documentar en `docs/Deployment.md` las variables `UIPATH_BASE_URL`, `UIPATH_TENANT`, `UIPATH_CLIENT_ID`, `UIPATH_CLIENT_SECRET`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012030437
+      }
+    ],
+    "4.16.1 Levantar `WireMockServer` con stubs para `/identity_/connect/token`, `/odata/Robots`, `/odata/Jobs`, `/odata/QueueItems`, `/odata/RobotLogs`, `/odata/Machines`, `/odata/Releases`, `/odata/Assets`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012030567
+      }
+    ],
+    "4.16.2 Test de token refresh (respuesta con `expires_in` corto)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012030712
+      }
+    ],
+    "4.16.3 Test de retry Polly (WireMock devuelve 5xx dos veces y luego éxito)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012030850
+      }
+    ],
+    "4.16.4 Test de mapeo end-to-end de `JobSnapshot` (estados, timestamps UTC, duración)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012030999
+      }
+    ],
+    "4.16.5 Test de `UiPathErrorTranslator` traduciendo 401, 404, 500 y `Fault` payloads": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012031130
+      }
+    ],
+    "4.17 Checkpoint - UiPath Provider integrado": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012031269
+      }
+    ],
+    "5.1.1 Implementar `RobotQueryService` con caché opcional vía `ICacheService` (TTL configurable, default 120s, `forceRefresh` para bypass)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012031408
+      }
+    ],
+    "5.1.2 Implementar `MachineQueryService` (default TTL 300s) y `ProcessQueryService` (default TTL 600s)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012031537
+      }
+    ],
+    "5.1.3 Implementar `AssetQueryService` invocando `IAssetProvider` + audit vía `IAuditRepository` (nunca cachea, nunca expone secrets)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012031681
+      }
+    ],
+    "5.2.1 Implementar `JobQueryService` sobre `IJobRepository` (filtros por rango de fechas, robot, process, machine, status, error type; paginación 50; sort dinámico)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012031814
+      }
+    ],
+    "5.2.2 Implementar `JobCommandService.StartAsync` con audit + emisión de `JobActionRequested` a `INotificationDelivery`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012031952
+      }
+    ],
+    "5.2.3 Implementar `StopAsync`, `CancelAsync` y `RetryAsync` (linkando el nuevo job con `RetryOfJobId`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012032083
+      }
+    ],
+    "5.2.4 Escribir tests unitarios con `IJobProvider` mockeado cubriendo éxito, error del provider (audit outcome=Error) y notificación emitida": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012032214
+      }
+    ],
+    "5.3.1 Implementar `QueueQueryService` con metadata on-demand vía `IQueueProvider` y caché opcional (default TTL 180s)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012032376
+      }
+    ],
+    "5.3.2 Implementar `QueueAnalyticsService` sobre `IQueueItemRepository` (pending, processed, failed, avg processing time)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012032652
+      }
+    ],
+    "5.4.1 Implementar `LogQueryService` con filtros por severidad, rango, jobId, robot, process y búsqueda por keyword; paginación por default": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012032803
+      }
+    ],
+    "5.5.1 Implementar `MetricsQueryService` con selección automática de granularidad (raw / hourly / daily) según rango solicitado": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012032930
+      }
+    ],
+    "5.5.2 Implementar `MetricsAggregationService` con rollup hourly y daily; property-based test `sum(hourlyBuckets) == sum(rawPoints)` para toda serie temporal generada": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012033064
+      }
+    ],
+    "5.6.1 Implementar `DashboardConfigurationService` (get, put, resetToDefault por usuario)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012033193
+      }
+    ],
+    "5.6.2 Implementar `DashboardInitializer` con layouts default por rol (Viewer, Operator, Administrator)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012033329
+      }
+    ],
+    "5.6.3 Implementar `WidgetPermissionModel` y filtrado del catálogo de widgets por rol": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012033466
+      }
+    ],
+    "5.7.1 Implementar `AuthenticationOrchestrator.LoginAsync(request)` que llame a `IAuthenticationProvider`, sincronice `User` en repo (upsert de externalId, roles) y emita JWT con `ISessionTokenService`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012033606
+      }
+    ],
+    "5.7.2 Registrar audit `Login` (Success/Failure) y `Logout`; emitir warning si `Local` provider activo": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012033747
+      }
+    ],
+    "5.8.1 Escribir tests exhaustivos con mocks de proveedores y repositorios, cubriendo happy path, cache hit/miss, force refresh y errores": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012033894
+      }
+    ],
+    "5.8.2 Property-based test para el throttler de resultados de `RobotQueryService` con caché (get after set → same value)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012034028
+      }
+    ],
+    "5.9 Checkpoint - Servicios de aplicación operativos": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012034164
+      }
+    ],
+    "6.1.1 Definir `ISynchronizationService` (`Name`, `Options`, `CurrentStatus`, `StartAsync`, `StopAsync`, `RunOnceAsync`, `IsHealthyAsync`) y records `SynchronizationOptions`, `SynchronizationServiceStatus`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012034295
+      }
+    ],
+    "6.1.2 Implementar `SynchronizationServiceBase` con bucle `PeriodicTimer`, `SemaphoreSlim(1,1)` (single-flight por servicio) y `IServiceScopeFactory` para scopes limpios": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012034425
+      }
+    ],
+    "6.1.3 Aplicar clamp de intervalo mínimo (30s) con warning log": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012034558
+      }
+    ],
+    "6.2.1 Implementar `StartAsync` que arranque los servicios habilitados por configuración; deshabilitados no se schedulean": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012034702
+      }
+    ],
+    "6.2.2 Implementar `GetStatuses()` y `TriggerAsync(serviceName, user)` (audit del trigger manual)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012034917
+      }
+    ],
+    "6.2.3 Asegurar fault isolation: excepciones en un servicio no detienen a los demás": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012035066
+      }
+    ],
+    "6.3.1 Implementar `RunOnceAsync`: leer `MaxUpdatedAt`, invocar `IJobProvider.GetJobsAsync(since)`, upsert idempotente, `SaveChangesAsync`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012035205
+      }
+    ],
+    "6.3.2 No actualizar jobs ya en estado terminal": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012035343
+      }
+    ],
+    "6.3.3 Default interval 120s, configurable": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012035503
+      }
+    ],
+    "6.4.1 Implementar `RunOnceAsync` con upsert y linkeo `OriginalItemId` para retries": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012035637
+      }
+    ],
+    "6.4.2 Default interval 180s": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012035778
+      }
+    ],
+    "6.5.1 Implementar `RunOnceAsync` con inserción por lotes (batch size default 500)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012035907
+      }
+    ],
+    "6.5.2 Default interval 60s": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012036042
+      }
+    ],
+    "6.6.1 Calcular métricas por intervalo (jobs total/success/failed/cancelled, avg duration, success rate, queue backlog, robot/machine availability) desde repositorios locales": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012036172
+      }
+    ],
+    "6.6.2 Persistir `MetricPoint` y actualizar `MetricRollup` hourly/daily incrementalmente": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012036304
+      }
+    ],
+    "6.6.3 Default interval 300s": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012036440
+      }
+    ],
+    "6.7.1 Definir `SynchronizationOptions` por servicio y bind desde `Synchronization:{JobSync|QueueItemSync|LogSync|MetricsCollection}`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012036575
+      }
+    ],
+    "6.7.2 Cada servicio observa `IOptionsMonitor` y actualiza intervalo en el próximo ciclo sin reinicio": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012036713
+      }
+    ],
+    "6.8.1 Habilitar hook para que el `AdminController` invoque `SynchronizationOrchestrator.TriggerAsync` con audit": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012036890
+      }
+    ],
+    "6.8.2 Exponer `GetStatuses()` para `/health/ready` y el `AdminController`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012037122
+      }
+    ],
+    "6.9.1 Registrar los 4 sync services + orchestrator + health check individual": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012037258
+      }
+    ],
+    "6.9.2 Compartir mismos servicios de infraestructura y Providers.UiPath que la API": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012037392
+      }
+    ],
+    "6.10.1 Reemplazar `IJobProvider` por un fake determinista y verificar upsert idempotente sobre Postgres (Testcontainers)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012037546
+      }
+    ],
+    "6.10.2 Verificar que un error inyectado en un servicio no afecta a los demás": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012037686
+      }
+    ],
+    "6.10.3 Verificar que cambiar `IntervalSeconds` en tiempo de ejecución (mediante `IOptionsMonitor` sourced from IConfiguration) actualiza la cadencia": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012037823
+      }
+    ],
+    "6.11 Checkpoint - Sync services estables": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012037977
+      }
+    ],
+    "7.1.1 Implementar `AlertRuleService` (Create, Read, Update, Delete, Enable/Disable) sobre `IAlertRuleRepository`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012038114
+      }
+    ],
+    "7.1.2 Validar `ParametersJson` según `RuleType` con validadores dedicados": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012038247
+      }
+    ],
+    "7.1.3 Auditar toda modificación de reglas": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012038384
+      }
+    ],
+    "7.2.1 Implementar `RobotOfflineEvaluator` (usa `IRobotProvider`, umbral default 10 min, severity Critical)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012038534
+      }
+    ],
+    "7.2.2 Implementar `QueueBacklogEvaluator` sobre `IQueueItemRepository` con umbrales de Warning y Critical": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012038675
+      }
+    ],
+    "7.2.3 Implementar `JobsFailedInWindowEvaluator` sobre `IJobRepository` (ventana temporal configurable)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012038813
+      }
+    ],
+    "7.2.4 Implementar `MachineOfflineEvaluator` (usa `IMachineProvider`, umbral default 60 min)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012038984
+      }
+    ],
+    "7.2.5 Implementar `ProcessExecutionTimeEvaluator` comparando `Duration` con expectativa por proceso": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012039192
+      }
+    ],
+    "7.3.1 Implementar `AlertDeduplicator : IAlertDeduplicator` con ventana configurable (default 5 min) por `(rule, resource)`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012039332
+      }
+    ],
+    "7.3.2 Property-based test: para cualquier secuencia de candidatos dentro de la ventana, el número de alertas emitidas por `(rule, resource)` no supera 1": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012039492
+      }
+    ],
+    "7.4.1 Implementar `AlertEngine.EvaluateAllAsync` que itere reglas activas, invoque el evaluador correspondiente, filtre por dedup, persista y despache": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012039641
+      }
+    ],
+    "7.4.2 Emitir domain event `AlertRaised` a `INotificationDelivery`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012039794
+      }
+    ],
+    "7.4.3 Audit del evento de generación": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012039934
+      }
+    ],
+    "7.5.1 Implementar `NotificationRouter.DispatchAsync` que resuelva canales por regla y despache en paralelo": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012040073
+      }
+    ],
+    "7.5.2 Aplicar retry Polly exponential backoff, default 3 intentos por canal": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012040210
+      }
+    ],
+    "7.5.3 Marcar canal degradado tras fallo total y reflejar en health check de alerts": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012040352
+      }
+    ],
+    "7.5.4 Property-based test: la suma de esperas del backoff está acotada superiormente por el máximo teórico": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012040487
+      }
+    ],
+    "7.6.1 Implementar `LogAlertChannel` (siempre habilitado, escribe con Serilog en nivel según severidad)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012040639
+      }
+    ],
+    "7.6.2 Implementar `EmailAlertChannel` (SMTP con `MailKit`, opciones validadas al arranque)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012040793
+      }
+    ],
+    "7.6.3 Implementar `SlackAlertChannel` (webhook payload JSON con severidad y recurso afectado)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012040946
+      }
+    ],
+    "7.6.4 Implementar `TeamsAlertChannel` (webhook MessageCard)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012041175
+      }
+    ],
+    "7.6.5 Implementar `WebhookAlertChannel` (POST genérico con firma HMAC opcional)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012041318
+      }
+    ],
+    "7.7.1 Implementar `EscalationEngine.EscalatePendingAsync` que revise alertas Critical no reconocidas y aplique timeouts (default 15 min primer nivel, 30 min segundo)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012041471
+      }
+    ],
+    "7.7.2 Incrementar `EscalationLevel` y despachar a canales de escalación": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012041605
+      }
+    ],
+    "7.8.1 Implementar `AlertAcknowledgmentService.AcknowledgeAsync(alertId, user)` con audit": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012041767
+      }
+    ],
+    "7.8.2 Al ack, el `NotificationRouter` deja de despachar re-notificaciones para esa alerta": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012041910
+      }
+    ],
+    "7.9.1 Implementar `AlertEvaluationService : ISynchronizationService` (interval default 60s) que invoque `AlertEngine.EvaluateAllAsync` y `EscalationEngine.EscalatePendingAsync`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012042046
+      }
+    ],
+    "7.9.2 Registrarlo en el `SynchronizationOrchestrator`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012042190
+      }
+    ],
+    "7.10.1 Implementar job de retención con default 12 meses y purga configurable": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012042331
+      }
+    ],
+    "7.11.1 Tests unitarios por evaluador (thresholds, ventanas, severidad correcta)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012042488
+      }
+    ],
+    "7.11.2 Tests del `NotificationRouter` con canales que fallan intermitentemente": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012042627
+      }
+    ],
+    "7.11.3 Property-based tests: dedup + retry backoff (indicados arriba)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012042770
+      }
+    ],
+    "7.12 Checkpoint - Alert Engine end-to-end": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012042928
+      }
+    ],
+    "8.1.1 Registrar `Microsoft.AspNetCore.Mvc.Versioning` con default `v1.0`, `AssumeDefaultVersionWhenUnspecified=false`, lectores `UrlSegment` + `Header (api-version)`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012043157
+      }
+    ],
+    "8.1.2 Registrar `AddVersionedApiExplorer` con `GroupNameFormat=\"'v'VVV\"` y `SubstituteApiVersionInUrl=true`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012043319
+      }
+    ],
+    "8.1.3 Configurar Swagger/OpenAPI con un documento por versión (`/swagger/v1/swagger.json`) e integración de Bearer Auth": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012043481
+      }
+    ],
+    "8.2.1 Implementar `RobotsController`, `MachinesController`, `ProcessesController`, `AssetsController` (`[Authorize(Policy=\"ViewAssets\")]`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012043630
+      }
+    ],
+    "8.2.2 Implementar `JobsController` con endpoints de query, start, stop, cancel, retry (policies `JobActions`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012043774
+      }
+    ],
+    "8.2.3 Implementar `QueuesController` y `LogsController`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012043910
+      }
+    ],
+    "8.3.1 Implementar `MetricsController`, `AlertsController` (list, ack), `AlertRulesController` (`ManageAlertRules`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012044047
+      }
+    ],
+    "8.3.2 Implementar `DashboardController` (GET/PUT layout, reset default)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012044205
+      }
+    ],
+    "8.3.3 Implementar `AuthController` (`/auth/login`, `/auth/logout`, `/auth/me`) y `AdminController` (`/admin/sync/{service}/trigger`, `/admin/sync/status`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012044344
+      }
+    ],
+    "8.3.4 Implementar `NotificationsController` con endpoints `/notifications/stream` (SSE) y `/notifications/pull` (polling con `since`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012044483
+      }
+    ],
+    "8.4.1 Registrar `FluentValidation.AspNetCore` y crear validadores para DTOs de entrada (login, start job, alert rule create/update, dashboard layout)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012044624
+      }
+    ],
+    "8.4.2 Mapear errores a `errorCode=\"VALIDATION_ERROR\"` con detalles por campo (HTTP 400)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012044778
+      }
+    ],
+    "8.5.1 Implementar `SseNotificationDelivery` con `Channel<NotificationEvent>` por subscriber y heartbeat `retry:` para reconexión del cliente": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012044952
+      }
+    ],
+    "8.5.2 Implementar `PollingNotificationDelivery` con buffer en memoria TTL y query por `since`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012045190
+      }
+    ],
+    "8.5.3 Implementar `TokenBucketNotificationThrottler` (máx 1 entrega/s por `(resourceType, resourceId)`) y test unitario de coalescing": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012045345
+      }
+    ],
+    "8.5.4 Registrar `AddPluggableNotifications(configuration)` con switch por `Notifications:Transport` (SSE|Polling)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012045498
+      }
+    ],
+    "8.6.1 Crear `SignalRNotificationDelivery` con métodos con `throw new NotImplementedException` y comentario `// TODO Phase 3`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012045639
+      }
+    ],
+    "8.6.2 Añadir clase `SseHub` en `BotPulse.Api/Notifications/` como punto de extensión documentado": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012045804
+      }
+    ],
+    "8.7.1 Implementar `DatabaseHealthCheck` (ping a `SELECT 1`) con tag `ready`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012045940
+      }
+    ],
+    "8.7.2 Implementar `RpaProviderHealthCheck` que consulte token válido del provider activo (tag `ready`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012046105
+      }
+    ],
+    "8.7.3 Implementar `SynchronizationHealthCheck` consultando `SynchronizationOrchestrator.GetStatuses()`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012046266
+      }
+    ],
+    "8.7.4 Implementar `CacheHealthCheck` con probe put/get/remove": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012046418
+      }
+    ],
+    "8.7.5 Mapear endpoints `/health` (agregado JSON), `/health/live` (liveness) y `/health/ready` (readiness sólo con tag `ready`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012046562
+      }
+    ],
+    "8.8.1 Registrar policies `RequireOperator`, `RequireAdministrator`, `ViewAssets`, `ManageAlertRules`, `JobActions`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012046718
+      }
+    ],
+    "8.8.2 Aplicar `[Authorize(Policy=...)]` en todos los endpoints sensibles": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012046888
+      }
+    ],
+    "8.9.1 Habilitar `UseHttpsRedirection` + `UseHsts` (excepto Development)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012047136
+      }
+    ],
+    "8.9.2 Configurar CORS restrictivo tomando orígenes desde `Cors:AllowedOrigins`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012047302
+      }
+    ],
+    "8.9.3 Documentar en `docs/Security.md` la política y ejemplos": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012047444
+      }
+    ],
+    "8.10.1 Componer `builder.Services.AddBotPulsePersistence().AddBotPulseInfrastructure().AddPluggableAuthentication().AddPluggableNotifications().AddUiPathProvider()` + API versioning + FluentValidation + Authorization + Health Checks": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012047582
+      }
+    ],
+    "8.10.2 Aplicar `UseCorrelationIdMiddleware`, `UseErrorHandlerMiddleware`, `UseRequestLoggingMiddleware`, `UseAuditMiddleware` en pipeline": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012047726
+      }
+    ],
+    "8.11.1 Configurar `WebApplicationFactory<Program>` con Testcontainers Postgres y provider RPA fake registrado por DI": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012047884
+      }
+    ],
+    "8.11.2 Tests de flujo Login → JWT → llamada autorizada / rechazo por rol / 401 con token manipulado": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012048046
+      }
+    ],
+    "8.11.3 Tests de Jobs (query paginada, start con audit, retry linked)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012048194
+      }
+    ],
+    "8.11.4 Tests de `/notifications/stream` (SSE) recibiendo `AlertRaised` publicado en `INotificationDelivery`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012048336
+      }
+    ],
+    "8.11.5 Tests de `/health`, `/health/live`, `/health/ready` en estados sano y degradado": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012048487
+      }
+    ],
+    "8.12 Checkpoint - API v1 operativa": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012048632
+      }
+    ],
+    "9.1.1 Crear `deploy/Dockerfile.Api` (SDK stage build+publish, runtime `mcr.microsoft.com/dotnet/aspnet:8.0-alpine`, usuario no-root, `EXPOSE 8080`, `HEALTHCHECK CMD curl -fsS http://localhost:8080/health/live`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012048807
+      }
+    ],
+    "9.1.2 Crear `deploy/Dockerfile.Worker` análogo, sin puerto expuesto": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012049031
+      }
+    ],
+    "9.1.3 Añadir `.dockerignore` que excluya bin/, obj/, tests/, .git, .vs, node_modules": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012049173
+      }
+    ],
+    "9.2.1 Definir servicios `reverse-proxy` (nginx), `api`, `worker`, `postgres` (con volumen y healthcheck) y `redis` (provisionado, no usado en MVP)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012049324
+      }
+    ],
+    "9.2.2 Configurar `depends_on` con `condition: service_healthy` para postgres": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012049477
+      }
+    ],
+    "9.2.3 Definir red `botpulse-net` y volúmenes `botpulse-postgres`, `botpulse-redis`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012049622
+      }
+    ],
+    "9.2.4 Añadir healthchecks a `api` (`/health/live`) y `worker` (endpoint dedicado o `dotnet` process check)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012049771
+      }
+    ],
+    "9.3.1 Crear `deploy/nginx/nginx.conf` con TLS termination, `proxy_pass` a `http://api:8080`, headers `X-Forwarded-*` y soporte SSE (`proxy_buffering off` para `/api/v1/notifications/stream`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012049913
+      }
+    ],
+    "9.3.2 Documentar generación de certificados dev (self-signed) en `docs/Deployment.md`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012050060
+      }
+    ],
+    "9.4.1 Crear `.env.example` con todas las variables: `DB_PASSWORD`, `JWT_SIGNING_KEY`, `AUTHENTICATION_PROVIDER`, `NOTIFICATION_TRANSPORT`, `CACHE_PROVIDER`, `UIPATH_*`, `SYNC_*_INTERVAL_SECONDS`, `CORS_ALLOWED_ORIGINS`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012050198
+      }
+    ],
+    "9.4.2 Añadir comentarios de referencia por variable y valores default": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012050341
+      }
+    ],
+    "9.5.1 Implementar `StartupValidator` (`IHostedService`) que en `StartAsync` verifique: secretos obligatorios presentes, conectividad a Postgres, negociación de versión con el proveedor RPA (`IProviderVersionNegotiator`)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012050489
+      }
+    ],
+    "9.5.2 Si alguna validación crítica falla, invocar `IHostApplicationLifetime.StopApplication()` con log fatal y `errorCode` descriptivo": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012050733
+      }
+    ],
+    "9.6.1 Crear `deploy/Dockerfile.Migrations` que ejecute `dotnet ef database update` con un `BotPulse.Migrations.Runner` (o `dotnet-ef` bundled tool) como job separado": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012050894
+      }
+    ],
+    "9.6.2 Documentar en `docs/Deployment.md` que en producción las migraciones se ejecutan **antes** del rollout (no auto-migrate) y añadir override de compose `deploy/docker-compose.migrate.yml`": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012051034
+      }
+    ],
+    "9.7.1 Ampliar `docs/Deployment.md` con guías paso a paso: Docker Compose (dev/prod), Azure App Service, Azure Container Apps, IIS Windows con ANCM, Linux + systemd + nginx": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012051172
+      }
+    ],
+    "9.7.2 Documentar variables por entorno y estrategia de secret store recomendada (Key Vault, AWS Secrets Manager, HashiCorp Vault)": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012051308
+      }
+    ],
+    "9.8.1 Crear script `scripts/smoke.ps1` (y equivalente bash) que verifique `/health/live`, `/health/ready`, `POST /api/v1/auth/login`, `GET /api/v1/robots` con token": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012051451
+      }
+    ],
+    "9.8.2 Ejecutar el smoke test contra la stack de docker-compose recién levantada como paso final del CI de integración": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012051615
+      }
+    ],
+    "9.9 Checkpoint final - Plataforma desplegable": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012051768
+      }
+    ],
+    "0.1 Crear la solución `.sln` y los 6 proyectos base": [
+      {
+        "executionId": "5e7d215a-5335-4415-9b58-c1ed300a0790",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785012875672
+      }
+    ],
+    "4.1.1 Ejecutar `dotnet new webapi -n BotPulse.MockUiPath -o mocks/BotPulse.MockUiPath -f net8.0 --use-minimal-apis`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018000239
+      }
+    ],
+    "4.1.2 Agregar el proyecto al `.sln` con `dotnet sln add mocks/BotPulse.MockUiPath/BotPulse.MockUiPath.csproj`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018000447
+      }
+    ],
+    "4.1.3 Configurar puerto `5100` en `launchSettings.json` y `applicationUrl`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018000669
+      }
+    ],
+    "4.2.1 Implementar `POST /identity_/connect/token` que acepte `client_id`/`client_secret` (form-urlencoded o JSON) y devuelva `{ access_token, expires_in: 3600, token_type: \"Bearer\" }`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018001079
+      }
+    ],
+    "4.2.2 Aceptar cualquier `ClientId`/`ClientSecret` configurable en `appsettings.json` (para poder simular credenciales de testing)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018001308
+      }
+    ],
+    "4.3.1 Crear `MockDataStore` (singleton) con seed data: 10 robots (varios estados), 5 machines, 8 processes, 3 queues, 200 jobs (últimos 30 días con estados variados), 500 queue items, 1000 execution logs, 20 assets": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018001537
+      }
+    ],
+    "4.3.2 Datos deterministas para snapshots pero con IDs únicos por seed (usar `Random(seed)` para reproducibilidad)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018001790
+      }
+    ],
+    "4.3.3 Timestamps calculados dinámicamente a partir de `DateTime.UtcNow` para simular tiempo real (`LastHeartbeat`, `StartTime`, `EndTime` relativos)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018001974
+      }
+    ],
+    "4.4.1 Implementar `GET /odata/Robots` con paginación OData (`$top`, `$skip`, `$filter`, `$orderby`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018002154
+      }
+    ],
+    "4.4.2 Implementar `GET /odata/Robots({id})` para robot individual, devolviendo 404 si no existe": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018002367
+      }
+    ],
+    "4.5.1 Implementar `GET /odata/Jobs` con filtros por `status`, `robot`, `process`, `dateRange`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018002545
+      }
+    ],
+    "4.5.2 Implementar `GET /odata/Jobs({id})`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018002728
+      }
+    ],
+    "4.5.3 Implementar `POST /odata/Jobs/UiPath.Server.Configuration.OData.StartJobs` (start job simulado; crea job en estado `Pending`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018002932
+      }
+    ],
+    "4.5.4 Implementar `POST /odata/Jobs({id})/UiPath.Server.Configuration.OData.StopJob`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018003132
+      }
+    ],
+    "4.5.5 Implementar background task que simule transición de estados `Pending → Running → Success/Failed` cada N segundos (configurable)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018003317
+      }
+    ],
+    "4.6.1 Implementar `GET /odata/QueueDefinitions`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018003507
+      }
+    ],
+    "4.6.2 Implementar `GET /odata/QueueItems` con filtros por `queueName`, `status`, `updatedSince`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018003701
+      }
+    ],
+    "4.6.3 Simular processing de items: `New → InProgress → Success/Failed` con timers de fondo": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018003998
+      }
+    ],
+    "4.7.1 Implementar `GET /odata/Machines`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018004237
+      }
+    ],
+    "4.7.2 Implementar `GET /odata/Releases` (processes/releases de UiPath)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018004519
+      }
+    ],
+    "4.7.3 Implementar `GET /odata/Assets` sin exponer nunca el valor secreto en la respuesta (`Value` siempre `null` o placeholder)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018004758
+      }
+    ],
+    "4.8.1 Implementar `GET /odata/RobotLogs` con filtros por `jobKey`, `severity`, `timeStamp`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018005061
+      }
+    ],
+    "4.8.2 Generar logs dinámicos vinculados a jobs existentes (a medida que un job transiciona, se generan sus logs)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018005333
+      }
+    ],
+    "4.9.1 Implementar endpoint `/health` que devuelva `200 OK` con `{ status: \"Healthy\", server: \"MockUiPath\", uptime: \"...\" }`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018005632
+      }
+    ],
+    "4.9.2 Habilitar Swagger UI en `/swagger` para explorar los endpoints simulados": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018005921
+      }
+    ],
+    "4.9.3 Crear `mocks/BotPulse.MockUiPath/README.md` explicando cómo levantarlo (`dotnet run`), qué endpoints emula y cómo configurar credenciales de prueba": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018006137
+      }
+    ],
+    "4.10.1 Crear `deploy/Dockerfile.MockUiPath` multi-stage (SDK build+publish, runtime `mcr.microsoft.com/dotnet/aspnet:8.0-alpine`, usuario no-root, `EXPOSE 5100`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018006402
+      }
+    ],
+    "4.10.2 Preparar el binding para integración con docker-compose (servicio se agrega en Fase 11 en la stack completa)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018006604
+      }
+    ],
+    "4.11 Checkpoint - Mock UiPath operativo": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018006866
+      }
+    ],
+    "5.1.1 Definir `UiPathOptions` (BaseUrl, Tenant, ClientId, ClientSecret, TimeoutSeconds default 30, TokenSkewSeconds)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018007064
+      }
+    ],
+    "5.1.2 Implementar `UiPathOptionsValidator : IValidateOptions<UiPathOptions>` (BaseUrl válido, ClientId/Secret no vacíos, Timeout ∈ [5, 300])": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018007339
+      }
+    ],
+    "5.2.1 Registrar `HttpClient` tipado con `AddHttpClient<UiPathHttpClient>` y timeout configurable": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018007692
+      }
+    ],
+    "5.2.2 Añadir handler Polly `WaitAndRetryAsync` (jittered exponential backoff, 3 intentos por defecto) + `TimeoutPolicy`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018007925
+      }
+    ],
+    "5.2.3 Implementar métodos `GetOdataAsync<T>`, `PostAsync<TReq, TRes>`, `PostAsync(TReq)` reutilizables": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018008125
+      }
+    ],
+    "5.3.1 Implementar client credentials contra `{BaseUrl}/identity_/connect/token` con `client_id`/`client_secret`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018008375
+      }
+    ],
+    "5.3.2 Cachear token en memoria y refrescar antes de `expires_in - skew`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018008576
+      }
+    ],
+    "5.3.3 Ante fallo de refresh, intentar re-autenticación completa y logear; ante fallo final, marcar unhealthy para `/health/ready`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018008756
+      }
+    ],
+    "5.3.4 Escribir tests unitarios con `HttpMessageHandler` fake cubriendo éxito, expiración, refresh y fallo terminal": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018008925
+      }
+    ],
+    "5.4.1 Implementar `IProviderVersionNegotiator` que consulte la versión del Orchestrator y devuelva `ProviderVersion(ProviderName=\"UiPath\", VendorVersion, SupportedImplementation=\"V1\")`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018009103
+      }
+    ],
+    "5.4.2 Si el vendor devuelve versión no mapeable, retornar `SupportedImplementation=null` para que el arranque falle con mensaje descriptivo": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018009412
+      }
+    ],
+    "5.5.1 Implementar `UiPathProviderFactory` que negocie una vez al arranque y devuelva instancias V1 (con hueco para V2)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018009682
+      }
+    ],
+    "5.5.2 Bloquear el cambio dinámico de versión durante la vida de la sesión": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018009870
+      }
+    ],
+    "5.6.1 Implementar `GetRobotsAsync` (OData `/odata/Robots`) y `GetRobotByIdAsync`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018010204
+      }
+    ],
+    "5.6.2 Mapear DTO privado a `RobotSnapshot` con status normalizado (\"Online\" / \"Offline\" / \"Idle\" / \"Busy\")": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018010534
+      }
+    ],
+    "5.7.1 Implementar `GetJobsAsync(JobQuery)` traduciendo el query a filtros OData (`$filter`, `$top`, `$orderby`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018010889
+      }
+    ],
+    "5.7.2 Implementar `GetJobByIdAsync`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018011297
+      }
+    ],
+    "5.7.3 Implementar `StartJobAsync` (endpoint `Jobs/UiPath.Server.Configuration.OData.StartJobs`) y `StopJobAsync`, `CancelJobAsync`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018011482
+      }
+    ],
+    "5.7.4 Mapear estados nativos de UiPath a `JobStatus` neutral (Pending/Running/Success/Failed/Stopped/Cancelled)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018011672
+      }
+    ],
+    "5.8.1 Implementar `GetQueuesAsync` (endpoint `QueueDefinitions`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018011883
+      }
+    ],
+    "5.8.2 Implementar `GetQueueItemsAsync(QueueItemQuery)` con filtros por queue y ventana de actualización": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018012089
+      }
+    ],
+    "5.9.1 Implementar `GetExecutionLogsAsync(LogQuery)` (endpoint `RobotLogs`) mapeando severidad y properties estructuradas": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018012272
+      }
+    ],
+    "5.10.1 Implementar `GetAssetsAsync` mapeando a `AssetMetadata` **sin** exponer el valor secreto": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018012457
+      }
+    ],
+    "5.10.2 Test unitario que verifica que el DTO neutral nunca expone campos de valor": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018012660
+      }
+    ],
+    "5.11.1 Implementar `GetMachinesAsync` y `GetMachineByIdAsync` mapeando a `MachineSnapshot`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018012876
+      }
+    ],
+    "5.12.1 Implementar `GetProcessesAsync` (endpoint `Releases`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018013122
+      }
+    ],
+    "5.12.2 Implementar `GetProcessParametersAsync(processExternalId)` mapeando a `ProcessParameter`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018013355
+      }
+    ],
+    "5.13.1 Traducir errores HTTP y payloads de UiPath a `ProviderException`, `EntityNotFoundException` y `AuthenticationException` del Core": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018013539
+      }
+    ],
+    "5.13.2 Preservar el correlation id en el `Data` de la excepción para diagnóstico": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018013723
+      }
+    ],
+    "5.14.1 Crear carpeta `V2/` con archivos vacíos (`.gitkeep`) y notas de \"reserved for UiPath v2\"": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018013894
+      }
+    ],
+    "5.15.1 Implementar `UiPathProviderRegistration.AddUiPathProvider(configuration)` que registre options, HttpClient, token manager, factory, negotiator y las 7 interfaces granulares": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018014177
+      }
+    ],
+    "5.15.2 Documentar en `docs/Deployment.md` las variables `UIPATH_BASE_URL`, `UIPATH_TENANT`, `UIPATH_CLIENT_ID`, `UIPATH_CLIENT_SECRET`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018014372
+      }
+    ],
+    "5.16.1 Levantar `WireMockServer` con stubs para `/identity_/connect/token`, `/odata/Robots`, `/odata/Jobs`, `/odata/QueueItems`, `/odata/RobotLogs`, `/odata/Machines`, `/odata/Releases`, `/odata/Assets`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018014544
+      }
+    ],
+    "5.16.2 Test de token refresh (respuesta con `expires_in` corto)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018014708
+      }
+    ],
+    "5.16.3 Test de retry Polly (WireMock devuelve 5xx dos veces y luego éxito)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018014893
+      }
+    ],
+    "5.16.4 Test de mapeo end-to-end de `JobSnapshot` (estados, timestamps UTC, duración)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018015085
+      }
+    ],
+    "5.16.5 Test de `UiPathErrorTranslator` traduciendo 401, 404, 500 y `Fault` payloads": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018015272
+      }
+    ],
+    "5.16.6 Test de integración corriendo contra el **Mock UiPath Server real** (`docker-compose up mock-uipath` o `dotnet run` local), verificando el flujo completo: token → GET Robots → GET Jobs → StartJob → mapping a `JobSnapshot`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018015450
+      }
+    ],
+    "5.17 Checkpoint - UiPath Provider integrado": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018015629
+      }
+    ],
+    "6.1.1 Implementar `RobotQueryService` con caché opcional vía `ICacheService` (TTL configurable, default 120s, `forceRefresh` para bypass)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018015814
+      }
+    ],
+    "6.1.2 Implementar `MachineQueryService` (default TTL 300s) y `ProcessQueryService` (default TTL 600s)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018015994
+      }
+    ],
+    "6.1.3 Implementar `AssetQueryService` invocando `IAssetProvider` + audit vía `IAuditRepository` (nunca cachea, nunca expone secrets)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018016168
+      }
+    ],
+    "6.2.1 Implementar `JobQueryService` sobre `IJobRepository` (filtros por rango de fechas, robot, process, machine, status, error type; paginación 50; sort dinámico)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018016340
+      }
+    ],
+    "6.2.2 Implementar `JobCommandService.StartAsync` con audit + emisión de `JobActionRequested` a `INotificationDelivery`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018016533
+      }
+    ],
+    "6.2.3 Implementar `StopAsync`, `CancelAsync` y `RetryAsync` (linkando el nuevo job con `RetryOfJobId`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018016812
+      }
+    ],
+    "6.2.4 Escribir tests unitarios con `IJobProvider` mockeado cubriendo éxito, error del provider (audit outcome=Error) y notificación emitida": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018016981
+      }
+    ],
+    "6.3.1 Implementar `QueueQueryService` con metadata on-demand vía `IQueueProvider` y caché opcional (default TTL 180s)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018017173
+      }
+    ],
+    "6.3.2 Implementar `QueueAnalyticsService` sobre `IQueueItemRepository` (pending, processed, failed, avg processing time)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018017359
+      }
+    ],
+    "6.4.1 Implementar `LogQueryService` con filtros por severidad, rango, jobId, robot, process y búsqueda por keyword; paginación por default": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018017572
+      }
+    ],
+    "6.5.1 Implementar `MetricsQueryService` con selección automática de granularidad (raw / hourly / daily) según rango solicitado": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018017746
+      }
+    ],
+    "6.5.2 Implementar `MetricsAggregationService` con rollup hourly y daily; property-based test `sum(hourlyBuckets) == sum(rawPoints)` para toda serie temporal generada": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018017913
+      }
+    ],
+    "6.6.1 Implementar `DashboardConfigurationService` (get, put, resetToDefault por usuario)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018018101
+      }
+    ],
+    "6.6.2 Implementar `DashboardInitializer` con layouts default por rol (Viewer, Operator, Administrator)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018018300
+      }
+    ],
+    "6.6.3 Implementar `WidgetPermissionModel` y filtrado del catálogo de widgets por rol": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018018468
+      }
+    ],
+    "6.7.1 Implementar `AuthenticationOrchestrator.LoginAsync(request)` que llame a `IAuthenticationProvider`, sincronice `User` en repo (upsert de externalId, roles) y emita JWT con `ISessionTokenService`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018018645
+      }
+    ],
+    "6.7.2 Registrar audit `Login` (Success/Failure) y `Logout`; emitir warning si `Local` provider activo": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018018820
+      }
+    ],
+    "6.8.1 Escribir tests exhaustivos con mocks de proveedores y repositorios, cubriendo happy path, cache hit/miss, force refresh y errores": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018019039
+      }
+    ],
+    "6.8.2 Property-based test para el throttler de resultados de `RobotQueryService` con caché (get after set → same value)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018019238
+      }
+    ],
+    "6.9 Checkpoint - Servicios de aplicación operativos": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018019527
+      }
+    ],
+    "7.1.1 Definir `ISynchronizationService` (`Name`, `Options`, `CurrentStatus`, `StartAsync`, `StopAsync`, `RunOnceAsync`, `IsHealthyAsync`) y records `SynchronizationOptions`, `SynchronizationServiceStatus`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018019732
+      }
+    ],
+    "7.1.2 Implementar `SynchronizationServiceBase` con bucle `PeriodicTimer`, `SemaphoreSlim(1,1)` (single-flight por servicio) y `IServiceScopeFactory` para scopes limpios": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018019912
+      }
+    ],
+    "7.1.3 Aplicar clamp de intervalo mínimo (30s) con warning log": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018020096
+      }
+    ],
+    "7.2.1 Implementar `StartAsync` que arranque los servicios habilitados por configuración; deshabilitados no se schedulean": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018020263
+      }
+    ],
+    "7.2.2 Implementar `GetStatuses()` y `TriggerAsync(serviceName, user)` (audit del trigger manual)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018020436
+      }
+    ],
+    "7.2.3 Asegurar fault isolation: excepciones en un servicio no detienen a los demás": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018020611
+      }
+    ],
+    "7.3.1 Implementar `RunOnceAsync`: leer `MaxUpdatedAt`, invocar `IJobProvider.GetJobsAsync(since)`, upsert idempotente, `SaveChangesAsync`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018020791
+      }
+    ],
+    "7.3.2 No actualizar jobs ya en estado terminal": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018020959
+      }
+    ],
+    "7.3.3 Default interval 120s, configurable": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018021193
+      }
+    ],
+    "7.4.1 Implementar `RunOnceAsync` con upsert y linkeo `OriginalItemId` para retries": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018021472
+      }
+    ],
+    "7.4.2 Default interval 180s": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018021700
+      }
+    ],
+    "7.5.1 Implementar `RunOnceAsync` con inserción por lotes (batch size default 500)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018022026
+      }
+    ],
+    "7.5.2 Default interval 60s": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018022342
+      }
+    ],
+    "7.6.1 Calcular métricas por intervalo (jobs total/success/failed/cancelled, avg duration, success rate, queue backlog, robot/machine availability) desde repositorios locales": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018022725
+      }
+    ],
+    "7.6.2 Persistir `MetricPoint` y actualizar `MetricRollup` hourly/daily incrementalmente": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018022933
+      }
+    ],
+    "7.6.3 Default interval 300s": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018023133
+      }
+    ],
+    "7.7.1 Definir `SynchronizationOptions` por servicio y bind desde `Synchronization:{JobSync|QueueItemSync|LogSync|MetricsCollection}`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018023336
+      }
+    ],
+    "7.7.2 Cada servicio observa `IOptionsMonitor` y actualiza intervalo en el próximo ciclo sin reinicio": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018023556
+      }
+    ],
+    "7.8.1 Habilitar hook para que el `AdminController` invoque `SynchronizationOrchestrator.TriggerAsync` con audit": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018023792
+      }
+    ],
+    "7.8.2 Exponer `GetStatuses()` para `/health/ready` y el `AdminController`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018024005
+      }
+    ],
+    "7.9.1 Registrar los 4 sync services + orchestrator + health check individual": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018024225
+      }
+    ],
+    "7.9.2 Compartir mismos servicios de infraestructura y Providers.UiPath que la API": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018024389
+      }
+    ],
+    "7.10.1 Reemplazar `IJobProvider` por un fake determinista y verificar upsert idempotente sobre Postgres (Testcontainers)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018024558
+      }
+    ],
+    "7.10.2 Verificar que un error inyectado en un servicio no afecta a los demás": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018024746
+      }
+    ],
+    "7.10.3 Verificar que cambiar `IntervalSeconds` en tiempo de ejecución (mediante `IOptionsMonitor` sourced from IConfiguration) actualiza la cadencia": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018024918
+      }
+    ],
+    "7.11 Checkpoint - Sync services estables": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018025095
+      }
+    ],
+    "8.1.1 Implementar `AlertRuleService` (Create, Read, Update, Delete, Enable/Disable) sobre `IAlertRuleRepository`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018025382
+      }
+    ],
+    "8.1.2 Validar `ParametersJson` según `RuleType` con validadores dedicados": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018025557
+      }
+    ],
+    "8.1.3 Auditar toda modificación de reglas": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018025712
+      }
+    ],
+    "8.2.1 Implementar `RobotOfflineEvaluator` (usa `IRobotProvider`, umbral default 10 min, severity Critical)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018025926
+      }
+    ],
+    "8.2.2 Implementar `QueueBacklogEvaluator` sobre `IQueueItemRepository` con umbrales de Warning y Critical": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018026092
+      }
+    ],
+    "8.2.3 Implementar `JobsFailedInWindowEvaluator` sobre `IJobRepository` (ventana temporal configurable)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018026249
+      }
+    ],
+    "8.2.4 Implementar `MachineOfflineEvaluator` (usa `IMachineProvider`, umbral default 60 min)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018026428
+      }
+    ],
+    "8.2.5 Implementar `ProcessExecutionTimeEvaluator` comparando `Duration` con expectativa por proceso": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018026590
+      }
+    ],
+    "8.3.1 Implementar `AlertDeduplicator : IAlertDeduplicator` con ventana configurable (default 5 min) por `(rule, resource)`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018026772
+      }
+    ],
+    "8.3.2 Property-based test: para cualquier secuencia de candidatos dentro de la ventana, el número de alertas emitidas por `(rule, resource)` no supera 1": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018026952
+      }
+    ],
+    "8.4.1 Implementar `AlertEngine.EvaluateAllAsync` que itere reglas activas, invoque el evaluador correspondiente, filtre por dedup, persista y despache": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018027117
+      }
+    ],
+    "8.4.2 Emitir domain event `AlertRaised` a `INotificationDelivery`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018027283
+      }
+    ],
+    "8.4.3 Audit del evento de generación": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018027470
+      }
+    ],
+    "8.5.1 Implementar `NotificationRouter.DispatchAsync` que resuelva canales por regla y despache en paralelo": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018027649
+      }
+    ],
+    "8.5.2 Aplicar retry Polly exponential backoff, default 3 intentos por canal": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018027928
+      }
+    ],
+    "8.5.3 Marcar canal degradado tras fallo total y reflejar en health check de alerts": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018028103
+      }
+    ],
+    "8.5.4 Property-based test: la suma de esperas del backoff está acotada superiormente por el máximo teórico": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018028283
+      }
+    ],
+    "8.6.1 Implementar `LogAlertChannel` (siempre habilitado, escribe con Serilog en nivel según severidad)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018028449
+      }
+    ],
+    "8.6.2 Implementar `EmailAlertChannel` (SMTP con `MailKit`, opciones validadas al arranque)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018028622
+      }
+    ],
+    "8.6.3 Implementar `SlackAlertChannel` (webhook payload JSON con severidad y recurso afectado)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018028791
+      }
+    ],
+    "8.6.4 Implementar `TeamsAlertChannel` (webhook MessageCard)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018028957
+      }
+    ],
+    "8.6.5 Implementar `WebhookAlertChannel` (POST genérico con firma HMAC opcional)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018029127
+      }
+    ],
+    "8.7.1 Implementar `EscalationEngine.EscalatePendingAsync` que revise alertas Critical no reconocidas y aplique timeouts (default 15 min primer nivel, 30 min segundo)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018029295
+      }
+    ],
+    "8.7.2 Incrementar `EscalationLevel` y despachar a canales de escalación": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018029465
+      }
+    ],
+    "8.8.1 Implementar `AlertAcknowledgmentService.AcknowledgeAsync(alertId, user)` con audit": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018029633
+      }
+    ],
+    "8.8.2 Al ack, el `NotificationRouter` deja de despachar re-notificaciones para esa alerta": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018029795
+      }
+    ],
+    "8.9.1 Implementar `AlertEvaluationService : ISynchronizationService` (interval default 60s) que invoque `AlertEngine.EvaluateAllAsync` y `EscalationEngine.EscalatePendingAsync`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018029977
+      }
+    ],
+    "8.9.2 Registrarlo en el `SynchronizationOrchestrator`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018030156
+      }
+    ],
+    "8.10.1 Implementar job de retención con default 12 meses y purga configurable": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018030432
+      }
+    ],
+    "8.11.1 Tests unitarios por evaluador (thresholds, ventanas, severidad correcta)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018030599
+      }
+    ],
+    "8.11.2 Tests del `NotificationRouter` con canales que fallan intermitentemente": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018030765
+      }
+    ],
+    "8.11.3 Property-based tests: dedup + retry backoff (indicados arriba)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018030932
+      }
+    ],
+    "8.12 Checkpoint - Alert Engine end-to-end": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018031100
+      }
+    ],
+    "9.1.1 Registrar `Microsoft.AspNetCore.Mvc.Versioning` con default `v1.0`, `AssumeDefaultVersionWhenUnspecified=false`, lectores `UrlSegment` + `Header (api-version)`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018031266
+      }
+    ],
+    "9.1.2 Registrar `AddVersionedApiExplorer` con `GroupNameFormat=\"'v'VVV\"` y `SubstituteApiVersionInUrl=true`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018031437
+      }
+    ],
+    "9.1.3 Configurar Swagger/OpenAPI con un documento por versión (`/swagger/v1/swagger.json`) e integración de Bearer Auth": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018031608
+      }
+    ],
+    "9.2.1 Implementar `RobotsController`, `MachinesController`, `ProcessesController`, `AssetsController` (`[Authorize(Policy=\"ViewAssets\")]`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018031806
+      }
+    ],
+    "9.2.2 Implementar `JobsController` con endpoints de query, start, stop, cancel, retry (policies `JobActions`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018032005
+      }
+    ],
+    "9.2.3 Implementar `QueuesController` y `LogsController`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018032192
+      }
+    ],
+    "9.3.1 Implementar `MetricsController`, `AlertsController` (list, ack), `AlertRulesController` (`ManageAlertRules`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018032394
+      }
+    ],
+    "9.3.2 Implementar `DashboardController` (GET/PUT layout, reset default)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018032594
+      }
+    ],
+    "9.3.3 Implementar `AuthController` (`/auth/login`, `/auth/logout`, `/auth/me`) y `AdminController` (`/admin/sync/{service}/trigger`, `/admin/sync/status`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018032881
+      }
+    ],
+    "9.3.4 Implementar `NotificationsController` con endpoints `/notifications/stream` (SSE) y `/notifications/pull` (polling con `since`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018033072
+      }
+    ],
+    "9.4.1 Registrar `FluentValidation.AspNetCore` y crear validadores para DTOs de entrada (login, start job, alert rule create/update, dashboard layout)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018033256
+      }
+    ],
+    "9.4.2 Mapear errores a `errorCode=\"VALIDATION_ERROR\"` con detalles por campo (HTTP 400)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018033442
+      }
+    ],
+    "9.5.1 Implementar `SseNotificationDelivery` con `Channel<NotificationEvent>` por subscriber y heartbeat `retry:` para reconexión del cliente": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018033627
+      }
+    ],
+    "9.5.2 Implementar `PollingNotificationDelivery` con buffer en memoria TTL y query por `since`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018033794
+      }
+    ],
+    "9.5.3 Implementar `TokenBucketNotificationThrottler` (máx 1 entrega/s por `(resourceType, resourceId)`) y test unitario de coalescing": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018033973
+      }
+    ],
+    "9.5.4 Registrar `AddPluggableNotifications(configuration)` con switch por `Notifications:Transport` (SSE|Polling)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018034162
+      }
+    ],
+    "9.6.1 Crear `SignalRNotificationDelivery` con métodos con `throw new NotImplementedException` y comentario `// TODO Phase 3`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018034370
+      }
+    ],
+    "9.6.2 Añadir clase `SseHub` en `BotPulse.Api/Notifications/` como punto de extensión documentado": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018034580
+      }
+    ],
+    "9.7.1 Implementar `DatabaseHealthCheck` (ping a `SELECT 1`) con tag `ready`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018034769
+      }
+    ],
+    "9.7.2 Implementar `RpaProviderHealthCheck` que consulte token válido del provider activo (tag `ready`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018034955
+      }
+    ],
+    "9.7.3 Implementar `SynchronizationHealthCheck` consultando `SynchronizationOrchestrator.GetStatuses()`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018035161
+      }
+    ],
+    "9.7.4 Implementar `CacheHealthCheck` con probe put/get/remove": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018035549
+      }
+    ],
+    "9.7.5 Mapear endpoints `/health` (agregado JSON), `/health/live` (liveness) y `/health/ready` (readiness sólo con tag `ready`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018035758
+      }
+    ],
+    "9.8.1 Registrar policies `RequireOperator`, `RequireAdministrator`, `ViewAssets`, `ManageAlertRules`, `JobActions`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018035936
+      }
+    ],
+    "9.8.2 Aplicar `[Authorize(Policy=...)]` en todos los endpoints sensibles": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018036120
+      }
+    ],
+    "9.9.1 Habilitar `UseHttpsRedirection` + `UseHsts` (excepto Development)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018036295
+      }
+    ],
+    "9.9.2 Configurar CORS restrictivo tomando orígenes desde `Cors:AllowedOrigins`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018036468
+      }
+    ],
+    "9.9.3 Documentar en `docs/Security.md` la política y ejemplos": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018036665
+      }
+    ],
+    "9.10.1 Componer `builder.Services.AddBotPulsePersistence().AddBotPulseInfrastructure().AddPluggableAuthentication().AddPluggableNotifications().AddUiPathProvider()` + API versioning + FluentValidation + Authorization + Health Checks": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018036838
+      }
+    ],
+    "9.10.2 Aplicar `UseCorrelationIdMiddleware`, `UseErrorHandlerMiddleware`, `UseRequestLoggingMiddleware`, `UseAuditMiddleware` en pipeline": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018037013
+      }
+    ],
+    "9.11.1 Configurar `WebApplicationFactory<Program>` con Testcontainers Postgres y provider RPA fake registrado por DI": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018037193
+      }
+    ],
+    "9.11.2 Tests de flujo Login → JWT → llamada autorizada / rechazo por rol / 401 con token manipulado": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018037382
+      }
+    ],
+    "9.11.3 Tests de Jobs (query paginada, start con audit, retry linked)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018037579
+      }
+    ],
+    "9.11.4 Tests de `/notifications/stream` (SSE) recibiendo `AlertRaised` publicado en `INotificationDelivery`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018037779
+      }
+    ],
+    "9.11.5 Tests de `/health`, `/health/live`, `/health/ready` en estados sano y degradado": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018038148
+      }
+    ],
+    "9.12 Checkpoint - API v1 operativa": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018038342
+      }
+    ],
+    "10.1.1 Crear carpeta `ui/` en la raíz del repo con Vite + React + TypeScript: `npm create vite@latest ui -- --template react-ts`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018038519
+      }
+    ],
+    "10.1.2 Instalar dependencias base: `react-router-dom`, `axios`, `@tanstack/react-query`, `tailwindcss`, `@headlessui/react`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018038692
+      }
+    ],
+    "10.1.3 Configurar Vite con proxy para `/api` → `http://localhost:5000` (dev), en `vite.config.ts`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018038878
+      }
+    ],
+    "10.1.4 Configurar ESLint + Prettier con reglas para TypeScript estricto (`strict: true` en `tsconfig.json`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018039051
+      }
+    ],
+    "10.2.1 Implementar página `Login` con formulario controlado (`username` + `password`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018039230
+      }
+    ],
+    "10.2.2 Cliente HTTP con axios: `POST /api/v1/auth/login`, tipado con TypeScript": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018039424
+      }
+    ],
+    "10.2.3 Guardar JWT en memoria (context provider) + refresh; no usar `localStorage` por seguridad": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018039609
+      }
+    ],
+    "10.2.4 Interceptor axios que incluya `Authorization: Bearer <token>` en todas las requests": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018039787
+      }
+    ],
+    "10.2.5 Componente `ProtectedRoute` que redirige a `/login` si no hay token válido": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018039974
+      }
+    ],
+    "10.3.1 Componente `AppLayout` con sidebar (Dashboard, Robots, Jobs, Queues, Alerts) y header (usuario + logout)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018040151
+      }
+    ],
+    "10.3.2 Setup de React Router con rutas por sección": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018040344
+      }
+    ],
+    "10.3.3 Componente `<NavItem>` con estado activo derivado de `useLocation`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018040673
+      }
+    ],
+    "10.4.1 Widget `KPISummary` (total robots, jobs today, success rate) consumiendo `/api/v1/metrics` y `/api/v1/robots`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018040850
+      }
+    ],
+    "10.4.2 Widget `JobQueue` con los últimos 20 jobs (`/api/v1/jobs?top=20`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018041044
+      }
+    ],
+    "10.4.3 Widget `RobotMonitor` con estado de robots on-demand": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018041218
+      }
+    ],
+    "10.4.4 Widget `Alerts` con alertas activas (`/api/v1/alerts?acknowledged=false`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018041393
+      }
+    ],
+    "10.4.5 Grid layout responsive con Tailwind (grid-cols variable según viewport)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018041570
+      }
+    ],
+    "10.5.1 Tabla con `robot name`, `status` (badge coloreado según Online/Offline/Idle/Busy), `machine`, `lastHeartbeat`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018041745
+      }
+    ],
+    "10.5.2 Filtros por status y búsqueda por nombre (debounced input)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018041947
+      }
+    ],
+    "10.5.3 Panel de detalle (drawer/modal) al hacer click en una fila": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018042141
+      }
+    ],
+    "10.6.1 Tabla con `job id`, `robot`, `process`, `start time`, `duration`, `status`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018042317
+      }
+    ],
+    "10.6.2 Filtros por status, date range, robot, process": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018042506
+      }
+    ],
+    "10.6.3 Paginación (50 por página, sync con query params de URL)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018042705
+      }
+    ],
+    "10.6.4 Acciones contextuales: Start / Stop / Cancel / Retry (visibles según estado y rol del usuario)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018042898
+      }
+    ],
+    "10.6.5 Panel de detalle con logs de ejecución (`/api/v1/logs?jobId=...`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018043239
+      }
+    ],
+    "10.7.1 Cards con `queue name`, `pending`, `processed`, `failed` desde `QueueAnalyticsService`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018043421
+      }
+    ],
+    "10.7.2 Progress bar por queue mostrando ratio processed/total": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018043595
+      }
+    ],
+    "10.7.3 Panel de detalle con queue items (`/api/v1/queues/{name}/items`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018043799
+      }
+    ],
+    "10.8.1 Lista de alertas con badge de `severity` (Info/Warning/Critical) coloreado": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018043976
+      }
+    ],
+    "10.8.2 Filtros por severity, fecha, tipo de regla": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018044150
+      }
+    ],
+    "10.8.3 Acción `Acknowledge` (`POST /api/v1/alerts/{id}/ack`) con optimistic update en TanStack Query": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018044332
+      }
+    ],
+    "10.9.1 Cliente SSE (`EventSource`) conectado a `/api/v1/notifications/stream` con auth token": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018044548
+      }
+    ],
+    "10.9.2 Actualizar el dashboard cuando llegan eventos `JobStateChanged`, `AlertRaised` (invalidar queries de TanStack Query)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018044771
+      }
+    ],
+    "10.9.3 Reconexión automática con backoff exponencial (1, 2, 4, 8, hasta 30s), respetando el header `retry:` del server": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018044955
+      }
+    ],
+    "10.10.1 UI para habilitar/deshabilitar widgets desde un panel de configuración": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018045141
+      }
+    ],
+    "10.10.2 Drag-and-drop para reordenar widgets (`@dnd-kit/core`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018045348
+      }
+    ],
+    "10.10.3 Persistir preferencias vía `PUT /api/v1/dashboard/layout` (con debounce)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018045537
+      }
+    ],
+    "10.11.1 Setup Vitest + React Testing Library en `ui/`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018045895
+      }
+    ],
+    "10.11.2 Tests unitarios para componentes clave (`ProtectedRoute`, `KPISummary`, `Login`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018046126
+      }
+    ],
+    "10.11.3 Tests de integración con Mock Service Worker (MSW) simulando la API v1": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018046299
+      }
+    ],
+    "10.12.1 Configurar `npm run build` con tree-shaking, code splitting por rutas y sourcemaps": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018046477
+      }
+    ],
+    "10.12.2 Documentar en `docs/Deployment.md` cómo servir los archivos estáticos generados en `ui/dist` desde nginx (integración en Fase 11)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018046698
+      }
+    ],
+    "10.13 Checkpoint - Frontend MVP funcional": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018046874
+      }
+    ],
+    "11.1.1 Crear `deploy/Dockerfile.Api` (SDK stage build+publish, runtime `mcr.microsoft.com/dotnet/aspnet:8.0-alpine`, usuario no-root, `EXPOSE 8080`, `HEALTHCHECK CMD curl -fsS http://localhost:8080/health/live`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018047062
+      }
+    ],
+    "11.1.2 Crear `deploy/Dockerfile.Worker` análogo, sin puerto expuesto": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018047298
+      }
+    ],
+    "11.1.3 Añadir `.dockerignore` que excluya bin/, obj/, tests/, .git, .vs, node_modules, ui/dist": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018047485
+      }
+    ],
+    "11.2.1 Definir servicios `reverse-proxy` (nginx), `api`, `worker`, `postgres` (con volumen y healthcheck) y `redis` (provisionado, no usado en MVP)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018047672
+      }
+    ],
+    "11.2.2 Configurar `depends_on` con `condition: service_healthy` para postgres": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018047859
+      }
+    ],
+    "11.2.3 Definir red `botpulse-net` y volúmenes `botpulse-postgres`, `botpulse-redis`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018048181
+      }
+    ],
+    "11.2.4 Añadir healthchecks a `api` (`/health/live`) y `worker` (endpoint dedicado o `dotnet` process check)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018048395
+      }
+    ],
+    "11.2.5 Añadir servicio `mock-uipath` al docker-compose apuntando a `deploy/Dockerfile.MockUiPath` (puerto interno 5100, expuesto solo en la red interna). Marcar como excluible en producción mediante `profiles: [\"dev\", \"test\"]` para que un `docker compose --profile prod up` no lo levante": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018048593
+      }
+    ],
+    "11.3.1 Crear `deploy/nginx/nginx.conf` con TLS termination, `proxy_pass` a `http://api:8080`, headers `X-Forwarded-*` y soporte SSE (`proxy_buffering off` para `/api/v1/notifications/stream`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018048773
+      }
+    ],
+    "11.3.2 Documentar generación de certificados dev (self-signed) en `docs/Deployment.md`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018048941
+      }
+    ],
+    "11.3.3 Añadir servicio `ui` al docker-compose: contenedor `nginx:1.27-alpine` que sirve los archivos estáticos generados por `npm run build` en `ui/dist`. Crear `deploy/Dockerfile.Ui` multi-stage (etapa `node:20-alpine` para el build, etapa `nginx:1.27-alpine` para servir) y `deploy/nginx/ui.conf` con fallback a `index.html` para rutas SPA. El reverse-proxy principal enruta `/` al servicio `ui` y `/api` al servicio `api`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018049116
+      }
+    ],
+    "11.4.1 Crear `.env.example` con todas las variables: `DB_PASSWORD`, `JWT_SIGNING_KEY`, `AUTHENTICATION_PROVIDER`, `NOTIFICATION_TRANSPORT`, `CACHE_PROVIDER`, `UIPATH_*`, `SYNC_*_INTERVAL_SECONDS`, `CORS_ALLOWED_ORIGINS`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018049378
+      }
+    ],
+    "11.4.2 Añadir comentarios de referencia por variable y valores default. Documentar que en dev/test `UIPATH_BASE_URL=http://mock-uipath:5100` y en prod se cambia al Orchestrator real": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018049577
+      }
+    ],
+    "11.5.1 Implementar `StartupValidator` (`IHostedService`) que en `StartAsync` verifique: secretos obligatorios presentes, conectividad a Postgres, negociación de versión con el proveedor RPA (`IProviderVersionNegotiator`)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018049774
+      }
+    ],
+    "11.5.2 Si alguna validación crítica falla, invocar `IHostApplicationLifetime.StopApplication()` con log fatal y `errorCode` descriptivo": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018049960
+      }
+    ],
+    "11.6.1 Crear `deploy/Dockerfile.Migrations` que ejecute `dotnet ef database update` con un `BotPulse.Migrations.Runner` (o `dotnet-ef` bundled tool) como job separado": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018050158
+      }
+    ],
+    "11.6.2 Documentar en `docs/Deployment.md` que en producción las migraciones se ejecutan **antes** del rollout (no auto-migrate) y añadir override de compose `deploy/docker-compose.migrate.yml`": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018050359
+      }
+    ],
+    "11.7.1 Ampliar `docs/Deployment.md` con guías paso a paso: Docker Compose (dev/prod), Azure App Service, Azure Container Apps, IIS Windows con ANCM, Linux + systemd + nginx": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018050693
+      }
+    ],
+    "11.7.2 Documentar variables por entorno y estrategia de secret store recomendada (Key Vault, AWS Secrets Manager, HashiCorp Vault)": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018050893
+      }
+    ],
+    "11.8.1 Crear script `scripts/smoke.ps1` (y equivalente bash) que verifique `/health/live`, `/health/ready`, `POST /api/v1/auth/login`, `GET /api/v1/robots` con token": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018051074
+      }
+    ],
+    "11.8.2 Ejecutar el smoke test contra la stack de docker-compose recién levantada como paso final del CI de integración": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018051290
+      }
+    ],
+    "11.9 Checkpoint final - Plataforma desplegable": [
+      {
+        "executionId": "5ee4b788-f003-4c34-b8c4-d56d625f87bb",
+        "chatSessionId": "sess_6a6389ad-684f-45c4-94cb-a40034c3489e",
+        "timestamp": 1785018051791
+      }
+    ]
+  }
+}
