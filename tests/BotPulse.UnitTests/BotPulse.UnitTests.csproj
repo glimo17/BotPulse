@@ -18,10 +18,16 @@
     <PackageReference Include="FluentAssertions" />
     <PackageReference Include="NSubstitute" />
     <PackageReference Include="FsCheck.Xunit" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" />
+    <PackageReference Include="Microsoft.Extensions.Options" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\BotPulse.Core\BotPulse.Core.csproj" />
+    <ProjectReference Include="..\..\src\BotPulse.Infrastructure\BotPulse.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\src\BotPulse.Api\BotPulse.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>
