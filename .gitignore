@@ -499,6 +499,7 @@ secrets.json
 
 # Serilog / application logs
 logs/
+!src/**/Logs/
 *.log
 
 # macOS metadata anywhere in the tree
