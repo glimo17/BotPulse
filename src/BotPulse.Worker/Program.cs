@@ -3,6 +3,7 @@ using BotPulse.Core.Application.Metrics;
 using BotPulse.Infrastructure.DependencyInjection;
 using BotPulse.Infrastructure.Logging;
 using BotPulse.Providers.UiPath.DependencyInjection;
+using BotPulse.Providers.Demo.DependencyInjection;
 using BotPulse.Worker.Services;
 
 var host = Host.CreateDefaultBuilder(args)
@@ -12,8 +13,16 @@ var host = Host.CreateDefaultBuilder(args)
         // Persistence (EF Core + PostgreSQL + all repositories)
         services.AddBotPulsePersistence(context.Configuration);
 
-        // UiPath Provider (OAuth2 + typed HTTP clients + all 7 providers)
-        services.AddUiPathProvider(context.Configuration);
+        // RPA Provider — selection by configuration
+        var rpaProvider = context.Configuration["RpaProvider"] ?? "Demo";
+        if (rpaProvider.Equals("UiPath", StringComparison.OrdinalIgnoreCase))
+        {
+            services.AddUiPathProvider(context.Configuration);
+        }
+        else
+        {
+            services.AddDemoProvider();
+        }
 
         // Application services needed by MetricsCollectionService
         services.AddScoped<MetricsAggregationService>();

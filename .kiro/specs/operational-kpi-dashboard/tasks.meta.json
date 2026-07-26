@@ -1,0 +1,359 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Crear `ui/src/lib/kpiCalculations.ts` con las interfaces `Robot`, `Job`, `Queue`, `Alert` y la función `parseDurationToSeconds` (helper interno)": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063045393
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063058795
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063250730
+      }
+    ],
+    "1.2 Implementar `calculateSuccessRate(jobs: Job[]): number | null`": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063045554
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063251697
+      }
+    ],
+    "1.3 Implementar `calculateFleetAvailability(robots: Robot[]): number | null`": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063045677
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063252484
+      }
+    ],
+    "1.4 Implementar `calculateRobotUtilization(robots: Robot[]): { rate: number | null; busyCount: number; totalCount: number }`": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063045765
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063253358
+      }
+    ],
+    "1.5 Implementar `calculateQueueBacklog(queues: Queue[]): number`": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063045861
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063254198
+      }
+    ],
+    "1.6 Implementar `calculateMtta(alerts: Alert[]): number | null`": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063045948
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063258913
+      }
+    ],
+    "1.7 Implementar `calculateAvgCycleTime(jobs: Job[]): number | null`": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063046041
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063259657
+      }
+    ],
+    "1.8 Implementar `calculateExceptionBreakdown(jobs: Job[]): { businessExceptions, systemExceptions, other, total }`": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063046178
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063260652
+      }
+    ],
+    "1.9 Implementar funciones de formato: `formatMtta(minutes: number | null): string`, `formatAvgCycleTime(seconds: number | null): string`, `getPercentageColor(value: number | null): string`": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063046313
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063261823
+      }
+    ],
+    "2.1 Crear `ui/src/components/KpiCard.tsx` con la interfaz `KpiCardProps` exportada": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063046396
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063267248
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063595611
+      }
+    ],
+    "2.2 Implementar el cuerpo del card con icono, label, valor, subtitle y trend opcional": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063046480
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063596637
+      }
+    ],
+    "2.3 Implementar el badge pulsante para alertas críticas": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063046576
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063597609
+      }
+    ],
+    "2.4 Implementar navegación clickable con `Link` de react-router-dom": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063046664
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063598572
+      }
+    ],
+    "3.1 Añadir queries de `/queues` y `/alerts` en paralelo a las existentes de `/robots` y `/jobs`": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063046748
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063604364
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063749364
+      }
+    ],
+    "3.2 Importar `KpiCard` y las funciones de `kpiCalculations.ts` en `Dashboard.tsx`": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063046830
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063750338
+      }
+    ],
+    "3.3 Derivar todos los KPIs a partir de los datos de las 4 queries": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063046919
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063751390
+      }
+    ],
+    "3.4 Implementar Fila 1 de KPI cards: Success Rate, Jobs Volume, Fleet Availability, Critical Alerts": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063047010
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063752795
+      }
+    ],
+    "3.5 Implementar Fila 2 de KPI cards: Avg Cycle Time, Robot Utilization, Queue Backlog, MTTA": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063047115
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063753608
+      }
+    ],
+    "3.6 Conservar las secciones existentes: Robot Fleet Grid y Recent Jobs Table": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063047243
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063754658
+      }
+    ],
+    "4.1 Añadir una nueva query `['metrics-jobs-breakdown']` en `Metrics.tsx` que llame a `/jobs?pageSize=50`": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063047326
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063760646
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063982112
+      }
+    ],
+    "4.2 Calcular el breakdown usando `calculateExceptionBreakdown` de `kpiCalculations.ts`": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063047412
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063982942
+      }
+    ],
+    "4.3 Añadir el `PieChart` de Recharts como donut (innerRadius=50, outerRadius=80) DESPUÉS de los charts existentes": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063047501
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063984310
+      }
+    ],
+    "4.4 Implementar el estado vacío cuando no hay jobs fallidos": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063047591
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063985063
+      }
+    ],
+    "4.5 Añadir leyenda con conteo y porcentaje por segmento": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063047683
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063985981
+      }
+    ],
+    "5.1 Ejecutar `npm run build` en `ui/` y corregir cualquier error de tipos": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063047762
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063991708
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785064047329
+      }
+    ],
+    "5.2 Verificar que no haya warnings de ESLint relacionados con variables no usadas (como el `void t` existente en Metrics.tsx)": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063047854
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063993214
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785064048118
+      }
+    ],
+    "6.1 Hacer commit con mensaje: `feat: KPI Dashboard - 9 operational KPIs with real calculations`": [
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785063047935
+      },
+      {
+        "executionId": "d620ef62-9f02-4117-8fe3-5b44a3062b36",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785064049165
+      }
+    ]
+  }
+}

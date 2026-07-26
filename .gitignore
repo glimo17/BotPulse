@@ -503,3 +503,7 @@ logs/
 
 # macOS metadata anywhere in the tree
 **/.DS_Store
+
+# ASP.NET Core Development settings (may contain credentials)
+appsettings.Development.json
+appsettings.*.json

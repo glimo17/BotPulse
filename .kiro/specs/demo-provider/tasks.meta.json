@@ -1,0 +1,175 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Crear proyecto `BotPulse.Providers.Demo`": [
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785058707122
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785058715821
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785058781568
+      }
+    ],
+    "2. Implementar `DemoDataSeed`": [
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785058707268
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785058786038
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059353756
+      }
+    ],
+    "3. Implementar los 7 providers": [
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785058707371
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059358334
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059483277
+      }
+    ],
+    "4. Implementar `DemoProviderHealthCheck` y `DemoProviderRegistration`": [
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785058707470
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059488371
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059552489
+      }
+    ],
+    "5. Modificar `Program.cs` de API y Worker para selección condicional de provider": [
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785058707635
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059557586
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059742678
+      }
+    ],
+    "6. Actualizar `.env.example`": [
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785058707720
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059747719
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059864877
+      }
+    ],
+    "7. Agregar `BotPulse.Providers.Demo` a la solución": [
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785058707822
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059748918
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059865487
+      }
+    ],
+    "8. Crear ADR-014": [
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785058707922
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059749558
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059866125
+      }
+    ],
+    "9. Verificar que `docker compose config` sigue siendo válido": [
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785058708016
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059750569
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059866879
+      }
+    ],
+    "10. Implementar property tests para las 7 propiedades de correctness del DemoProvider": [
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785058708105
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785059872292
+      },
+      {
+        "executionId": "48e891bc-64f1-449f-9e4d-a4f4e8743447",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785060072996
+      }
+    ]
+  }
+}

@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: botpulse
       POSTGRES_PASSWORD: ${DB_PASSWORD:-botpulse_dev_2024}
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - botpulse-postgres:/var/lib/postgresql/data
     healthcheck:
@@ -42,6 +42,7 @@ services:
       Jwt__Audience: botpulse-api
       Authentication__Provider: ${AUTHENTICATION_PROVIDER:-Local}
       Notifications__Transport: ${NOTIFICATION_TRANSPORT:-SSE}
+      RpaProvider: ${RPA_PROVIDER:-Demo}
       UiPath__BaseUrl: ${UIPATH_BASE_URL}
       UiPath__Tenant: ${UIPATH_TENANT}
       UiPath__ClientId: ${UIPATH_CLIENT_ID}
@@ -70,6 +71,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Production
       ConnectionStrings__PostgreSQL: "Host=postgres;Port=5432;Database=botpulse;Username=botpulse;Password=${DB_PASSWORD:-botpulse_dev_2024}"
+      RpaProvider: ${RPA_PROVIDER:-Demo}
       UiPath__BaseUrl: ${UIPATH_BASE_URL}
       UiPath__Tenant: ${UIPATH_TENANT}
       UiPath__ClientId: ${UIPATH_CLIENT_ID}

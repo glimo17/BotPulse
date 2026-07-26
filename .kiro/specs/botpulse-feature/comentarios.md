@@ -1,284 +1,66 @@
-Hay varias cosas que yo cambiaría antes de escribir una línea de código.
+📋 Sub-plan de Tareas Frontend (Fase 10)
+Bloque 1: Esencial para Pruebas (Objetivo de hoy)
+10.1 Setup y Estructura Base:
 
-1. NO persistiría TODO
+Configurar Vite + React + TypeScript en ui/ con Tailwind CSS y proxy de desarrollo apuntando a la API.
 
-Por ejemplo:
+10.2 Autenticación y Seguridad:
 
-Persist robots
+Implementar pantalla de Login (POST /api/v1/auth/login) guardando el token JWT en memoria (context provider).
 
-Persist machines
+Configurar interceptor de Axios para inyectar el header Authorization: Bearer <token> y redirección automática a /login ante un error 401.
 
-Persist assets
+10.3 Layout y Navegación Principal:
 
-No estoy seguro.
+Crear un AppLayout limpio con Sidebar y Header (usuario + logout) enfocado en modo oscuro por defecto para reducir fatiga visual.
 
-Yo haría una separación.
+10.4 Dashboard Mínimo y Vista Clave:
 
-Persistiría:
+Implementar tarjetas de resumen (KPIs) y una tabla funcional (preferiblemente la de Jobs o Robots) consumiendo los endpoints reales de la API v1.
 
-Jobs
-Logs
-Queue Items
-Métricas
+Añadir el cliente SSE (EventSource) conectado a /api/v1/notifications/stream para refrescar los datos automáticamente cuando ocurran eventos en el backend.
 
-Pero cosas como:
+Bloque 2: Pulido y Características Avanzadas (Para mañana o si avanzamos rápido hoy)
+10.5 Vistas Completas:
 
-Robots
-Machines
-Assets
-Processes
+Terminar las vistas de Queues y Alerts con su respectiva acción de Acknowledge (POST /api/v1/alerts/{id}/ack).
 
-yo probablemente las leería directamente desde UiPath.
+10.6 Experiencia de Usuario (UX) y Productividad:
 
-¿Por qué?
+Implementar búsqueda global rápida estilo Command Palette (Ctrl + K).
 
-Porque cambian poco.
+Añadir atajos de teclado básicos (R para refrescar, Esc para cerrar modales/drawers).
 
-No tiene sentido mantener sincronizados cientos de robots si puedo pedirlos cuando el usuario abre esa pantalla.
+Auto-refresh visual con indicador de estado de conexión y copiado rápido de IDs con un clic (One-Click Copy).
 
-Eso simplifica muchísimo el Worker.
+Cambios dinámicos en el título de la pestaña del navegador si entra una alerta crítica vía SSE (⚠️ (X) BotPulse - Alerta Crítica).
 
-2. El Worker quiere hacer demasiado
+📱 Directrices de Diseño, Apariencia y Responsive
+Dirección Visual (Theming):
 
-Veo cosas como
+Mantener un Modo Oscuro nativo por defecto (tonos grises pizarra profundos en fondos y tarjetas, con acentos en azul técnico o esmeralda).
 
-cada 5 minutos
+Usar Badges de tipo "Pill" con colores estrictos para estados (Verde para Success/Online, Azul/Morado con pulso para Running/Busy, Amarillo para Pending, Rojo para Failed/Offline).
 
-↓
+Enfoque Responsive Simple y Eficiente:
 
-robots
+Tablas a Cards móviles: En pantallas pequeñas, transformar las filas de las tablas densas en tarjetas apiladas (stacked cards) con la información crítica arriba y los detalles secundarios abajo para evitar el scroll horizontal.
 
-↓
+Navegación adaptable: Usar un menú colapsable o barra compacta en dispositivos móviles para aprovechar el espacio de monitoreo.
 
-machines
+Filtros rápidos: Ocultar los filtros avanzados de fecha/estado dentro de un cajón desplegable (drawer) flotante en pantallas pequeñas.
+✨ Features y Funcionalidades "Simples pero Potentes" (Que enamoran)
+1. Modo Compacto vs. Modo Cómodo (Density Toggle):
+Añade un simple botón en la cabecera para alternar entre una vista espaciosa y una vista ultra-compacta (densidad de datos). A los ingenieros les encanta poder ver el doble de filas en su monitor sin hacer scroll.
 
-↓
+2. Búsqueda Global Estilo "Command Palette" (Ctrl + K):
+Una barra de búsqueda centralizada que se abra con un atajo de teclado. Que el operador escriba "Finanzas" y le sugiera instantáneamente saltar al robot, proceso o job relacionado con esa palabra. Es un feature moderno que da una experiencia de software "premium" con muy poco esfuerzo visual.
 
-queues
+3. Auto-Refresh Visual con Cuenta Regresiva:
+Un pequeño indicador circular o texto sutil que muestre "Actualizando en 15s..." junto a un botón para pausar o forzar el refresco. Da mucha tranquilidad operativa saber que la pantalla está viva sin tener que recargar todo el navegador.
 
-↓
+4. Copiado Rápido con Feedback Visual (One-Click Copy):
+Los IDs de los jobs, los nombres de los errores o los hashes largos son molestos de copiar. Hacer que al hacer clic en cualquier ID o external ID se copie automáticamente al portapapeles y muestre un mini tooltip "¡Copiado!" es un detalle que ahorra micro-fricciones constantes.
 
-processes
-
-↓
-
-jobs
-
-↓
-
-logs
-
-Eso eventualmente va a crecer.
-
-Yo lo dividiría.
-
-Sync Jobs
-
-Sync Queues
-
-Sync Logs
-
-Sync Robots
-
-Sync Machines
-
-Cada uno independiente.
-
-Eso después es muchísimo más fácil de mantener.
-
-3. Te falta Eventing
-
-Aquí sí creo que falta una funcionalidad importante.
-
-Ejemplo.
-
-Si alguien desde UiPath inicia un Job...
-
-¿Esperas 5 minutos?
-
-No.
-
-Yo agregaría un requisito tipo
-
-Real-Time Updates
-
-aunque internamente al principio sea polling.
-
-Así después puedes cambiarlo por SignalR.
-
-4. No veo Versionado
-
-Esto es importante.
-
-¿Qué pasa si UiPath cambia la API?
-
-Yo agregaría algo como
-
-UiPath Provider V1
-
-UiPath Provider V2
-
-o al menos
-
-Api Version
-
-Porque tarde o temprano pasará.
-
-5. El Dashboard
-
-Aquí sí creo que falta visión de producto.
-
-Yo agregaría requisitos tipo
-
-Dashboard Widgets
-
-porque eventualmente el cliente va a decir
-
-"No quiero ver Robots."
-
-Quiero ver
-
-Jobs.
-
-Yo haría widgets configurables.
-
-6. Alertas
-
-Solo veo
-
-Log Warning
-
-Pero yo haría un módulo completo.
-
-Alert Engine
-
-Con reglas.
-
-Ejemplo.
-
-Si Robot Offline
-
-más de 10 minutos
-
-↓
-
-alerta
-Si Queue
-
-> 500
-
-↓
-
-alerta
-Si 20 Jobs Failed
-
-↓
-
-alerta
-
-Ese módulo luego vale muchísimo dinero.
-
-7. Docker
-
-Aquí sí cambiaría bastante.
-
-No pondría
-
-Docker
-
-↓
-
-API
-
-↓
-
-Worker
-
-↓
-
-Postgres
-
-Yo desde hoy pensaría
-
-Reverse Proxy
-
-↓
-
-API
-
-↓
-
-Worker
-
-↓
-
-Redis
-
-↓
-
-Postgres
-
-Aunque Redis no lo uses todavía.
-
-Porque más adelante seguro aparecerá:
-
-caché
-SignalR
-sesiones
-rate limiting
-8. Lo MÁS importante
-
-Aquí creo que está la mayor oportunidad.
-
-Yo no haría un Dashboard UiPath.
-
-Yo haría un
-
-RPA Operations Platform
-
-Suena parecido...
-
-pero cambia completamente el producto.
-
-Entonces cambiaría muchos nombres.
-
-No
-
-UiPath Provider
-
-Sino
-
-RPA Provider
-
-Y luego
-
-UiPath Provider
-
-Power Automate Provider
-
-Blue Prism Provider
-
-Automation Anywhere Provider
-
-Entonces el Core nunca habla de UiPath.
-
-Habla de
-
-IRpaProvider
-Yo agregaría estos documentos
-
-Además de Requirements.md.
-
-/docs
-
-Architecture.md
-
-CodingStandards.md
-
-Roadmap.md
-
-ADR
-
-Deployment.md
-
-Security.md
+5. Indicador de Alertas No Atendidas en la Pestaña del Navegador:
+Si entra una alerta crítica vía SSE mientras el operador tiene otra pestaña abierta (como el correo o documentación), cambiar dinámicamente el título de la pestaña del navegador a algo como ⚠️ (2) BotPulse - Alerta Crítica asegura que nunca se pierda un incidente.

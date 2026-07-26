@@ -28,6 +28,7 @@
     <ProjectReference Include="..\..\src\BotPulse.Core\BotPulse.Core.csproj" />
     <ProjectReference Include="..\..\src\BotPulse.Infrastructure\BotPulse.Infrastructure.csproj" />
     <ProjectReference Include="..\..\src\BotPulse.Api\BotPulse.Api.csproj" />
+    <ProjectReference Include="..\..\src\BotPulse.Providers.Demo\BotPulse.Providers.Demo.csproj" />
   </ItemGroup>
 
   <ItemGroup>

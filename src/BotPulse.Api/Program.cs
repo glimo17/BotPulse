@@ -13,6 +13,7 @@ using BotPulse.Infrastructure.Authentication;
 using BotPulse.Infrastructure.DependencyInjection;
 using BotPulse.Infrastructure.Logging;
 using BotPulse.Providers.UiPath.DependencyInjection;
+using BotPulse.Providers.Demo.DependencyInjection;
 using BotPulse.Api.Middleware;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
@@ -30,8 +31,16 @@ builder.Host.UseBotPulseSerilog();
 builder.Services.AddBotPulsePersistence(builder.Configuration);
 builder.Services.AddBotPulseInfrastructure(builder.Configuration);
 
-// UiPath Provider
-builder.Services.AddUiPathProvider(builder.Configuration);
+// RPA Provider — selection by configuration
+var rpaProvider = builder.Configuration["RpaProvider"] ?? "Demo";
+if (rpaProvider.Equals("UiPath", StringComparison.OrdinalIgnoreCase))
+{
+    builder.Services.AddUiPathProvider(builder.Configuration);
+}
+else
+{
+    builder.Services.AddDemoProvider();
+}
 
 // Application Services
 builder.Services.AddScoped<RobotQueryService>();
@@ -135,12 +144,20 @@ builder.Services.AddSwaggerGen(opt =>
 });
 
 // Health Checks
-builder.Services.AddHealthChecks()
+var healthChecksBuilder = builder.Services.AddHealthChecks()
     .AddNpgSql(
         builder.Configuration.GetConnectionString("PostgreSQL") ?? string.Empty,
         name: "database",
-        tags: ["ready"])
-    .AddUiPathHealthCheck("rpa-provider", "ready");
+        tags: ["ready"]);
+
+if (rpaProvider.Equals("UiPath", StringComparison.OrdinalIgnoreCase))
+{
+    healthChecksBuilder.AddUiPathHealthCheck("rpa-provider", "ready");
+}
+else
+{
+    healthChecksBuilder.AddDemoHealthCheck("rpa-provider", "ready");
+}
 
 // CORS
 var corsOrigins = builder.Configuration["Cors:AllowedOrigins"]?.Split(',') ?? [];

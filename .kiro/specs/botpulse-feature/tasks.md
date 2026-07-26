@@ -257,7 +257,7 @@ Docker (Fase 11) queda al final e incluye tanto el mock server como el frontend 
 - [ ] 3.6 Configuración de Serilog
   - [~] 3.6.1 Implementar `SerilogConfig.UseBotPulseSerilog(hostBuilder)` con sinks Console y File (rolling diario, retención 30 días)
   - [~] 3.6.2 Enriquecer con `MachineName`, `EnvironmentName`, `Application=BotPulse` y propiedad `CorrelationId`
-  - [~] 3.6.3 Configurar `LogEventLevel` por namespace desde `appsettings.json`
+  - [~] 3.6.3 Configurar `LogEventLevel` por namespace desde `appsettings.json`ño
   - _Requirements: 41, NFR (Observability)_
 
 - [ ] 3.7 Middlewares de la API
@@ -290,7 +290,7 @@ Fase nueva. Un proyecto ASP.NET Core Web API separado (`BotPulse.MockUiPath`) qu
   - [~] 4.1.2 Agregar el proyecto al `.sln` con `dotnet sln add mocks/BotPulse.MockUiPath/BotPulse.MockUiPath.csproj`
   - [~] 4.1.3 Configurar puerto `5100` en `launchSettings.json` y `applicationUrl`
   - _Requirements: 7, NFR (Testing Strategy, Deployment Flexibility)_
-
+ñ
 - [ ] 4.2 Emulación de OAuth2 (endpoint `/identity_/connect/token`)
   - [~] 4.2.1 Implementar `POST /identity_/connect/token` que acepte `client_id`/`client_secret` (form-urlencoded o JSON) y devuelva `{ access_token, expires_in: 3600, token_type: "Bearer" }`
   - [~] 4.2.2 Aceptar cualquier `ClientId`/`ClientSecret` configurable en `appsettings.json` (para poder simular credenciales de testing)
@@ -703,89 +703,246 @@ Fase nueva. Un proyecto ASP.NET Core Web API separado (`BotPulse.MockUiPath`) qu
 
 ## Fase 10: Frontend MVP (React + TypeScript)
 
-Fase nueva. Frontend Single-Page Application en React + TypeScript que consume la API v1 real. Objetivo: dar visibilidad temprana del progreso y validar UX antes de completar features avanzadas del backend.
+**Estilo visual:** Grafana-inspired dark mode | **Dispositivos:** Desktop + Tablet | **Idioma:** Bilingüe ES/EN
+
+---
 
 - [ ] 10.1 Setup del proyecto frontend
-  - [~] 10.1.1 Crear carpeta `ui/` en la raíz del repo con Vite + React + TypeScript: `npm create vite@latest ui -- --template react-ts`
-  - [~] 10.1.2 Instalar dependencias base: `react-router-dom`, `axios`, `@tanstack/react-query`, `tailwindcss`, `@headlessui/react`
-  - [~] 10.1.3 Configurar Vite con proxy para `/api` → `http://localhost:5000` (dev), en `vite.config.ts`
-  - [~] 10.1.4 Configurar ESLint + Prettier con reglas para TypeScript estricto (`strict: true` en `tsconfig.json`)
+
+  - [ ] 10.1.1 Crear carpeta `ui/` con Vite + React + TypeScript strict:
+    `npm create vite@latest ui -- --template react-ts`
+  - [ ] 10.1.2 Instalar dependencias core:
+    `npm install @tanstack/react-query @tanstack/react-table axios react-router-dom i18next react-i18next cmdk recharts @dnd-kit/core @dnd-kit/sortable class-variance-authority clsx tailwind-merge lucide-react`
+  - [ ] 10.1.3 Instalar y configurar Tailwind CSS con paleta custom Grafana dark:
+    ```js
+    // tailwind.config.ts
+    colors: {
+      gray: { 950: '#111217', 900: '#181b1f', 800: '#22262b', 700: '#2c3235' },
+      accent: { DEFAULT: '#3d71e8', hover: '#5285f0' },
+      success: '#73bf69', warning: '#f5a623', error: '#f2495c',
+      running: '#5794f2', idle: '#8ab8ff'
+    }
+    ```
+  - [ ] 10.1.4 Instalar shadcn/ui y configurar tema dark por defecto:
+    `npx shadcn-ui@latest init` — seleccionar dark theme, slate base
+  - [ ] 10.1.5 Configurar proxy Vite (`vite.config.ts`): `/api` → `http://localhost:5001`
+  - [ ] 10.1.6 Configurar i18next con namespaces: `common`, `jobs`, `robots`, `queues`, `alerts`
+    Archivos: `ui/src/i18n/es.json` y `ui/src/i18n/en.json` con todas las traducciones
+  - [ ] 10.1.7 Configurar ESLint + Prettier con TypeScript strict
+  - [ ] 10.1.8 Crear `ui/src/lib/api.ts`: instancia Axios con baseURL `/api/v1`,
+    interceptor request (inject `Authorization: Bearer <token>`),
+    interceptor response (redirect a `/login` en 401)
   - _Requirements: NFR (Deployment Flexibility)_
 
-- [ ] 10.2 Autenticación (Login flow)
-  - [~] 10.2.1 Implementar página `Login` con formulario controlado (`username` + `password`)
-  - [~] 10.2.2 Cliente HTTP con axios: `POST /api/v1/auth/login`, tipado con TypeScript
-  - [~] 10.2.3 Guardar JWT en memoria (context provider) + refresh; no usar `localStorage` por seguridad
-  - [~] 10.2.4 Interceptor axios que incluya `Authorization: Bearer <token>` en todas las requests
-  - [~] 10.2.5 Componente `ProtectedRoute` que redirige a `/login` si no hay token válido
+- [ ] 10.2 Autenticación
+
+  - [ ] 10.2.1 Crear `AuthContext` con `useAuth()` hook:
+    `{ user, token, login(username, password), logout(), isAuthenticated }`
+    Token guardado en memoria (no localStorage), con sessionStorage como fallback opcional
+  - [ ] 10.2.2 Página `/login` con:
+    - Logo BotPulse + tagline
+    - Formulario controlado username/password con validación
+    - Selector de idioma (ES/EN) en la esquina superior derecha
+    - Estados: idle, loading (spinner en botón), error (mensaje inline)
+    - Dark theme consistente con el resto de la app
+  - [ ] 10.2.3 Componente `ProtectedRoute` — redirige a `/login` si no autenticado
+  - [ ] 10.2.4 Al hacer login exitoso, redirigir a `/dashboard` y guardar user info del `GET /auth/me`
   - _Requirements: 3, 4_
 
 - [ ] 10.3 Layout base y navegación
-  - [~] 10.3.1 Componente `AppLayout` con sidebar (Dashboard, Robots, Jobs, Queues, Alerts) y header (usuario + logout)
-  - [~] 10.3.2 Setup de React Router con rutas por sección
-  - [~] 10.3.3 Componente `<NavItem>` con estado activo derivado de `useLocation`
+
+  - [ ] 10.3.1 `AppLayout` con:
+    - **Sidebar** izquierda colapsable (expandida 240px / colapsada 56px):
+      - Logo BotPulse (expandido: texto + ícono, colapsado: solo ícono)
+      - Nav items: Dashboard, Robots, Machines, Processes, Jobs, Queues, Logs, Metrics, Alerts
+      - Cada ítem: ícono Lucide + label + active state (borde izquierdo azul acento)
+      - Botón colapsar sidebar al fondo
+    - **Header** top:
+      - Breadcrumb dinámico según ruta
+      - Buscador rápido con atajo `Ctrl+K` que abre Command Palette
+      - Indicador de conexión SSE (punto verde/rojo pulsante)
+      - Density toggle button (compact / comfortable)
+      - Selector de idioma ES/EN
+      - Avatar + nombre usuario + menú desplegable (Profile, Logout)
+    - **Content area** con padding consistente y scroll independiente
+  - [ ] 10.3.2 React Router v6 con rutas: `/login`, `/dashboard`, `/robots`, `/machines`,
+    `/processes`, `/jobs`, `/queues`, `/logs`, `/metrics`, `/alerts`
+  - [ ] 10.3.3 `DensityContext` — toggle entre `compact` (filas 36px, padding p-1) y
+    `comfortable` (filas 52px, padding p-3). Persiste en localStorage.
   - _Requirements: 25, 27_
 
-- [ ] 10.4 Dashboard con widgets
-  - [~] 10.4.1 Widget `KPISummary` (total robots, jobs today, success rate) consumiendo `/api/v1/metrics` y `/api/v1/robots`
-  - [~] 10.4.2 Widget `JobQueue` con los últimos 20 jobs (`/api/v1/jobs?top=20`)
-  - [~] 10.4.3 Widget `RobotMonitor` con estado de robots on-demand
-  - [~] 10.4.4 Widget `Alerts` con alertas activas (`/api/v1/alerts?acknowledged=false`)
-  - [~] 10.4.5 Grid layout responsive con Tailwind (grid-cols variable según viewport)
-  - _Requirements: 24, 25_
+- [ ] 10.4 Command Palette (Ctrl+K)
 
-- [ ] 10.5 Vista Robots
-  - [~] 10.5.1 Tabla con `robot name`, `status` (badge coloreado según Online/Offline/Idle/Busy), `machine`, `lastHeartbeat`
-  - [~] 10.5.2 Filtros por status y búsqueda por nombre (debounced input)
-  - [~] 10.5.3 Panel de detalle (drawer/modal) al hacer click en una fila
+  - [ ] 10.4.1 Implementar con librería `cmdk`:
+    - Abre con `Ctrl+K` o `Cmd+K`
+    - Búsqueda sobre: robots (por nombre/status), jobs (por externalId/status),
+      páginas de navegación, acciones rápidas
+    - Grupos: "Navegar a", "Robots", "Jobs recientes", "Acciones"
+    - Keyboard navigation: flechas, Enter para ejecutar, Esc para cerrar
+    - Loading state mientras consulta la API
+  - [ ] 10.4.2 Resultados de robots y jobs se obtienen de TanStack Query cache primero,
+    luego API si no hay cache
+  - _Requirements: 25, NFR_
+
+- [ ] 10.5 Dashboard
+
+  - [ ] 10.5.1 **KPI Cards** (4 cards en grid 2x2 o 4x1):
+    - Total Robots / Online (verde) / Offline (rojo)
+    - Jobs Hoy: total / success rate % / failed count
+    - Queue Backlog: total items pendientes
+    - Alertas Activas: críticas / warnings
+    - Cada card con: valor principal grande, subtítulo, trend indicator, drill-down click
+  - [ ] 10.5.2 **Últimos Jobs** — tabla compacta (últimas 20 ejecuciones):
+    Robot | Process | Status badge | Start time | Duration
+  - [ ] 10.5.3 **Estado de Robots** — mini-grid con tarjetas por robot:
+    Nombre, status badge animado, machine, last heartbeat
+  - [ ] 10.5.4 **Auto-refresh countdown** visible en el header del dashboard:
+    "Actualiza en 15s ↺" con botón para forzar refresh y botón para pausar
+  - [ ] 10.5.5 **SSE Integration**: `useNotifications()` hook que conecta a
+    `/api/v1/notifications/stream`, escucha eventos `job.state.changed` y `alert.raised`,
+    e invalida las queries de TanStack Query afectadas
+  - [ ] 10.5.6 Cambio dinámico del title de la pestaña cuando llega alerta crítica:
+    `⚠️ (N) BotPulse — Alerta Crítica` donde N es el contador de críticas sin atender
+  - _Requirements: 17, 24, 33, 34_
+
+- [ ] 10.6 Vista Robots
+
+  - [ ] 10.6.1 Tabla con TanStack Table:
+    Columnas: Name | Status (badge) | Machine | License Type | Last Heartbeat | Actions
+  - [ ] 10.6.2 Status badges animados: verde pulsante para Online, rojo para Offline,
+    azul pulsante para Busy, amarillo para Idle
+  - [ ] 10.6.3 Filtros inline: search por nombre, filter por status (chips seleccionables)
+  - [ ] 10.6.4 Botón "Force Refresh" + indicador de última actualización
+  - [ ] 10.6.5 Drawer lateral de detalle (no modal) al hacer click en una fila:
+    Info completa del robot + jobs recientes de ese robot
+  - [ ] 10.6.6 One-Click Copy en ExternalId: click → copia al portapapeles → tooltip "¡Copiado!"
   - _Requirements: 9, 10_
 
-- [ ] 10.6 Vista Jobs
-  - [~] 10.6.1 Tabla con `job id`, `robot`, `process`, `start time`, `duration`, `status`
-  - [~] 10.6.2 Filtros por status, date range, robot, process
-  - [~] 10.6.3 Paginación (50 por página, sync con query params de URL)
-  - [~] 10.6.4 Acciones contextuales: Start / Stop / Cancel / Retry (visibles según estado y rol del usuario)
-  - [~] 10.6.5 Panel de detalle con logs de ejecución (`/api/v1/logs?jobId=...`)
+- [ ] 10.7 Vista Jobs
+
+  - [ ] 10.7.1 Tabla densa con TanStack Table:
+    ExternalId | Robot | Process | Machine | Start | Duration | Status | Actions
+  - [ ] 10.7.2 Status badges: Success (verde), Failed (rojo), Running (azul pulsante),
+    Pending (amarillo), Stopped (gris), Cancelled (gris oscuro)
+  - [ ] 10.7.3 **Filtros avanzados** en sidebar/drawer colapsable:
+    Date range picker, Robot selector, Process selector, Status multi-select, Provider
+  - [ ] 10.7.4 Paginación server-side con TanStack Query (page, pageSize configurable)
+  - [ ] 10.7.5 **Acciones contextuales** (botones visibles según estado + rol del usuario):
+    - Running: `Stop` (rojo)
+    - Pending: `Cancel` (gris)
+    - Failed/Stopped: `Retry` (azul)
+    - Todos: `Copy ID`
+  - [ ] 10.7.6 Drawer de detalle con logs de ejecución paginados
+    (`GET /api/v1/logs?jobId=...`) con color por severity
+  - [ ] 10.7.7 One-Click Copy en ExternalId
   - _Requirements: 17, 18, 22_
 
-- [ ] 10.7 Vista Queues
-  - [~] 10.7.1 Cards con `queue name`, `pending`, `processed`, `failed` desde `QueueAnalyticsService`
-  - [~] 10.7.2 Progress bar por queue mostrando ratio processed/total
-  - [~] 10.7.3 Panel de detalle con queue items (`/api/v1/queues/{name}/items`)
+- [ ] 10.8 Vista Queues
+
+  - [ ] 10.8.1 Cards por queue (grid responsive 1-2-3 columnas):
+    Queue name | Progress bar (processed/total) | Pending (badge rojo si > 500) |
+    Failed | Processing rate
+  - [ ] 10.8.2 Click en card → Drawer con analytics detallados de la queue
+  - [ ] 10.8.3 Indicador visual: barra de progreso con colores (verde < 80% backlog,
+    amarillo 80-95%, rojo > 95%)
   - _Requirements: 19, 20_
 
-- [ ] 10.8 Vista Alerts
-  - [~] 10.8.1 Lista de alertas con badge de `severity` (Info/Warning/Critical) coloreado
-  - [~] 10.8.2 Filtros por severity, fecha, tipo de regla
-  - [~] 10.8.3 Acción `Acknowledge` (`POST /api/v1/alerts/{id}/ack`) con optimistic update en TanStack Query
+- [ ] 10.9 Vista Machines
+
+  - [ ] 10.9.1 Grid de tarjetas de máquinas con status badge, connected robots count,
+    last heartbeat
+  - [ ] 10.9.2 Filtro por status Online/Offline
+  - [ ] 10.9.3 Drawer de detalle con robots conectados
+  - _Requirements: 11, 12_
+
+- [ ] 10.10 Vista Processes
+
+  - [ ] 10.10.1 Tabla de procesos: Name | Version | Status | Compatible Robots | Actions
+  - [ ] 10.10.2 Botón "Start Job" desde la fila del proceso → abre modal para seleccionar
+    robot y parámetros (si los hay)
+  - [ ] 10.10.3 Modal de Start Job con validación, selección de robot y submit a
+    `POST /api/v1/jobs/start`
+  - _Requirements: 13, 14, 18_
+
+- [ ] 10.11 Vista Logs
+
+  - [ ] 10.11.1 Tabla de logs con colores por severity:
+    Debug (gris), Info (azul), Warn (amarillo), Error (rojo), Fatal (rojo intenso)
+  - [ ] 10.11.2 Filtros: Severity (chips), Job ID, Date range, Keyword search
+  - [ ] 10.11.3 Vista compacta con texto de log monoespacio (font-mono)
+  - [ ] 10.11.4 Copy de línea completa de log con un clic
+  - _Requirements: 21, 22_
+
+- [ ] 10.12 Vista Metrics
+
+  - [ ] 10.12.1 Gráfica de línea (Recharts LineChart) para jobs.success_rate con
+    rango de tiempo seleccionable (1h, 6h, 24h, 7d)
+  - [ ] 10.12.2 Gráfica de barras para jobs.total / jobs.failed / jobs.success por hora
+  - [ ] 10.12.3 Número grande con KPI: success rate actual, avg duration, total jobs
+  - _Requirements: 23, 24_
+
+- [ ] 10.13 Vista Alerts
+
+  - [ ] 10.13.1 Lista de alertas con severity badge (🔴 Critical, 🟡 Warning, 🔵 Info)
+  - [ ] 10.13.2 Filtros: Severity, Date range, Rule type, Status (acknowledged/active)
+  - [ ] 10.13.3 Acción **Acknowledge** (solo Operator/Admin): botón en cada fila →
+    `POST /api/v1/alerts/{id}/ack` → update optimista en UI
+  - [ ] 10.13.4 Contador de alertas activas en el nav badge y en el tab title
+  - [ ] 10.13.5 Toast notification cuando llega alerta crítica vía SSE
   - _Requirements: 28, 31_
 
-- [ ] 10.9 Real-time updates
-  - [~] 10.9.1 Cliente SSE (`EventSource`) conectado a `/api/v1/notifications/stream` con auth token
-  - [~] 10.9.2 Actualizar el dashboard cuando llegan eventos `JobStateChanged`, `AlertRaised` (invalidar queries de TanStack Query)
-  - [~] 10.9.3 Reconexión automática con backoff exponencial (1, 2, 4, 8, hasta 30s), respetando el header `retry:` del server
-  - _Requirements: 33, 34_
+- [ ] 10.14 Features premium (UX)
 
-- [ ] 10.10 Dashboard configurable (Widgets management)
-  - [~] 10.10.1 UI para habilitar/deshabilitar widgets desde un panel de configuración
-  - [~] 10.10.2 Drag-and-drop para reordenar widgets (`@dnd-kit/core`)
-  - [~] 10.10.3 Persistir preferencias vía `PUT /api/v1/dashboard/layout` (con debounce)
-  - _Requirements: 25, 26_
+  - [ ] 10.14.1 **One-Click Copy** — componente `<CopyableId id={...} />` reutilizable:
+    muestra ID truncado + ícono copy, al click copia completo y muestra tooltip "¡Copiado! / Copied!"
+  - [ ] 10.14.2 **Auto-refresh con countdown** — hook `useAutoRefresh(intervalSeconds)`:
+    countdown visual, botón pause ⏸, botón force refresh ↺
+  - [ ] 10.14.3 **SSE hook** `useNotifications()`: EventSource con reconexión exponencial
+    (1s → 2s → 4s → 8s → 30s max), publicar eventos a TanStack Query invalidation
+  - [ ] 10.14.4 **Tab title badge** `useTabTitle()`: escucha alertas críticas SSE,
+    actualiza `document.title` con `⚠️ (N) BotPulse — Alerta Crítica`
+  - [ ] 10.14.5 **Bilingüe** — todos los textos de UI con `useTranslation()`,
+    archivos `es.json` y `en.json` completos, selector de idioma persistente en localStorage
+  - _Requirements: 33, 34, 25_
 
-- [ ] 10.11 Testing frontend
-  - [~] 10.11.1 Setup Vitest + React Testing Library en `ui/`
-  - [~] 10.11.2 Tests unitarios para componentes clave (`ProtectedRoute`, `KPISummary`, `Login`)
-  - [~] 10.11.3 Tests de integración con Mock Service Worker (MSW) simulando la API v1
-  - _Requirements: NFR (Testing Strategy)_
+- [ ] 10.15 Build y configuración de producción
 
-- [ ] 10.12 Build para producción
-  - [~] 10.12.1 Configurar `npm run build` con tree-shaking, code splitting por rutas y sourcemaps
-  - [~] 10.12.2 Documentar en `docs/Deployment.md` cómo servir los archivos estáticos generados en `ui/dist` desde nginx (integración en Fase 11)
+  - [ ] 10.15.1 `npm run build` optimizado con code splitting por ruta
+  - [ ] 10.15.2 Crear `ui/nginx.conf` para servir SPA con fallback a `index.html`
+  - [ ] 10.15.3 Crear `deploy/Dockerfile.Ui` multi-stage:
+    ```
+    FROM node:20-alpine AS build
+    WORKDIR /app
+    COPY ui/ .
+    RUN npm ci && npm run build
+
+    FROM nginx:1.27-alpine
+    COPY --from=build /app/dist /usr/share/nginx/html
+    COPY ui/nginx.conf /etc/nginx/conf.d/default.conf
+    EXPOSE 80
+    ```
   - _Requirements: NFR (Deployment Flexibility)_
 
-- [~] 10.13 Checkpoint - Frontend MVP funcional
-  - Ensure all tests pass, ask the user if questions arise.
-  - Verificar manualmente que login, dashboard, y al menos una vista (Robots, Jobs, Queues o Alerts) funcionan contra la API real.
+- [ ] 10.16 Testing frontend
+
+  - [ ] 10.16.1 Setup Vitest + React Testing Library
+  - [ ] 10.16.2 Tests unitarios: `<CopyableId />`, `useAuth()`, `ProtectedRoute`,
+    `useAutoRefresh()`, status badge colors
+  - [ ] 10.16.3 Tests de integración con MSW (Mock Service Worker):
+    login flow, jobs list con paginación, alert acknowledge
+  - _Requirements: NFR (Testing Strategy)_
+
+- [ ] 10.17 Checkpoint - Frontend MVP funcional
+
+  Ensure all tests pass, ask the user if questions arise.
+  Verificar manualmente:
+  - [ ] Login funciona contra la API real
+  - [ ] Dashboard muestra KPIs reales de UiPath
+  - [ ] Jobs se listan y se pueden hacer acciones (si hay jobs en el tenant)
+  - [ ] SSE recibe eventos y actualiza la UI sin recargar
+  - [ ] Density toggle funciona en tablas
+  - [ ] Ctrl+K abre Command Palette
+  - [ ] Idioma cambia entre ES/EN
 
 ---
 
