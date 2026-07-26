@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { RefreshCw, X, ChevronRight, Square, XCircle, RotateCcw, Play } from 'lucide-react'
+import { RefreshCw, X, ChevronRight, Square, XCircle, RotateCcw } from 'lucide-react'
 import { StatusBadge } from '@/components/StatusBadge'
 import { CopyableId } from '@/components/CopyableId'
 import { useDensity } from '@/contexts/DensityContext'

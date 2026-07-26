@@ -1,4 +1,3 @@
-import React from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
 import { Bot, Briefcase, ListOrdered, Bell, RefreshCw, Pause, Play } from 'lucide-react'
