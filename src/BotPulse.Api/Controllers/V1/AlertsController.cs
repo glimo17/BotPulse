@@ -1,3 +1,4 @@
+using BotPulse.Core.Abstractions.Persistence;
 using BotPulse.Core.Application.Alerts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,13 +12,36 @@ namespace BotPulse.Api.Controllers.V1;
 [Authorize]
 public sealed class AlertsController : ControllerBase
 {
+    private readonly IAlertRepository _alertRepo;
     private readonly AlertAcknowledgmentService _ackService;
     private readonly AlertRuleService _ruleService;
 
-    public AlertsController(AlertAcknowledgmentService ackService, AlertRuleService ruleService)
+    public AlertsController(IAlertRepository alertRepo, AlertAcknowledgmentService ackService, AlertRuleService ruleService)
     {
+        _alertRepo = alertRepo;
         _ackService = ackService;
         _ruleService = ruleService;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAlerts(CancellationToken ct)
+    {
+        var alerts = await _alertRepo.FindAllAsync(_ => true, ct);
+        var result = alerts
+            .OrderByDescending(a => a.RaisedAtUtc)
+            .Take(100)
+            .Select(a => new
+            {
+                a.Id,
+                a.Severity,
+                a.Acknowledged,
+                a.RaisedAtUtc,
+                a.AcknowledgedAtUtc,
+                a.ConditionDescription,
+                a.AffectedResourceType,
+                a.AffectedResourceId,
+            });
+        return Ok(result);
     }
 
     [HttpPost("{alertId}/ack")]

@@ -1,11 +1,19 @@
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { BarChart, Bar, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts'
+import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, Legend, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts'
+import { calculateExceptionBreakdown } from '@/lib/kpiCalculations'
+import type { Job } from '@/lib/kpiCalculations'
 import api from '@/lib/api'
 
 interface MetricRollup { bucketStartUtc: string; metricName: string; avgValue: number; sumValue: number; countValue: number }
 
 const CHART_TOOLTIP_STYLE = { backgroundColor: '#181b1f', border: '1px solid #2c3235', borderRadius: '6px', fontSize: '11px', color: '#d4dce6' }
+
+const EXCEPTION_COLORS: Record<string, string> = {
+  BusinessException: '#f5a623',
+  SystemException: '#f2495c',
+  Otros: '#6e7a86',
+}
 
 export default function Metrics() {
   const { t } = useTranslation()
@@ -28,6 +36,12 @@ export default function Metrics() {
     staleTime: 300_000,
   })
 
+  const { data: jobsMetrics = [] } = useQuery<Job[]>({
+    queryKey: ['metrics-jobs-breakdown'],
+    queryFn: () => api.get('/jobs?pageSize=50').then(r => r.data?.items ?? []),
+    staleTime: 300_000,
+  })
+
   const fmtBucket = (iso: string) => new Date(iso).toLocaleTimeString('es', { hour: '2-digit', minute: '2-digit' })
 
   const rateData  = successRate.map(d => ({ time: fmtBucket(d.bucketStartUtc), value: Math.round(d.avgValue) }))
@@ -39,6 +53,16 @@ export default function Metrics() {
 
   const latestRate = rateData.length ? rateData[rateData.length - 1].value : null
   const totalToday = totalData.reduce((a, b) => a + b.total, 0)
+
+  // Exception Breakdown
+  const breakdown = calculateExceptionBreakdown(jobsMetrics)
+  const donutData = [
+    { name: 'BusinessException', value: breakdown.businessExceptions, color: EXCEPTION_COLORS.BusinessException },
+    { name: 'SystemException', value: breakdown.systemExceptions, color: EXCEPTION_COLORS.SystemException },
+    ...(breakdown.other > 0
+      ? [{ name: 'Otros', value: breakdown.other, color: EXCEPTION_COLORS.Otros }]
+      : []),
+  ].filter(d => d.value > 0)
 
   // Suppress unused variable warning for t
   void t
@@ -62,9 +86,9 @@ export default function Metrics() {
           <p className="text-xs text-gray-500 mt-1">Total acumulado</p>
         </div>
         <div className="card p-4 col-span-2 md:col-span-1">
-          <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Datos disponibles</p>
-          <p className="text-3xl font-bold text-gray-100">{rateData.length}</p>
-          <p className="text-xs text-gray-500 mt-1">Buckets horarios</p>
+          <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">Excepciones</p>
+          <p className="text-3xl font-bold text-gray-100">{breakdown.total}</p>
+          <p className="text-xs text-gray-500 mt-1">B:{breakdown.businessExceptions} / S:{breakdown.systemExceptions}</p>
         </div>
       </div>
 
@@ -99,7 +123,45 @@ export default function Metrics() {
         </div>
       )}
 
-      {rateData.length === 0 && totalData.length === 0 && (
+      {/* Exception Breakdown Donut */}
+      {breakdown.total > 0 ? (
+        <div className="card p-4">
+          <h2 className="text-sm font-medium text-gray-200 mb-4">Desglose de Excepciones</h2>
+          <ResponsiveContainer width="100%" height={220}>
+            <PieChart>
+              <Pie
+                data={donutData}
+                cx="50%"
+                cy="50%"
+                innerRadius={50}
+                outerRadius={80}
+                paddingAngle={3}
+                dataKey="value"
+              >
+                {donutData.map((entry, i) => (
+                  <Cell key={i} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip contentStyle={CHART_TOOLTIP_STYLE} />
+              <Legend
+                formatter={(value: string) => {
+                  const item = donutData.find(d => d.name === value)
+                  const pct = item && breakdown.total > 0
+                    ? Math.round((item.value / breakdown.total) * 100)
+                    : 0
+                  return <span style={{ color: '#d4dce6', fontSize: '11px' }}>{value} ({item?.value ?? 0} — {pct}%)</span>
+                }}
+              />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      ) : jobsMetrics.length > 0 ? (
+        <div className="card p-6 text-center text-gray-500 text-sm">
+          Sin excepciones en el período
+        </div>
+      ) : null}
+
+      {rateData.length === 0 && totalData.length === 0 && jobsMetrics.length === 0 && (
         <div className="card p-8 text-center text-gray-500 text-sm">
           Sin datos de métricas. Inicia el Worker para comenzar a recolectar datos.
         </div>

@@ -1,13 +1,26 @@
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { Bot, Briefcase, ListOrdered, Bell, RefreshCw, Pause, Play } from 'lucide-react'
+import { Activity, Briefcase, Server, Bell, Clock, Bot, ListOrdered, Timer, RefreshCw, Pause, Play } from 'lucide-react'
 import { StatusBadge } from '@/components/StatusBadge'
 import { CopyableId } from '@/components/CopyableId'
+import { KpiCard } from '@/components/KpiCard'
 import { useAutoRefresh } from '@/hooks/useAutoRefresh'
+import {
+  calculateSuccessRate,
+  calculateFleetAvailability,
+  calculateRobotUtilization,
+  calculateQueueBacklog,
+  calculateMtta,
+  calculateAvgCycleTime,
+  calculateExceptionBreakdown,
+  formatMtta,
+  formatAvgCycleTime,
+  getPercentageColor,
+} from '@/lib/kpiCalculations'
+import type { Robot, Job, Queue, Alert } from '@/lib/kpiCalculations'
 import api from '@/lib/api'
 
-interface Robot { externalId: string; name: string; status: string; machineExternalId?: string; lastHeartbeatUtc: string }
-interface Job { externalJobId: string; processExternalId: string; robotExternalId: string; status: { value: string }; startTimeUtc: string; duration?: string }
+interface JobsPage { items: Job[]; total: number }
 
 function formatDuration(iso?: string): string {
   if (!iso) return '—'
@@ -30,26 +43,70 @@ function timeAgo(iso: string): string {
 export default function Dashboard() {
   const { t } = useTranslation()
 
+  // 4 parallel queries
   const { data: robots, refetch: refetchRobots } = useQuery<Robot[]>({
     queryKey: ['robots'],
     queryFn: () => api.get('/robots').then(r => r.data),
     staleTime: 60_000,
   })
 
-  const { data: jobsData, refetch: refetchJobs } = useQuery<{ items: Job[]; total: number }>({
+  const { data: jobsData, refetch: refetchJobs } = useQuery<JobsPage>({
     queryKey: ['jobs-dashboard'],
-    queryFn: () => api.get('/jobs?pageSize=20&sortDesc=true').then(r => r.data),
+    queryFn: () => api.get('/jobs?pageSize=50&sortDesc=true').then(r => r.data),
     staleTime: 30_000,
   })
 
-  const refetchAll = () => { void refetchRobots(); void refetchJobs() }
+  const { data: queues, refetch: refetchQueues } = useQuery<Queue[]>({
+    queryKey: ['queues-dashboard'],
+    queryFn: () => api.get('/queues').then(r => r.data),
+    staleTime: 60_000,
+  })
+
+  const { data: alerts, refetch: refetchAlerts } = useQuery<Alert[]>({
+    queryKey: ['alerts-dashboard'],
+    queryFn: () => api.get('/alerts').then(r => r.data),
+    staleTime: 30_000,
+  })
+
+  const refetchAll = () => {
+    void refetchRobots()
+    void refetchJobs()
+    void refetchQueues()
+    void refetchAlerts()
+  }
   const { paused, countdown, pause, resume, forceRefresh } = useAutoRefresh(30, refetchAll)
 
-  const onlineRobots = robots?.filter(r => r.status === 'Online' || r.status === 'Idle' || r.status === 'Busy').length ?? 0
-  const offlineRobots = robots?.filter(r => r.status === 'Offline').length ?? 0
+  // Derived data
   const jobs = jobsData?.items ?? []
-  const successJobs = jobs.filter(j => j.status?.value === 'Success').length
-  const failedJobs  = jobs.filter(j => j.status?.value === 'Failed').length
+  const robotList = robots ?? []
+  const queueList = queues ?? []
+  const alertList = alerts ?? []
+
+  // KPI calculations
+  const successRate = calculateSuccessRate(jobs)
+  const successRateColor = getPercentageColor(successRate)
+
+  const successCount = jobs.filter(j => j.status?.value === 'Success').length
+  const failedCount = jobs.filter(j => j.status?.value === 'Failed').length
+  const stoppedCount = jobs.filter(j => ['Stopped', 'Cancelled'].includes(j.status?.value)).length
+
+  const avgCycleTime = calculateAvgCycleTime(jobs)
+  const avgCycleTimeLabel = formatAvgCycleTime(avgCycleTime)
+
+  const utilization = calculateRobotUtilization(robotList)
+
+  const fleetAvail = calculateFleetAvailability(robotList)
+  const fleetAvailColor = getPercentageColor(fleetAvail)
+
+  const queueBacklog = calculateQueueBacklog(queueList)
+
+  const excBreakdown = calculateExceptionBreakdown(jobs)
+
+  const mttaMinutes = calculateMtta(alertList)
+  const mttaLabel = formatMtta(mttaMinutes)
+
+  const criticalAlerts = alertList.filter(a => a.severity === 'Critical' && !a.acknowledged).length
+  const unacknowledgedAll = alertList.filter(a => !a.acknowledged).length
 
   return (
     <div className="space-y-6">
@@ -59,7 +116,6 @@ export default function Dashboard() {
           <h1 className="text-xl font-bold text-gray-100">{t('nav.dashboard')}</h1>
           <p className="text-sm text-gray-500 mt-0.5">Plataforma de operaciones RPA</p>
         </div>
-        {/* Auto-refresh controls */}
         <div className="flex items-center gap-2 text-xs text-gray-500">
           <span>{paused ? 'Pausado' : t('common.refreshIn', { seconds: countdown })}</span>
           <button onClick={paused ? resume : pause} className="p-1 hover:text-gray-300 transition-colors">
@@ -71,57 +127,80 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* KPI Cards */}
+      {/* KPI Row 1 */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="card p-5">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center">
-              <Bot size={16} className="text-accent" />
-            </div>
-            <span className="text-xs text-gray-400 uppercase tracking-wide">Robots</span>
-          </div>
-          <p className="text-2xl font-bold text-gray-100">{robots?.length ?? '—'}</p>
-          <div className="flex gap-3 mt-2 text-xs">
-            <span className="text-success">{onlineRobots} online</span>
-            <span className="text-error">{offlineRobots} offline</span>
-          </div>
-        </div>
+        <KpiCard
+          label="Tasa de Éxito"
+          value={successRate !== null ? `${successRate}%` : null}
+          subtitle={`${successCount} exitosos de ${jobs.length}`}
+          icon={Activity}
+          iconColor="text-success"
+          valueColor={successRateColor}
+          href="/jobs"
+        />
+        <KpiCard
+          label="Jobs Ejecutados"
+          value={jobs.length || null}
+          subtitle={`${successCount} ok · ${failedCount} fail · ${stoppedCount} stop`}
+          icon={Briefcase}
+          iconColor="text-accent"
+          href="/jobs"
+        />
+        <KpiCard
+          label="Disponibilidad"
+          value={fleetAvail !== null ? `${fleetAvail}%` : null}
+          subtitle={`${robotList.filter(r => r.status === 'Offline').length} offline de ${robotList.length}`}
+          icon={Server}
+          iconColor="text-success"
+          valueColor={fleetAvailColor}
+          href="/robots"
+        />
+        <KpiCard
+          label="Alertas Críticas"
+          value={criticalAlerts}
+          subtitle={`${unacknowledgedAll} sin atender`}
+          icon={Bell}
+          iconColor="text-error"
+          valueColor={criticalAlerts > 0 ? 'text-error' : 'text-gray-100'}
+          pulse={true}
+          href="/alerts"
+        />
+      </div>
 
-        <div className="card p-5">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-8 h-8 rounded-lg bg-success/20 flex items-center justify-center">
-              <Briefcase size={16} className="text-success" />
-            </div>
-            <span className="text-xs text-gray-400 uppercase tracking-wide">Jobs</span>
-          </div>
-          <p className="text-2xl font-bold text-gray-100">{jobs.length}</p>
-          <div className="flex gap-3 mt-2 text-xs">
-            <span className="text-success">{successJobs} ok</span>
-            <span className="text-error">{failedJobs} fail</span>
-          </div>
-        </div>
-
-        <div className="card p-5">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-8 h-8 rounded-lg bg-warning/20 flex items-center justify-center">
-              <ListOrdered size={16} className="text-warning" />
-            </div>
-            <span className="text-xs text-gray-400 uppercase tracking-wide">Colas</span>
-          </div>
-          <p className="text-2xl font-bold text-gray-100">—</p>
-          <p className="text-xs text-gray-500 mt-2">Pendientes en cola</p>
-        </div>
-
-        <div className="card p-5">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-8 h-8 rounded-lg bg-error/20 flex items-center justify-center">
-              <Bell size={16} className="text-error" />
-            </div>
-            <span className="text-xs text-gray-400 uppercase tracking-wide">Alertas</span>
-          </div>
-          <p className="text-2xl font-bold text-gray-100">—</p>
-          <p className="text-xs text-gray-500 mt-2">Activas sin atender</p>
-        </div>
+      {/* KPI Row 2 */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <KpiCard
+          label="Ciclo Promedio"
+          value={avgCycleTimeLabel}
+          subtitle="Duración media de ejecución"
+          icon={Clock}
+          iconColor="text-accent"
+          href="/jobs"
+        />
+        <KpiCard
+          label="Utilización"
+          value={utilization.rate !== null ? `${utilization.rate}%` : null}
+          subtitle={`${utilization.busyCount} ocupados de ${utilization.totalCount}`}
+          icon={Bot}
+          iconColor="text-warning"
+          href="/robots"
+        />
+        <KpiCard
+          label="Backlog Colas"
+          value={queueBacklog}
+          subtitle={`${queueList.length} colas activas`}
+          icon={ListOrdered}
+          iconColor="text-warning"
+          href="/queues"
+        />
+        <KpiCard
+          label="MTTA"
+          value={mttaLabel}
+          subtitle={excBreakdown.total > 0 ? `B:${excBreakdown.businessExceptions} / S:${excBreakdown.systemExceptions}` : 'Sin alertas reconocidas'}
+          icon={Timer}
+          iconColor="text-accent"
+          href="/alerts"
+        />
       </div>
 
       {/* Robots status + Recent jobs */}
@@ -130,15 +209,15 @@ export default function Dashboard() {
         <div className="card">
           <div className="px-4 py-3 border-b border-gray-700 flex items-center justify-between">
             <span className="text-sm font-medium text-gray-200">Estado de Robots</span>
-            <span className="text-xs text-gray-500">{robots?.length ?? 0} total</span>
+            <span className="text-xs text-gray-500">{robotList.length} total</span>
           </div>
           <div className="p-3 grid grid-cols-1 gap-2 max-h-64 overflow-y-auto">
             {!robots ? (
               <p className="text-xs text-gray-500 p-2">Cargando robots...</p>
-            ) : robots.length === 0 ? (
+            ) : robotList.length === 0 ? (
               <p className="text-xs text-gray-500 p-2">No hay robots en este folder</p>
             ) : (
-              robots.map(robot => (
+              robotList.map(robot => (
                 <div key={robot.externalId} className="flex items-center justify-between px-3 py-2 bg-gray-800 rounded-md">
                   <div className="flex items-center gap-2 min-w-0">
                     <StatusBadge status={robot.status} showDot />
