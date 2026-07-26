@@ -76,7 +76,12 @@ internal sealed class UiPathOAuth2TokenManager : IDisposable
 
     private async Task<string> FetchTokenAsync(CancellationToken ct)
     {
-        var tokenUrl = $"{_options.BaseUrl.TrimEnd('/')}/identity_/connect/token";
+        // UiPath Automation Cloud token endpoint is always at the root host (no org/tenant in path).
+        // Structure: https://cloud.uipath.com/identity_/connect/token
+        // For On-Prem Orchestrator the token URL is different; can be overridden via UiPath__TokenUrl.
+        var tokenUrl = string.IsNullOrEmpty(_options.TokenUrl)
+            ? $"{new Uri(_options.BaseUrl).GetLeftPart(UriPartial.Authority)}/identity_/connect/token"
+            : _options.TokenUrl;
 
         var formData = new Dictionary<string, string>
         {

@@ -34,6 +34,7 @@ $baseUrl      = $envVars["UiPath__BaseUrl"]
 $tenant       = $envVars["UiPath__Tenant"]
 $clientId     = $envVars["UiPath__ClientId"]
 $clientSecret = $envVars["UiPath__ClientSecret"]
+$folderId     = $envVars["UiPath__FolderId"]
 
 if (-not $baseUrl -or -not $clientId -or -not $clientSecret) {
     Write-Host "ERROR: Missing UiPath credentials in .env" -ForegroundColor Red
@@ -66,6 +67,14 @@ function Test-Endpoint {
         $msg = $_.Exception.Message
         Write-Host " FAIL" -ForegroundColor Red
         Write-Host "  -> $msg" -ForegroundColor DarkRed
+        if ($_.Exception.Response) {
+            try {
+                $stream = $_.Exception.Response.GetResponseStream()
+                $reader = New-Object System.IO.StreamReader($stream)
+                $errorBody = $reader.ReadToEnd()
+                Write-Host "  -> Response body: $errorBody" -ForegroundColor DarkRed
+            } catch { }
+        }
         $script:results += [PSCustomObject]@{ Test = $Name; Status = "FAIL"; Details = $msg }
         return $false
     }
@@ -83,6 +92,9 @@ function Invoke-OData {
         "Authorization"       = "Bearer $Token"
         "X-UIPATH-TenantName" = $tenant
     }
+    if ($folderId) {
+        $headers["X-UIPATH-OrganizationUnitId"] = "$folderId"
+    }
     $response = Invoke-RestMethod -Uri $url -Headers $headers -Method Get -ContentType "application/json"
     return ($response.value | Measure-Object).Count
 }
@@ -93,13 +105,15 @@ function Invoke-OData {
 Write-Host "Step 1: OAuth2 Authentication" -ForegroundColor White
 
 $tokenSuccess = Test-Endpoint "OAuth2 Token" {
-    $tokenUrl = "$baseUrl/identity_/connect/token"
-    $body = @{
-        grant_type    = "client_credentials"
-        client_id     = $clientId
-        client_secret = $clientSecret
-    }
-    $tokenResponse = Invoke-RestMethod -Uri $tokenUrl -Method Post -Body $body `
+    # UiPath Cloud token endpoint does not include the organization name
+    $tokenUrl = "https://cloud.uipath.com/identity_/connect/token"
+    # Build form body manually to ensure special chars ($, #, !, etc.) are URL-encoded
+    $encodedSecret   = [System.Uri]::EscapeDataString($clientSecret)
+    $encodedClientId = [System.Uri]::EscapeDataString($clientId)
+    $formBody = "grant_type=client_credentials&client_id=$encodedClientId&client_secret=$encodedSecret"
+
+    $tokenResponse = Invoke-RestMethod -Uri $tokenUrl -Method Post `
+        -Body $formBody `
         -ContentType "application/x-www-form-urlencoded"
 
     if (-not $tokenResponse.access_token) { throw "No access_token in response" }

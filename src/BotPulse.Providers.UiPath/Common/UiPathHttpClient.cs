@@ -50,6 +50,10 @@ internal sealed class UiPathHttpClient
         using var request = new HttpRequestMessage(HttpMethod.Get, url);
         request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
         request.Headers.Add("X-UIPATH-TenantName", _options.Tenant);
+        if (_options.FolderId.HasValue)
+        {
+            request.Headers.Add("X-UIPATH-OrganizationUnitId", _options.FolderId.Value.ToString(System.Globalization.CultureInfo.InvariantCulture));
+        }
 
         using var response = await _http.SendAsync(request, ct).ConfigureAwait(false);
         await EnsureSuccessAsync(response, url, ct).ConfigureAwait(false);
@@ -76,6 +80,10 @@ internal sealed class UiPathHttpClient
         };
         request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
         request.Headers.Add("X-UIPATH-TenantName", _options.Tenant);
+        if (_options.FolderId.HasValue)
+        {
+            request.Headers.Add("X-UIPATH-OrganizationUnitId", _options.FolderId.Value.ToString(System.Globalization.CultureInfo.InvariantCulture));
+        }
 
         using var response = await _http.SendAsync(request, ct).ConfigureAwait(false);
         await EnsureSuccessAsync(response, url, ct).ConfigureAwait(false);
@@ -99,6 +107,10 @@ internal sealed class UiPathHttpClient
         };
         request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
         request.Headers.Add("X-UIPATH-TenantName", _options.Tenant);
+        if (_options.FolderId.HasValue)
+        {
+            request.Headers.Add("X-UIPATH-OrganizationUnitId", _options.FolderId.Value.ToString(System.Globalization.CultureInfo.InvariantCulture));
+        }
 
         using var response = await _http.SendAsync(request, ct).ConfigureAwait(false);
         await EnsureSuccessAsync(response, url, ct).ConfigureAwait(false);

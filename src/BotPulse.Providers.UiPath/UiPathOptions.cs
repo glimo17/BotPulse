@@ -22,6 +22,21 @@ public sealed class UiPathOptions
     public int TimeoutSeconds { get; init; } = 30;
 
     public int TokenSkewSeconds { get; init; } = 60;
+
+    /// <summary>
+    /// Optional override for the OAuth2 token URL.
+    /// Defaults to https://{host}/identity_/connect/token (UiPath Cloud standard).
+    /// Set this for On-Prem Orchestrator with a different token endpoint.
+    /// </summary>
+    public string? TokenUrl { get; init; }
+
+    /// <summary>
+    /// UiPath Orchestrator Folder ID (OrganizationUnitId).
+    /// Required for UiPath Cloud modern folders.
+    /// Find it at: Administration > Folders, or via GET odata/Folders.
+    /// Example: 573623 (Shared folder)
+    /// </summary>
+    public long? FolderId { get; init; }
 }
 
 /// <summary>Validates UiPathOptions at application startup.</summary>
