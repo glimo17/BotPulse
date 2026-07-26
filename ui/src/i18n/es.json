@@ -43,7 +43,10 @@
     "loginButton": "Ingresar",
     "loggingIn": "Ingresando...",
     "invalidCredentials": "Credenciales inválidas",
-    "tagline": "Plataforma de operaciones RPA"
+    "tagline": "Plataforma de operaciones RPA",
+    "rememberMe": "Recordar usuario",
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña"
   },
   "nav": {
     "dashboard": "Dashboard",

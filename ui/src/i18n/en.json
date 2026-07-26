@@ -43,7 +43,10 @@
     "loginButton": "Sign in",
     "loggingIn": "Signing in...",
     "invalidCredentials": "Invalid credentials",
-    "tagline": "RPA Operations Platform"
+    "tagline": "RPA Operations Platform",
+    "rememberMe": "Remember me",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
   },
   "nav": {
     "dashboard": "Dashboard",
