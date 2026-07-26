@@ -14,6 +14,7 @@ const ROUTE_LABELS: Record<string, string> = {
   '/machines':  'nav.machines',
   '/processes': 'nav.processes',
   '/jobs':      'nav.jobs',
+  '/launcher':  'nav.launcher',
   '/queues':    'nav.queues',
   '/logs':      'nav.logs',
   '/metrics':   'nav.metrics',

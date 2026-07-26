@@ -12,6 +12,7 @@ import Queues from '@/pages/Queues'
 import Logs from '@/pages/Logs'
 import Metrics from '@/pages/Metrics'
 import Alerts from '@/pages/Alerts'
+import Launcher from '@/pages/Launcher'
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/machines"  element={<Machines />} />
           <Route path="/processes" element={<Processes />} />
           <Route path="/jobs"      element={<Jobs />} />
+          <Route path="/launcher" element={<Launcher />} />
           <Route path="/queues"    element={<Queues />} />
           <Route path="/logs"      element={<Logs />} />
           <Route path="/metrics"   element={<Metrics />} />

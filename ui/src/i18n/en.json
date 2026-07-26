@@ -51,6 +51,7 @@
     "machines": "Machines",
     "processes": "Processes",
     "jobs": "Jobs",
+    "launcher": "Launch Bot",
     "queues": "Queues",
     "logs": "Logs",
     "metrics": "Metrics",
@@ -149,5 +150,21 @@
     "light": "Light",
     "ocean": "Ocean",
     "pink": "Pink"
+  },
+  "launcher": {
+    "title": "Bot Launcher",
+    "subtitle": "Execute unattended processes with one click",
+    "selectProcess": "Select Process",
+    "selectRobot": "Select Robot",
+    "automatic": "Automatic (system chooses)",
+    "parameters": "Input Parameters",
+    "launchButton": "Launch Process",
+    "launching": "Launching...",
+    "launched": "Job launched",
+    "error": "Launch failed",
+    "recentJobs": "Recent Launches",
+    "noLaunches": "No launches in this session",
+    "offlineWarning": "This robot is offline. The job may not start immediately.",
+    "requiredMissing": "Required fields missing"
   }
 }

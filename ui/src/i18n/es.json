@@ -51,6 +51,7 @@
     "machines": "Máquinas",
     "processes": "Procesos",
     "jobs": "Jobs",
+    "launcher": "Lanzar Bot",
     "queues": "Colas",
     "logs": "Logs",
     "metrics": "Métricas",
@@ -149,5 +150,21 @@
     "light": "Claro",
     "ocean": "Oceano",
     "pink": "Rosa"
+  },
+  "launcher": {
+    "title": "Lanzar Bot",
+    "subtitle": "Ejecuta procesos unattended con un solo clic",
+    "selectProcess": "Seleccionar Proceso",
+    "selectRobot": "Seleccionar Robot",
+    "automatic": "Automático (el sistema elige)",
+    "parameters": "Parámetros de Entrada",
+    "launchButton": "Ejecutar Proceso",
+    "launching": "Ejecutando...",
+    "launched": "Job lanzado",
+    "error": "Error al lanzar",
+    "recentJobs": "Lanzamientos Recientes",
+    "noLaunches": "Sin lanzamientos en esta sesión",
+    "offlineWarning": "Este robot está offline. El job podría no iniciar de inmediato.",
+    "requiredMissing": "Campos requeridos faltantes"
   }
 }

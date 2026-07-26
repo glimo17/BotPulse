@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import {
   LayoutDashboard, Bot, Server, Workflow, Briefcase,
-  ListOrdered, ScrollText, BarChart2, Bell, ChevronLeft, ActivitySquare
+  ListOrdered, ScrollText, BarChart2, Bell, ChevronLeft, ActivitySquare, Rocket
 } from 'lucide-react'
 import { clsx } from 'clsx'
 
@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   { key: 'machines',  icon: Server,          path: '/machines'  },
   { key: 'processes', icon: Workflow,        path: '/processes' },
   { key: 'jobs',      icon: Briefcase,       path: '/jobs'      },
+  { key: 'launcher',  icon: Rocket,          path: '/launcher'  },
   { key: 'queues',    icon: ListOrdered,     path: '/queues'    },
   { key: 'logs',      icon: ScrollText,      path: '/logs'      },
   { key: 'metrics',   icon: BarChart2,       path: '/metrics'   },
