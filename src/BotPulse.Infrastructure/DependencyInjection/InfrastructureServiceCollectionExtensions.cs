@@ -1,7 +1,9 @@
 using BotPulse.Core.Abstractions.Authentication;
 using BotPulse.Core.Abstractions.Caching;
+using BotPulse.Core.Abstractions.Notifications;
 using BotPulse.Infrastructure.Authentication;
 using BotPulse.Infrastructure.Caching;
+using BotPulse.Infrastructure.Notifications;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -34,6 +36,9 @@ public static class InfrastructureServiceCollectionExtensions
         // Pluggable authentication
         AddPluggableAuthentication(services, configuration);
 
+        // Pluggable notification delivery
+        AddPluggableNotificationDelivery(services, configuration);
+
         return services;
     }
 
@@ -57,6 +62,22 @@ public static class InfrastructureServiceCollectionExtensions
             default:
                 throw new InvalidOperationException(
                     $"Unsupported authentication provider: '{providerName}'. Valid values: Local, EntraID, LDAP.");
+        }
+    }
+
+    private static void AddPluggableNotificationDelivery(IServiceCollection services, IConfiguration configuration)
+    {
+        var transport = configuration["Notifications:Transport"] ?? "SSE";
+        switch (transport)
+        {
+            case "Polling":
+                services.AddSingleton<PollingNotificationDelivery>();
+                services.AddSingleton<INotificationDelivery>(sp => sp.GetRequiredService<PollingNotificationDelivery>());
+                break;
+            default: // SSE
+                services.AddSingleton<SseNotificationDelivery>();
+                services.AddSingleton<INotificationDelivery>(sp => sp.GetRequiredService<SseNotificationDelivery>());
+                break;
         }
     }
 }

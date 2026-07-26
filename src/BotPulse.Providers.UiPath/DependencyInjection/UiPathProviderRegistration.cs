@@ -1,8 +1,10 @@
 using BotPulse.Core.Abstractions.Providers;
 using BotPulse.Providers.UiPath.Common;
+using BotPulse.Providers.UiPath.HealthChecks;
 using BotPulse.Providers.UiPath.V1;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Options;
 
 namespace BotPulse.Providers.UiPath.DependencyInjection;
@@ -47,5 +49,16 @@ public static class UiPathProviderRegistration
         services.AddScoped<IProcessProvider, UiPathV1ProcessProvider>();
 
         return services;
+    }
+
+    /// <summary>
+    /// Adds the UiPath OAuth2 reachability health check to the health checks builder.
+    /// </summary>
+    public static IHealthChecksBuilder AddUiPathHealthCheck(
+        this IHealthChecksBuilder builder,
+        string name = "rpa-provider",
+        params string[] tags)
+    {
+        return builder.AddCheck<RpaProviderHealthCheck>(name, tags: tags);
     }
 }
