@@ -1,45 +1,46 @@
+@import './themes/variables.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --bg-primary: #111217;
-    --bg-card: #181b1f;
-    --bg-border: #2c3235;
-    --text-primary: #d8d9da;
-    --text-muted: #6e7a86;
-  }
-
   html {
-    @apply bg-gray-950 text-gray-100;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
   }
 
   body {
-    @apply bg-gray-950 text-gray-100 antialiased;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-family: 'Inter', system-ui, sans-serif;
   }
 
   * {
-    @apply border-gray-700;
+    border-color: var(--color-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.15s ease;
   }
 
-  /* Scrollbar dark */
+  /* Scrollbar themed */
   ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { @apply bg-gray-900; }
-  ::-webkit-scrollbar-thumb { @apply bg-gray-700 rounded; }
-  ::-webkit-scrollbar-thumb:hover { @apply bg-gray-600; }
+  ::-webkit-scrollbar-track { background: var(--color-scrollbar-track); }
+  ::-webkit-scrollbar-thumb { background: var(--color-scrollbar-thumb); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { opacity: 0.8; }
 }
 
 @layer components {
   .card {
-    @apply bg-gray-900 border border-gray-700 rounded-lg;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
   }
-  
-  .badge-success { @apply bg-success/20 text-success border border-success/30 text-xs px-2 py-0.5 rounded-full font-medium; }
-  .badge-error   { @apply bg-error/20 text-error border border-error/30 text-xs px-2 py-0.5 rounded-full font-medium; }
-  .badge-warning { @apply bg-warning/20 text-warning border border-warning/30 text-xs px-2 py-0.5 rounded-full font-medium; }
-  .badge-running { @apply bg-running/20 text-running border border-running/30 text-xs px-2 py-0.5 rounded-full font-medium; }
-  .badge-idle    { @apply bg-gray-700 text-gray-300 border border-gray-600 text-xs px-2 py-0.5 rounded-full font-medium; }
-  .badge-info    { @apply bg-accent/20 text-accent border border-accent/30 text-xs px-2 py-0.5 rounded-full font-medium; }
+
+  .badge-success { @apply text-xs px-2 py-0.5 rounded-full font-medium; background: color-mix(in srgb, var(--color-success) 20%, transparent); color: var(--color-success); border: 1px solid color-mix(in srgb, var(--color-success) 30%, transparent); }
+  .badge-error   { @apply text-xs px-2 py-0.5 rounded-full font-medium; background: color-mix(in srgb, var(--color-error) 20%, transparent); color: var(--color-error); border: 1px solid color-mix(in srgb, var(--color-error) 30%, transparent); }
+  .badge-warning { @apply text-xs px-2 py-0.5 rounded-full font-medium; background: color-mix(in srgb, var(--color-warning) 20%, transparent); color: var(--color-warning); border: 1px solid color-mix(in srgb, var(--color-warning) 30%, transparent); }
+  .badge-running { @apply text-xs px-2 py-0.5 rounded-full font-medium; background: color-mix(in srgb, var(--color-running) 20%, transparent); color: var(--color-running); border: 1px solid color-mix(in srgb, var(--color-running) 30%, transparent); }
+  .badge-idle    { @apply text-xs px-2 py-0.5 rounded-full font-medium; background: color-mix(in srgb, var(--color-text-muted) 20%, transparent); color: var(--color-text-secondary); border: 1px solid var(--color-border); }
+  .badge-info    { @apply text-xs px-2 py-0.5 rounded-full font-medium; background: color-mix(in srgb, var(--color-accent) 20%, transparent); color: var(--color-accent); border: 1px solid color-mix(in srgb, var(--color-accent) 30%, transparent); }
 }

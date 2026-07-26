@@ -1,0 +1,82 @@
+/* Theme Variables — BotPulse Multi-Theme Engine */
+
+/* Dark Theme (Default) — matches existing Grafana-inspired palette */
+:root,
+[data-theme="dark"] {
+  --color-bg-primary: #111217;
+  --color-bg-secondary: #181b1f;
+  --color-bg-card: #181b1f;
+  --color-bg-hover: #22262b;
+  --color-text-primary: #d4dce6;
+  --color-text-secondary: #6e7a86;
+  --color-text-muted: #535d67;
+  --color-border: #2c3235;
+  --color-accent: #3d71e8;
+  --color-accent-hover: #5285f0;
+  --color-success: #73bf69;
+  --color-warning: #f5a623;
+  --color-error: #f2495c;
+  --color-running: #5794f2;
+  --color-scrollbar-track: #181b1f;
+  --color-scrollbar-thumb: #2c3235;
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --color-bg-primary: #f8f9fa;
+  --color-bg-secondary: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-bg-hover: #f1f3f5;
+  --color-text-primary: #1a1a2e;
+  --color-text-secondary: #5a6270;
+  --color-text-muted: #8c95a0;
+  --color-border: #e2e5e9;
+  --color-accent: #2563eb;
+  --color-accent-hover: #3b82f6;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-error: #dc2626;
+  --color-running: #2563eb;
+  --color-scrollbar-track: #f1f3f5;
+  --color-scrollbar-thumb: #c4cad2;
+}
+
+/* Ocean Theme (Blue Light) */
+[data-theme="ocean"] {
+  --color-bg-primary: #e8f4fd;
+  --color-bg-secondary: #f0f8ff;
+  --color-bg-card: #ffffff;
+  --color-bg-hover: #dbeafe;
+  --color-text-primary: #0c2d48;
+  --color-text-secondary: #2e5a7e;
+  --color-text-muted: #6b8fa8;
+  --color-border: #b8d4e8;
+  --color-accent: #0369a1;
+  --color-accent-hover: #0284c7;
+  --color-success: #059669;
+  --color-warning: #ca8a04;
+  --color-error: #dc2626;
+  --color-running: #0369a1;
+  --color-scrollbar-track: #e8f4fd;
+  --color-scrollbar-thumb: #93c5e8;
+}
+
+/* Pink Theme (Magenta Accent) */
+[data-theme="pink"] {
+  --color-bg-primary: #1a1020;
+  --color-bg-secondary: #231530;
+  --color-bg-card: #231530;
+  --color-bg-hover: #2d1a3e;
+  --color-text-primary: #f0e6f6;
+  --color-text-secondary: #b8a0cc;
+  --color-text-muted: #7a6090;
+  --color-border: #3d2a50;
+  --color-accent: #e91e8c;
+  --color-accent-hover: #ff4da6;
+  --color-success: #73bf69;
+  --color-warning: #f5a623;
+  --color-error: #f2495c;
+  --color-running: #d946ef;
+  --color-scrollbar-track: #1a1020;
+  --color-scrollbar-thumb: #3d2a50;
+}

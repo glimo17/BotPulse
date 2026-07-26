@@ -142,5 +142,12 @@
     "acknowledged": "Reconocida",
     "active": "Activa",
     "raisedAt": "Generada"
+  },
+  "theme": {
+    "select": "Seleccionar tema",
+    "dark": "Oscuro",
+    "light": "Claro",
+    "ocean": "Oceano",
+    "pink": "Rosa"
   }
 }

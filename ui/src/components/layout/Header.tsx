@@ -6,6 +6,7 @@ import { Search, AlignJustify, AlignLeft, LogOut, Globe, User } from 'lucide-rea
 import { useState } from 'react'
 import { clsx } from 'clsx'
 import i18n from '@/i18n'
+import { ThemeSelector } from '@/components/ThemeSelector'
 
 const ROUTE_LABELS: Record<string, string> = {
   '/dashboard': 'nav.dashboard',
@@ -42,12 +43,12 @@ export function Header({ onCommandPaletteOpen, sseConnected = false }: Props) {
   }
 
   return (
-    <header className="h-12 flex items-center justify-between px-4 bg-gray-900 border-b border-gray-700 shrink-0 sticky top-0 z-10">
+    <header className="h-12 flex items-center justify-between px-4 bg-[var(--color-bg-secondary)] border-b border-[var(--color-border)] shrink-0 sticky top-0 z-10">
       {/* Left: breadcrumb */}
       <div className="flex items-center gap-2 text-sm">
-        <span className="text-gray-500">BotPulse</span>
-        <span className="text-gray-600">/</span>
-        <span className="text-gray-200 font-medium">{breadcrumb}</span>
+        <span className="text-[var(--color-text-muted)]">BotPulse</span>
+        <span className="text-[var(--color-text-muted)]">/</span>
+        <span className="text-[var(--color-text-primary)] font-medium">{breadcrumb}</span>
       </div>
 
       {/* Right: actions */}
@@ -55,11 +56,11 @@ export function Header({ onCommandPaletteOpen, sseConnected = false }: Props) {
         {/* Command palette button */}
         <button
           onClick={onCommandPaletteOpen}
-          className="flex items-center gap-2 px-2.5 py-1.5 text-gray-400 hover:text-gray-200 hover:bg-gray-800 rounded-md text-xs transition-colors border border-gray-700"
+          className="flex items-center gap-2 px-2.5 py-1.5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)] rounded-md text-xs transition-colors border border-[var(--color-border)]"
         >
           <Search size={13} />
           <span className="hidden sm:block">Buscar</span>
-          <kbd className="hidden sm:block text-gray-500 text-[10px] font-mono bg-gray-800 px-1.5 py-0.5 rounded border border-gray-600">⌃K</kbd>
+          <kbd className="hidden sm:block text-[var(--color-text-muted)] text-[10px] font-mono bg-[var(--color-bg-hover)] px-1.5 py-0.5 rounded border border-[var(--color-border)]">⌃K</kbd>
         </button>
 
         {/* SSE indicator */}
@@ -73,7 +74,7 @@ export function Header({ onCommandPaletteOpen, sseConnected = false }: Props) {
         {/* Density toggle */}
         <button
           onClick={toggleDensity}
-          className="p-1.5 text-gray-400 hover:text-gray-200 hover:bg-gray-800 rounded-md transition-colors"
+          className="p-1.5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)] rounded-md transition-colors"
           title={density === 'comfortable' ? 'Switch to compact view' : 'Switch to comfortable view'}
         >
           {density === 'comfortable' ? <AlignJustify size={15} /> : <AlignLeft size={15} />}
@@ -82,20 +83,23 @@ export function Header({ onCommandPaletteOpen, sseConnected = false }: Props) {
         {/* Language toggle */}
         <button
           onClick={toggleLang}
-          className="flex items-center gap-1 px-2 py-1.5 text-gray-400 hover:text-gray-200 hover:bg-gray-800 rounded-md text-xs transition-colors"
+          className="flex items-center gap-1 px-2 py-1.5 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)] rounded-md text-xs transition-colors"
         >
           <Globe size={13} />
           <span>{lang.toUpperCase()}</span>
         </button>
 
+        {/* Theme selector */}
+        <ThemeSelector />
+
         {/* User menu */}
         <div className="relative">
           <button
             onClick={() => setUserMenuOpen(v => !v)}
-            className="flex items-center gap-2 px-2 py-1.5 text-gray-300 hover:text-gray-100 hover:bg-gray-800 rounded-md text-xs transition-colors"
+            className="flex items-center gap-2 px-2 py-1.5 text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)] rounded-md text-xs transition-colors"
           >
-            <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center">
-              <User size={13} className="text-accent" />
+            <div className="w-6 h-6 rounded-full bg-[var(--color-accent)]/20 flex items-center justify-center">
+              <User size={13} className="text-[var(--color-accent)]" />
             </div>
             <span className="hidden sm:block max-w-[80px] truncate">{user?.userName}</span>
           </button>
@@ -103,14 +107,14 @@ export function Header({ onCommandPaletteOpen, sseConnected = false }: Props) {
           {userMenuOpen && (
             <>
               <div className="fixed inset-0 z-40" onClick={() => setUserMenuOpen(false)} />
-              <div className="absolute right-0 top-full mt-1 w-44 bg-gray-900 border border-gray-700 rounded-lg shadow-xl z-50 py-1">
-                <div className="px-3 py-2 border-b border-gray-700">
-                  <p className="text-xs text-gray-200 font-medium truncate">{user?.userName}</p>
-                  <p className="text-xs text-gray-500 truncate">{user?.email}</p>
+              <div className="absolute right-0 top-full mt-1 w-44 bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-lg shadow-xl z-50 py-1">
+                <div className="px-3 py-2 border-b border-[var(--color-border)]">
+                  <p className="text-xs text-[var(--color-text-primary)] font-medium truncate">{user?.userName}</p>
+                  <p className="text-xs text-[var(--color-text-muted)] truncate">{user?.email}</p>
                 </div>
                 <button
                   onClick={() => { logout(); setUserMenuOpen(false) }}
-                  className="w-full flex items-center gap-2 px-3 py-2 text-xs text-gray-400 hover:text-error hover:bg-gray-800 transition-colors"
+                  className="w-full flex items-center gap-2 px-3 py-2 text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-error)] hover:bg-[var(--color-bg-hover)] transition-colors"
                 >
                   <LogOut size={13} />
                   {t('auth.logout')}

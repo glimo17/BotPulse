@@ -28,19 +28,19 @@ export function Sidebar({ collapsed, onToggle }: Props) {
 
   return (
     <aside className={clsx(
-      'flex flex-col bg-gray-900 border-r border-gray-700 h-screen sticky top-0 transition-all duration-200 shrink-0',
+      'flex flex-col bg-[var(--color-bg-secondary)] border-r border-[var(--color-border)] h-screen sticky top-0 transition-all duration-200 shrink-0',
       collapsed ? 'w-14' : 'w-56'
     )}>
       {/* Logo */}
       <div className={clsx(
-        'flex items-center gap-2.5 px-3 py-4 border-b border-gray-700',
+        'flex items-center gap-2.5 px-3 py-4 border-b border-[var(--color-border)]',
         collapsed ? 'justify-center' : ''
       )}>
-        <div className="w-7 h-7 rounded-md bg-accent flex items-center justify-center shrink-0">
+        <div className="w-7 h-7 rounded-md bg-[var(--color-accent)] flex items-center justify-center shrink-0">
           <ActivitySquare size={16} className="text-white" />
         </div>
         {!collapsed && (
-          <span className="text-sm font-bold text-white whitespace-nowrap">BotPulse</span>
+          <span className="text-sm font-bold text-[var(--color-text-primary)] whitespace-nowrap">BotPulse</span>
         )}
       </div>
 
@@ -53,8 +53,8 @@ export function Sidebar({ collapsed, onToggle }: Props) {
             className={({ isActive }) => clsx(
               'flex items-center gap-3 mx-2 my-0.5 px-2.5 py-2 rounded-md text-sm transition-colors group relative',
               isActive
-                ? 'bg-accent/15 text-accent border-l-2 border-accent pl-[9px]'
-                : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800'
+                ? 'bg-[var(--color-accent)]/15 text-[var(--color-accent)] border-l-2 border-[var(--color-accent)] pl-[9px]'
+                : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)]'
             )}
             title={collapsed ? t(`nav.${key}`) : undefined}
           >
@@ -64,7 +64,7 @@ export function Sidebar({ collapsed, onToggle }: Props) {
             )}
             {/* Tooltip when collapsed */}
             {collapsed && (
-              <div className="absolute left-full ml-2 px-2 py-1 bg-gray-800 text-gray-200 text-xs rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 border border-gray-700">
+              <div className="absolute left-full ml-2 px-2 py-1 bg-[var(--color-bg-hover)] text-[var(--color-text-primary)] text-xs rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 border border-[var(--color-border)]">
                 {t(`nav.${key}`)}
               </div>
             )}
@@ -73,10 +73,10 @@ export function Sidebar({ collapsed, onToggle }: Props) {
       </nav>
 
       {/* Collapse button */}
-      <div className="border-t border-gray-700 p-2">
+      <div className="border-t border-[var(--color-border)] p-2">
         <button
           onClick={onToggle}
-          className="w-full flex items-center justify-center p-2 text-gray-500 hover:text-gray-300 hover:bg-gray-800 rounded-md transition-colors"
+          className="w-full flex items-center justify-center p-2 text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)] rounded-md transition-colors"
           title={collapsed ? 'Expand' : 'Collapse'}
         >
           <ChevronLeft size={16} className={clsx(

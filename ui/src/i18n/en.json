@@ -142,5 +142,12 @@
     "acknowledged": "Acknowledged",
     "active": "Active",
     "raisedAt": "Raised At"
+  },
+  "theme": {
+    "select": "Select theme",
+    "dark": "Dark",
+    "light": "Light",
+    "ocean": "Ocean",
+    "pink": "Pink"
   }
 }
