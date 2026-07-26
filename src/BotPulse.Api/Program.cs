@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -165,6 +166,13 @@ builder.Services.AddCors(opt =>
     opt.AddDefaultPolicy(p => p.WithOrigins(corsOrigins).AllowAnyHeader().AllowAnyMethod()));
 
 var app = builder.Build();
+
+// Apply pending EF Core migrations on startup (safe for single-instance deployment)
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<BotPulse.Infrastructure.Persistence.BotPulseDbContext>();
+    await db.Database.MigrateAsync();
+}
 
 // Middleware pipeline
 app.UseMiddleware<CorrelationIdMiddleware>();

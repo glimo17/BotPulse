@@ -1,0 +1,65 @@
+# Render.com Blueprint — BotPulse MVP Demo
+# Deploy: Connect GitHub repo → Render auto-detects this file
+
+databases:
+  - name: botpulse-db
+    plan: free
+    databaseName: botpulse
+    user: botpulse
+
+services:
+  # Backend API (.NET 8)
+  - type: web
+    name: botpulse-api
+    runtime: docker
+    dockerfilePath: ./deploy/Dockerfile.Api
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://+:8080
+      - key: ConnectionStrings__PostgreSQL
+        fromDatabase:
+          name: botpulse-db
+          property: connectionString
+      - key: Jwt__SigningKeyBase64
+        generateValue: true
+      - key: Jwt__Issuer
+        value: botpulse
+      - key: Jwt__Audience
+        value: botpulse-api
+      - key: Jwt__ExpirationMinutes
+        value: "60"
+      - key: Authentication__Provider
+        value: Local
+      - key: RpaProvider
+        value: Demo
+      - key: Notifications__Transport
+        value: SSE
+      - key: Cors__AllowedOrigins
+        sync: false  # Set manually after frontend deploys
+    healthCheckPath: /health/live
+
+  # Frontend (React static site)
+  - type: web
+    name: botpulse-ui
+    runtime: static
+    buildCommand: cd ui && npm ci && npm run build
+    staticPublishPath: ui/dist
+    plan: free
+    routes:
+      - type: rewrite
+        source: /api/*
+        destination: https://botpulse-api.onrender.com/api/*
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
