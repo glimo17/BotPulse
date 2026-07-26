@@ -18,73 +18,50 @@ La arquitectura se diseñó desde el primer día para soportar múltiples provee
 
 ### Proveedor RPA
 
-- `BotPulse.Providers.UiPath` implementando las 7 interfaces granulares:
-  - `IRobotProvider` — lista y detalle de robots
-  - `IJobProvider` — jobs, start/stop/cancel/retry
-  - `IQueueProvider` — colas y queue items
-  - `ILogProvider` — logs de ejecución
-  - `IAssetProvider` — metadatos de assets (sin valores secretos)
-  - `IMachineProvider` — máquinas
-  - `IProcessProvider` — procesos y parámetros
-- OAuth2 Client Credentials para autenticación contra UiPath Orchestrator
-- Mock UiPath Server para desarrollo sin credenciales productivas
+- `BotPulse.Providers.UiPath` implementando las 7 interfaces granulares
+- `BotPulse.Providers.Demo` — proveedor en memoria para desarrollo y demos sin Orchestrator (ADR-014)
+- Selección de proveedor por configuración: `RPA_PROVIDER=Demo|UiPath`
+- OAuth2 Client Credentials para UiPath
+
+### KPI Dashboard Operacional (Spec: operational-kpi-dashboard)
+
+- 9 KPIs calculados client-side: Success Rate, Jobs Volume, Avg Cycle Time, Robot Utilization, Fleet Availability, Queue Backlog, Exception Breakdown, MTTA, Critical Alerts
+- 8 KPI cards en Dashboard (2 filas × 4) con color-coding y navegación clickable
+- Exception Breakdown donut chart en Metrics page
+- Datos de 4 queries paralelas: `/robots`, `/jobs`, `/queues`, `/alerts`
+
+### Bot Launcher (Spec: bot-launcher)
+
+- Vista `/launcher` para ejecutar procesos unattended con un botón
+- Selección de proceso, robot (o Automático) y parámetros de entrada
+- Panel de seguimiento con los últimos 5 jobs lanzados en la sesión
+- Auto-refresh de status de jobs Running cada 10 segundos
 
 ### Autenticación
 
-- `LocalAuthenticationProvider` con Argon2id para entornos de desarrollo
-- Estructura preparada para Entra ID y LDAP en Fase 2
+- `LocalAuthenticationProvider` con Argon2id
 - JWT como session token post-autenticación (1h default)
 
 ### Sincronización Background
 
-- `JobSynchronizationService` (cada 120s)
-- `QueueItemSynchronizationService` (cada 180s)
-- `LogSynchronizationService` (cada 60s)
-- `MetricsCollectionService` (cada 300s)
-- `SynchronizationOrchestrator` con fault isolation entre servicios
-- Trigger manual por API (`POST /api/v1/admin/sync/{service}/trigger`)
+- `JobSynchronizationService`, `QueueItemSynchronizationService`, `LogSynchronizationService`, `MetricsCollectionService`
+- `SynchronizationOrchestrator` con fault isolation
 
 ### Alert Engine
 
-- 5 evaluadores de reglas: `RobotOffline`, `QueueBacklog`, `JobsFailedInWindow`, `MachineOffline`, `ProcessExecutionTime`
-- Deduplicación de alertas por ventana configurable (default 5 min)
-- Canal `Log` (siempre activo)
-- Acknowledgment de alertas
-
-### Dashboard y Widgets
-
-- Widgets básicos: KPI Summary, Job Queue, Robot Monitor, Alerts
-- Layout por usuario persistido en base de datos
-- Layout inicial por rol (Viewer, Operator, Administrator)
+- 5 evaluadores: RobotOffline, QueueBacklog, JobsFailedInWindow, MachineOffline, ProcessExecutionTime
+- Deduplicación y canal Log
 
 ### API REST
 
 - Todos los endpoints bajo `/api/v1/`
-- Versionado desde el día 1
-- Swagger UI en `/swagger`
-- Health checks en `/health`, `/health/live`, `/health/ready`
-- Notificaciones en tiempo real vía SSE o Polling (configurable)
-
-### Infraestructura
-
-- `MemoryCacheService` para caché en proceso
-- PostgreSQL con EF Core y migraciones
-- Redis provisionado en Docker Compose pero no activo
-- Serilog con sinks Console y File
-- Logs estructurados con correlation ID
-
-### Frontend MVP
-
-- React + TypeScript con Vite
-- Login, Dashboard, Robots, Jobs, Queues, Alerts
-- Acciones contextuales sobre jobs según rol
-- Real-time updates vía SSE (TanStack Query)
+- Swagger en `/swagger`, Health checks en `/health`
+- SSE para notificaciones en tiempo real
 
 ### Deployment
 
-- Docker Compose como modelo primario
-- Dockerfiles multi-stage para API, Worker, Frontend y Mock UiPath
-- `.env.example` con todas las variables documentadas
+- Docker Compose con 6 servicios: postgres, redis, api, worker, ui, reverse-proxy
+- Dockerfiles multi-stage para API, Worker y UI
 
 ---
 
@@ -167,6 +144,61 @@ La arquitectura se diseñó desde el primer día para soportar múltiples provee
 
 ---
 
+---
+
+## Fase 5 — Cognitive & RAG Engine (ADR-016)
+
+**Objetivo:** transformar BotPulse de una plataforma de monitoreo en una plataforma de operaciones inteligentes con diagnóstico asistido por IA, auto-reparación y búsqueda en lenguaje natural.
+
+### Sub-fase 5A: Fundación RAG
+
+- `BotPulse.Cognitive` — nuevo proyecto con `IAIService`, `IVectorSearchRepository`, `IEmbeddingProvider`
+- PostgreSQL + pgvector para almacenamiento vectorial (extensión en la misma instancia)
+- Pipeline de vectorización automática: errores de ejecución, resoluciones validadas, patrones de fallo
+- Provider Pattern para LLM: soporte OpenAI, Anthropic, Ollama (modelos locales)
+- Control de costos: truncamiento de logs, caché de embeddings, rate limiting de tokens
+
+### Sub-fase 5B: Diagnóstico Asistido
+
+- Panel "Análisis de IA" por job fallido con: causa técnica, impacto, pasos de resolución
+- RAG pipeline: recuperación semántica (cosine similarity) → inyección de contexto → generación de diagnóstico
+- Feedback loop: operadores validan/rechazan diagnósticos → vectorización de resoluciones validadas
+- Memoria de aprendizaje continuo (el sistema mejora con cada resolución)
+
+### Sub-fase 5C: Búsqueda NL-to-Query
+
+- Barra de comandos conversacional en el dashboard
+- Traducción de consultas naturales a filtros de API: "fallos del robot financiero ayer" → query estructurado
+- Historial de búsquedas y sugerencias contextuales
+
+### Sub-fase 5D: Self-Healing Bots (Nivel Máximo)
+
+- Agente autónomo que detecta discrepancias de selectores (XPath/CSS) durante un fallo
+- Generación de parches sugeridos con vista previa visual
+- Flujo de aprobación humana obligatorio antes de aplicar (never fully autonomous)
+- Integración con repositorio de procesos para propagar el fix
+
+### Sub-fase 5E: Predicción de Anomalías
+
+- Análisis estadístico de series temporales (Z-score, rolling averages) sobre métricas de ciclo
+- Alertas proactivas antes de degradación: "el proceso X está tardando 3x más de lo normal"
+- Integración con Alert Engine existente (nuevo evaluador `AnomalyDetectionRule`)
+
+### Requisitos No Funcionales del Módulo Cognitivo
+
+- **Desacoplamiento de LLM Providers**: `IAIService` con implementaciones para OpenAI, Anthropic, Ollama. Selección por configuración.
+- **Control de Costos**: Truncamiento previo de logs (max 4K tokens por context window). Caché de embeddings generados. Rate limiting configurable.
+- **Multi-Tenant Vector Space**: Particionado lógico por `organization_id` en las tablas de embeddings. El conocimiento de un cliente nunca se expone a otro.
+- **Latencia**: Diagnósticos generados de forma asíncrona (no bloquea la vista del job). Target: < 10s para el primer resultado.
+
+### Dependencias
+
+- Requiere Fase 4 completada (Multi-Tenant) para el aislamiento vectorial por organización
+- Requiere PostgreSQL 15+ con extensión `pgvector` habilitada
+- No requiere cambios en el Core existente — nuevo proyecto `BotPulse.Cognitive` referencia solo `BotPulse.Core`
+
+---
+
 ## Consideraciones de Extensibilidad
 
 La arquitectura permite agregar cualquiera de los siguientes elementos sin modificar el Core:
@@ -178,3 +210,5 @@ La arquitectura permite agregar cualquiera de los siguientes elementos sin modif
 | Nuevo canal de alerta      | Nueva clase `XxxAlertChannel : IAlertChannel` + registro en DI |
 | Nuevo transporte RT        | Nueva clase `XxxNotificationDelivery : INotificationDelivery` + case en DI |
 | Nueva implementación caché | Nueva clase `XxxCacheService : ICacheService` + case en DI |
+| Nuevo proveedor de IA/LLM  | Nueva clase `XxxAIService : IAIService` + case en DI                          |
+| Nuevo vector store          | Nueva clase `XxxVectorSearchRepository : IVectorSearchRepository` + case en DI |
