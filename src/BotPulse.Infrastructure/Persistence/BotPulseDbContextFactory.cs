@@ -8,8 +8,14 @@ internal sealed class BotPulseDbContextFactory : IDesignTimeDbContextFactory<Bot
 {
     public BotPulseDbContext CreateDbContext(string[] args)
     {
+        // Prefer environment variable set in the shell (e.g. from .env or CI).
+        // Falls back to a local dev default that matches docker-compose.yml.
+        var connectionString =
+            Environment.GetEnvironmentVariable("ConnectionStrings__PostgreSQL")
+            ?? "Host=localhost;Port=5432;Database=botpulse;Username=botpulse;Password=botpulse_dev_2024";
+
         var options = new DbContextOptionsBuilder<BotPulseDbContext>()
-            .UseNpgsql("Host=localhost;Port=5432;Database=botpulse_design;Username=postgres;Password=postgres")
+            .UseNpgsql(connectionString)
             .Options;
         return new BotPulseDbContext(options);
     }

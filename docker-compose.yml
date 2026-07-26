@@ -1,0 +1,37 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: botpulse-db
+    environment:
+      POSTGRES_DB: botpulse
+      POSTGRES_USER: botpulse
+      POSTGRES_PASSWORD: botpulse_dev_2024
+    ports:
+      - "5433:5432"
+    volumes:
+      - botpulse-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U botpulse -d botpulse"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - botpulse-net
+
+  redis:
+    image: redis:7-alpine
+    container_name: botpulse-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - botpulse-redis:/data
+    networks:
+      - botpulse-net
+
+networks:
+  botpulse-net:
+    driver: bridge
+
+volumes:
+  botpulse-postgres:
+  botpulse-redis:

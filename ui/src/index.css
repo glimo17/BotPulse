@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #111217;
+    --bg-card: #181b1f;
+    --bg-border: #2c3235;
+    --text-primary: #d8d9da;
+    --text-muted: #6e7a86;
+  }
+
+  html {
+    @apply bg-gray-950 text-gray-100;
+  }
+
+  body {
+    @apply bg-gray-950 text-gray-100 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  * {
+    @apply border-gray-700;
+  }
+
+  /* Scrollbar dark */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-gray-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-gray-700 rounded; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-gray-600; }
+}
+
+@layer components {
+  .card {
+    @apply bg-gray-900 border border-gray-700 rounded-lg;
+  }
+  
+  .badge-success { @apply bg-success/20 text-success border border-success/30 text-xs px-2 py-0.5 rounded-full font-medium; }
+  .badge-error   { @apply bg-error/20 text-error border border-error/30 text-xs px-2 py-0.5 rounded-full font-medium; }
+  .badge-warning { @apply bg-warning/20 text-warning border border-warning/30 text-xs px-2 py-0.5 rounded-full font-medium; }
+  .badge-running { @apply bg-running/20 text-running border border-running/30 text-xs px-2 py-0.5 rounded-full font-medium; }
+  .badge-idle    { @apply bg-gray-700 text-gray-300 border border-gray-600 text-xs px-2 py-0.5 rounded-full font-medium; }
+  .badge-info    { @apply bg-accent/20 text-accent border border-accent/30 text-xs px-2 py-0.5 rounded-full font-medium; }
+}
