@@ -83,6 +83,17 @@ La arquitectura se diseñó desde el primer día para soportar múltiples provee
 - `LdapAuthenticationProvider` con simple bind y mapeo de grupos
 - Selección por `AUTHENTICATION_PROVIDER` sin cambios de código
 
+### User Management & RBAC (Spec: user-management-rbac)
+
+- 23 permisos granulares (Dashboard.View, Jobs.Execute, Roles.Update, etc.)
+- 3 roles del sistema: Administrator, Operations Manager, Viewer
+- Roles personalizados ilimitados (Finance Supervisor, Night Shift Operator, etc.)
+- Gestión de usuarios: crear, editar, habilitar/deshabilitar, asignar roles
+- Vista de administración de roles y permisos en la UI
+- Caché de permisos por sesión (invalidación en < 5s)
+- Preparación para folder-level security (scope en UserRoles)
+- Independencia total del proveedor de autenticación
+
 ### Alert Engine
 
 - Canales adicionales: Email (SMTP via MailKit), Slack (webhook), Teams (MessageCard), Webhook genérico con firma HMAC
@@ -221,3 +232,5 @@ La arquitectura permite agregar cualquiera de los siguientes elementos sin modif
 | Nuevo proveedor de IA/LLM  | Nueva clase `XxxAIService : IAIService` + case en DI                          |
 | Nuevo vector store          | Nueva clase `XxxVectorSearchRepository : IVectorSearchRepository` + case en DI |
 | Nuevo tema visual          | Nuevo bloque `[data-theme="xxx"]` en variables.css + entrada en themes.ts    |
+| Nuevo permiso              | Nueva constante en `PermissionCatalog` + política en DI + atributo en controller |
+| Nuevo rol personalizado    | Crear via UI Admin → almacenado en DB, sin cambio de código |
