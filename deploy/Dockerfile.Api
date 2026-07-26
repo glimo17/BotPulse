@@ -1,0 +1,34 @@
+# Stage 1: Build
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
+WORKDIR /src
+
+COPY ["src/BotPulse.Core/BotPulse.Core.csproj", "src/BotPulse.Core/"]
+COPY ["src/BotPulse.Shared/BotPulse.Shared.csproj", "src/BotPulse.Shared/"]
+COPY ["src/BotPulse.Infrastructure/BotPulse.Infrastructure.csproj", "src/BotPulse.Infrastructure/"]
+COPY ["src/BotPulse.Providers.UiPath/BotPulse.Providers.UiPath.csproj", "src/BotPulse.Providers.UiPath/"]
+COPY ["src/BotPulse.Api/BotPulse.Api.csproj", "src/BotPulse.Api/"]
+COPY ["Directory.Packages.props", "./"]
+COPY ["Directory.Build.props", "./"]
+
+RUN dotnet restore "src/BotPulse.Api/BotPulse.Api.csproj"
+
+COPY . .
+RUN dotnet publish "src/BotPulse.Api/BotPulse.Api.csproj" -c Release -o /app/publish --no-restore
+
+# Stage 2: Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
+WORKDIR /app
+
+RUN addgroup -S botpulse && adduser -S botpulse -G botpulse
+
+COPY --from=build /app/publish .
+RUN chown -R botpulse:botpulse /app
+
+USER botpulse
+EXPOSE 8080
+ENV ASPNETCORE_URLS=http://+:8080
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
+  CMD wget -qO- http://localhost:8080/health/live || exit 1
+
+ENTRYPOINT ["dotnet", "BotPulse.Api.dll"]

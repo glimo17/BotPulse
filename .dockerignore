@@ -1,0 +1,33 @@
+# .NET build artifacts
+**/bin/
+**/obj/
+**/.vs/
+
+# Test projects
+tests/
+
+# Git
+.git/
+.github/
+
+# IDE
+.vscode/
+.kiro/
+
+# Node / Frontend build
+ui/node_modules/
+ui/dist/
+
+# Secrets and env files
+.env
+.env.*
+**/appsettings.Development.json
+**/secrets.json
+
+# Logs
+logs/
+*.log
+
+# Docker
+docker-compose*.yml
+deploy/
