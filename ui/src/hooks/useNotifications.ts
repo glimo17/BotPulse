@@ -1,5 +1,6 @@
 import { useEffect, useCallback, useRef } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
+import { getToken } from '@/lib/api'
 
 export function useNotifications(
   onConnected?: (connected: boolean) => void,
@@ -15,7 +16,11 @@ export function useNotifications(
   onEventRef.current = onEvent
 
   const connect = useCallback(() => {
-    const url = `/api/v1/notifications/stream`
+    // EventSource doesn't support Authorization headers, so pass the JWT as a query param
+    const token = getToken()
+    const url = token
+      ? `/api/v1/notifications/stream?token=${encodeURIComponent(token)}`
+      : `/api/v1/notifications/stream`
     const es = new EventSource(url)
     esRef.current = es
 
