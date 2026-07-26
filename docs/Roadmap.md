@@ -37,6 +37,14 @@ La arquitectura se diseñó desde el primer día para soportar múltiples provee
 - Panel de seguimiento con los últimos 5 jobs lanzados en la sesión
 - Auto-refresh de status de jobs Running cada 10 segundos
 
+### Motor Multitema (Spec: theming-engine)
+
+- 4 temas: Dark (default), Light, Ocean (celeste), Pink (magenta)
+- CSS Custom Properties + Tailwind theme extension
+- Selector de tema en el Header con persistencia en localStorage
+- Transiciones suaves (transition-colors duration-300)
+- Independiente del backend — 100% frontend
+
 ### Autenticación
 
 - `LocalAuthenticationProvider` con Argon2id
@@ -212,3 +220,4 @@ La arquitectura permite agregar cualquiera de los siguientes elementos sin modif
 | Nueva implementación caché | Nueva clase `XxxCacheService : ICacheService` + case en DI |
 | Nuevo proveedor de IA/LLM  | Nueva clase `XxxAIService : IAIService` + case en DI                          |
 | Nuevo vector store          | Nueva clase `XxxVectorSearchRepository : IVectorSearchRepository` + case en DI |
+| Nuevo tema visual          | Nuevo bloque `[data-theme="xxx"]` en variables.css + entrada en themes.ts    |
