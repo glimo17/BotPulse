@@ -25,37 +25,37 @@ export default function Machines() {
   return (
     <div className="space-y-4">
       <div>
-        <h1 className="text-xl font-bold text-gray-100">Máquinas</h1>
-        <p className="text-sm text-gray-500 mt-0.5">{machines.length} máquinas</p>
+        <h1 className="text-xl font-bold text-[var(--color-text-primary)]">Máquinas</h1>
+        <p className="text-sm text-[var(--color-text-muted)] mt-0.5">{machines.length} máquinas</p>
       </div>
       {isLoading ? (
-        <div className="card p-8 text-center text-gray-500 text-sm">{t('common.loadingMachines')}</div>
+        <div className="card p-8 text-center text-[var(--color-text-muted)] text-sm">{t('common.loadingMachines')}</div>
       ) : machines.length === 0 ? (
-        <div className="card p-8 text-center text-gray-500 text-sm">{t('common.noData')}</div>
+        <div className="card p-8 text-center text-[var(--color-text-muted)] text-sm">{t('common.noData')}</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {machines.map(m => (
             <div key={m.externalId} className="card p-4 space-y-3">
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center">
-                    <Server size={16} className="text-gray-400" />
+                  <div className="w-8 h-8 rounded-lg bg-[var(--color-bg-hover)] flex items-center justify-center">
+                    <Server size={16} className="text-[var(--color-text-secondary)]" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-gray-200">{m.name}</p>
-                    <p className="text-xs text-gray-500">{m.connectedRobotCount} robots</p>
+                    <p className="text-sm font-medium text-[var(--color-text-primary)]">{m.name}</p>
+                    <p className="text-xs text-[var(--color-text-muted)]">{m.connectedRobotCount} robots</p>
                   </div>
                 </div>
                 <StatusBadge status={m.status} showDot />
               </div>
               <div className="space-y-1.5 text-xs">
                 <div className="flex justify-between">
-                  <span className="text-gray-500">ID</span>
+                  <span className="text-[var(--color-text-muted)]">ID</span>
                   <CopyableId id={m.externalId} maxLength={14} />
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500">Último pulso</span>
-                  <span className="text-gray-400">{timeAgo(m.lastHeartbeatUtc)}</span>
+                  <span className="text-[var(--color-text-muted)]">Último pulso</span>
+                  <span className="text-[var(--color-text-secondary)]">{timeAgo(m.lastHeartbeatUtc)}</span>
                 </div>
               </div>
             </div>

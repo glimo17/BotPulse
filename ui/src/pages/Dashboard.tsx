@@ -113,15 +113,15 @@ export default function Dashboard() {
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-xl font-bold text-gray-100">{t('nav.dashboard')}</h1>
-          <p className="text-sm text-gray-500 mt-0.5">{t('dashboard.subtitle')}</p>
+          <h1 className="text-xl font-bold text-[var(--color-text-primary)]">{t('nav.dashboard')}</h1>
+          <p className="text-sm text-[var(--color-text-muted)] mt-0.5">{t('dashboard.subtitle')}</p>
         </div>
-        <div className="flex items-center gap-2 text-xs text-gray-500">
+        <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
           <span>{paused ? 'Pausado' : t('common.refreshIn', { seconds: countdown })}</span>
-          <button onClick={paused ? resume : pause} className="p-1 hover:text-gray-300 transition-colors">
+          <button onClick={paused ? resume : pause} className="p-1 hover:text-[var(--color-text-primary)] transition-colors">
             {paused ? <Play size={13} /> : <Pause size={13} />}
           </button>
-          <button onClick={forceRefresh} className="p-1 hover:text-gray-300 transition-colors">
+          <button onClick={forceRefresh} className="p-1 hover:text-[var(--color-text-primary)] transition-colors">
             <RefreshCw size={13} />
           </button>
         </div>
@@ -161,7 +161,7 @@ export default function Dashboard() {
           subtitle={t('kpi.unacknowledged', { count: unacknowledgedAll })}
           icon={Bell}
           iconColor="text-error"
-          valueColor={criticalAlerts > 0 ? 'text-error' : 'text-gray-100'}
+          valueColor={criticalAlerts > 0 ? 'text-error' : 'text-[var(--color-text-primary)]'}
           pulse={true}
           href="/alerts"
         />
@@ -207,23 +207,23 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* Robots mini-grid */}
         <div className="card">
-          <div className="px-4 py-3 border-b border-gray-700 flex items-center justify-between">
-            <span className="text-sm font-medium text-gray-200">{t('dashboard.robotsStatus')}</span>
-            <span className="text-xs text-gray-500">{robotList.length} total</span>
+          <div className="px-4 py-3 border-b border-[var(--color-border)] flex items-center justify-between">
+            <span className="text-sm font-medium text-[var(--color-text-primary)]">{t('dashboard.robotsStatus')}</span>
+            <span className="text-xs text-[var(--color-text-muted)]">{robotList.length} total</span>
           </div>
           <div className="p-3 grid grid-cols-1 gap-2 max-h-64 overflow-y-auto">
             {!robots ? (
-              <p className="text-xs text-gray-500 p-2">{t('dashboard.loadingRobots')}</p>
+              <p className="text-xs text-[var(--color-text-muted)] p-2">{t('dashboard.loadingRobots')}</p>
             ) : robotList.length === 0 ? (
-              <p className="text-xs text-gray-500 p-2">{t('dashboard.noRobots')}</p>
+              <p className="text-xs text-[var(--color-text-muted)] p-2">{t('dashboard.noRobots')}</p>
             ) : (
               robotList.map(robot => (
-                <div key={robot.externalId} className="flex items-center justify-between px-3 py-2 bg-gray-800 rounded-md">
+                <div key={robot.externalId} className="flex items-center justify-between px-3 py-2 bg-[var(--color-bg-hover)] rounded-md">
                   <div className="flex items-center gap-2 min-w-0">
                     <StatusBadge status={robot.status} showDot />
-                    <span className="text-xs text-gray-200 truncate">{robot.name}</span>
+                    <span className="text-xs text-[var(--color-text-primary)] truncate">{robot.name}</span>
                   </div>
-                  <span className="text-xs text-gray-500 shrink-0 ml-2">{timeAgo(robot.lastHeartbeatUtc)}</span>
+                  <span className="text-xs text-[var(--color-text-muted)] shrink-0 ml-2">{timeAgo(robot.lastHeartbeatUtc)}</span>
                 </div>
               ))
             )}
@@ -232,30 +232,30 @@ export default function Dashboard() {
 
         {/* Recent jobs table */}
         <div className="card">
-          <div className="px-4 py-3 border-b border-gray-700 flex items-center justify-between">
-            <span className="text-sm font-medium text-gray-200">{t('dashboard.recentJobs')}</span>
-            <span className="text-xs text-gray-500">{jobsData?.total ?? 0} total</span>
+          <div className="px-4 py-3 border-b border-[var(--color-border)] flex items-center justify-between">
+            <span className="text-sm font-medium text-[var(--color-text-primary)]">{t('dashboard.recentJobs')}</span>
+            <span className="text-xs text-[var(--color-text-muted)]">{jobsData?.total ?? 0} total</span>
           </div>
           <div className="overflow-x-auto max-h-64 overflow-y-auto">
             <table className="w-full text-xs">
-              <thead className="sticky top-0 bg-gray-900">
-                <tr className="border-b border-gray-700">
-                  <th className="px-3 py-2 text-left text-gray-400 font-medium">ID</th>
-                  <th className="px-3 py-2 text-left text-gray-400 font-medium">Proceso</th>
-                  <th className="px-3 py-2 text-left text-gray-400 font-medium">Estado</th>
-                  <th className="px-3 py-2 text-left text-gray-400 font-medium">Duración</th>
+              <thead className="sticky top-0 bg-[var(--color-bg-secondary)]">
+                <tr className="border-b border-[var(--color-border)]">
+                  <th className="px-3 py-2 text-left text-[var(--color-text-secondary)] font-medium">ID</th>
+                  <th className="px-3 py-2 text-left text-[var(--color-text-secondary)] font-medium">Proceso</th>
+                  <th className="px-3 py-2 text-left text-[var(--color-text-secondary)] font-medium">Estado</th>
+                  <th className="px-3 py-2 text-left text-[var(--color-text-secondary)] font-medium">Duración</th>
                 </tr>
               </thead>
               <tbody>
                 {jobs.length === 0 ? (
-                  <tr><td colSpan={4} className="px-3 py-4 text-center text-gray-500">{t('dashboard.noRecentJobs')}</td></tr>
+                  <tr><td colSpan={4} className="px-3 py-4 text-center text-[var(--color-text-muted)]">{t('dashboard.noRecentJobs')}</td></tr>
                 ) : (
                   jobs.slice(0, 15).map(job => (
-                    <tr key={job.externalJobId} className="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">
+                    <tr key={job.externalJobId} className="border-b border-[var(--color-border)] hover:bg-[var(--color-bg-hover)] transition-colors">
                       <td className="px-3 py-2"><CopyableId id={job.externalJobId} maxLength={10} /></td>
-                      <td className="px-3 py-2 text-gray-300 truncate max-w-[140px]">{job.processExternalId}</td>
+                      <td className="px-3 py-2 text-[var(--color-text-secondary)] truncate max-w-[140px]">{job.processExternalId}</td>
                       <td className="px-3 py-2"><StatusBadge status={job.status?.value ?? '—'} /></td>
-                      <td className="px-3 py-2 text-gray-400 font-mono">{formatDuration(job.duration)}</td>
+                      <td className="px-3 py-2 text-[var(--color-text-secondary)] font-mono">{formatDuration(job.duration)}</td>
                     </tr>
                   ))
                 )}

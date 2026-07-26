@@ -39,7 +39,7 @@ export function StatusBadge({ status, showDot = false, className }: Props) {
   return (
     <span className={clsx(style, 'inline-flex items-center gap-1.5', className)}>
       {(showDot || dot) && (
-        <span className={clsx('w-1.5 h-1.5 rounded-full', dot || 'bg-gray-400')} />
+        <span className={clsx('w-1.5 h-1.5 rounded-full', dot || 'bg-[var(--color-text-secondary)]')} />
       )}
       {status}
     </span>

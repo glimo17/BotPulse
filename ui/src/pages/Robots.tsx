@@ -51,12 +51,12 @@ export default function Robots() {
         {/* Header */}
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold text-gray-100">{t('robots.title')}</h1>
-            <p className="text-sm text-gray-500 mt-0.5">{filtered.length} de {robots.length} robots</p>
+            <h1 className="text-xl font-bold text-[var(--color-text-primary)]">{t('robots.title')}</h1>
+            <p className="text-sm text-[var(--color-text-muted)] mt-0.5">{filtered.length} de {robots.length} robots</p>
           </div>
           <button
             onClick={() => { setForceRefresh(v => v + 1); void refetch() }}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-400 hover:text-gray-200 bg-gray-800 hover:bg-gray-700 rounded-md transition-colors border border-gray-700"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] bg-[var(--color-bg-hover)] hover:bg-[var(--color-bg-hover)] rounded-md transition-colors border border-[var(--color-border)]"
           >
             <RefreshCw size={13} />
             {t('common.forceRefresh')}
@@ -71,7 +71,7 @@ export default function Robots() {
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder={t('common.search')}
-            className="bg-gray-800 border border-gray-700 rounded-md px-3 py-1.5 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-accent w-48 transition-colors"
+            className="bg-[var(--color-bg-hover)] border border-[var(--color-border)] rounded-md px-3 py-1.5 text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] focus:outline-none focus:border-accent w-48 transition-colors"
           />
           {/* Status chips */}
           <div className="flex gap-1.5 flex-wrap">
@@ -83,7 +83,7 @@ export default function Robots() {
                   'px-2.5 py-1 rounded-full text-xs transition-colors border',
                   statusFilter === s
                     ? 'bg-accent/20 text-accent border-accent/40'
-                    : 'text-gray-400 border-gray-700 hover:text-gray-200 hover:bg-gray-800'
+                    : 'text-[var(--color-text-secondary)] border-[var(--color-border)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)]'
                 )}
               >
                 {s}
@@ -97,38 +97,38 @@ export default function Robots() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700 bg-gray-900">
-                  <th className={clsx('text-left text-xs text-gray-400 font-medium', cellPadding)}>Nombre</th>
-                  <th className={clsx('text-left text-xs text-gray-400 font-medium', cellPadding)}>Estado</th>
-                  <th className={clsx('text-left text-xs text-gray-400 font-medium hidden md:table-cell', cellPadding)}>Máquina</th>
-                  <th className={clsx('text-left text-xs text-gray-400 font-medium hidden lg:table-cell', cellPadding)}>Licencia</th>
-                  <th className={clsx('text-left text-xs text-gray-400 font-medium hidden md:table-cell', cellPadding)}>Último pulso</th>
-                  <th className={clsx('text-left text-xs text-gray-400 font-medium', cellPadding)}>ID</th>
+                <tr className="border-b border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
+                  <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium', cellPadding)}>Nombre</th>
+                  <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium', cellPadding)}>Estado</th>
+                  <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium hidden md:table-cell', cellPadding)}>Máquina</th>
+                  <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium hidden lg:table-cell', cellPadding)}>Licencia</th>
+                  <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium hidden md:table-cell', cellPadding)}>Último pulso</th>
+                  <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium', cellPadding)}>ID</th>
                   <th className={clsx('w-8', cellPadding)}></th>
                 </tr>
               </thead>
               <tbody>
                 {isLoading ? (
-                  <tr><td colSpan={7} className="px-4 py-8 text-center text-gray-500 text-sm">{t('common.loadingRobots')}</td></tr>
+                  <tr><td colSpan={7} className="px-4 py-8 text-center text-[var(--color-text-muted)] text-sm">{t('common.loadingRobots')}</td></tr>
                 ) : filtered.length === 0 ? (
-                  <tr><td colSpan={7} className="px-4 py-8 text-center text-gray-500 text-sm">{t('common.noData')}</td></tr>
+                  <tr><td colSpan={7} className="px-4 py-8 text-center text-[var(--color-text-muted)] text-sm">{t('common.noData')}</td></tr>
                 ) : (
                   filtered.map(robot => (
                     <tr
                       key={robot.externalId}
                       onClick={() => setSelected(robot)}
                       className={clsx(
-                        'border-b border-gray-800 hover:bg-gray-800/60 cursor-pointer transition-colors',
-                        selected?.externalId === robot.externalId ? 'bg-gray-800/80' : ''
+                        'border-b border-[var(--color-border)] hover:bg-[var(--color-bg-hover)] cursor-pointer transition-colors',
+                        selected?.externalId === robot.externalId ? 'bg-[var(--color-bg-hover)]' : ''
                       )}
                     >
-                      <td className={clsx('text-gray-200 font-medium', cellPadding)}>{robot.name}</td>
+                      <td className={clsx('text-[var(--color-text-primary)] font-medium', cellPadding)}>{robot.name}</td>
                       <td className={cellPadding}><StatusBadge status={robot.status} showDot /></td>
-                      <td className={clsx('text-gray-400 hidden md:table-cell', cellPadding)}>
+                      <td className={clsx('text-[var(--color-text-secondary)] hidden md:table-cell', cellPadding)}>
                         {robot.machineExternalId ? <CopyableId id={robot.machineExternalId} maxLength={8} /> : '—'}
                       </td>
-                      <td className={clsx('text-gray-400 hidden lg:table-cell', cellPadding)}>{robot.licenseType || '—'}</td>
-                      <td className={clsx('text-gray-400 hidden md:table-cell', cellPadding)}>{timeAgo(robot.lastHeartbeatUtc)}</td>
+                      <td className={clsx('text-[var(--color-text-secondary)] hidden lg:table-cell', cellPadding)}>{robot.licenseType || '—'}</td>
+                      <td className={clsx('text-[var(--color-text-secondary)] hidden md:table-cell', cellPadding)}>{timeAgo(robot.lastHeartbeatUtc)}</td>
                       <td className={cellPadding}><CopyableId id={robot.externalId} /></td>
                       <td className={cellPadding}>
                         <ChevronRight size={14} className="text-gray-600" />
@@ -146,41 +146,41 @@ export default function Robots() {
       {selected && (
         <div className="w-80 shrink-0">
           <div className="card h-full">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-gray-700">
-              <span className="text-sm font-medium text-gray-200">Detalle del Robot</span>
-              <button onClick={() => setSelected(null)} className="text-gray-500 hover:text-gray-300 transition-colors">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)]">
+              <span className="text-sm font-medium text-[var(--color-text-primary)]">Detalle del Robot</span>
+              <button onClick={() => setSelected(null)} className="text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] transition-colors">
                 <X size={15} />
               </button>
             </div>
             <div className="p-4 space-y-4">
               <div>
-                <p className="text-lg font-bold text-gray-100">{selected.name}</p>
+                <p className="text-lg font-bold text-[var(--color-text-primary)]">{selected.name}</p>
                 <StatusBadge status={selected.status} showDot className="mt-1.5" />
               </div>
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-500">External ID</span>
+                  <span className="text-[var(--color-text-muted)]">External ID</span>
                   <CopyableId id={selected.externalId} maxLength={16} />
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500">Máquina</span>
-                  <span className="text-gray-300">
+                  <span className="text-[var(--color-text-muted)]">Máquina</span>
+                  <span className="text-[var(--color-text-secondary)]">
                     {selected.machineExternalId
                       ? <CopyableId id={selected.machineExternalId} maxLength={12} />
                       : '—'}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500">Licencia</span>
-                  <span className="text-gray-300">{selected.licenseType || '—'}</span>
+                  <span className="text-[var(--color-text-muted)]">Licencia</span>
+                  <span className="text-[var(--color-text-secondary)]">{selected.licenseType || '—'}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500">Último pulso</span>
-                  <span className="text-gray-300">{timeAgo(selected.lastHeartbeatUtc)}</span>
+                  <span className="text-[var(--color-text-muted)]">Último pulso</span>
+                  <span className="text-[var(--color-text-secondary)]">{timeAgo(selected.lastHeartbeatUtc)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500">Timestamp</span>
-                  <span className="text-gray-300 text-xs font-mono">
+                  <span className="text-[var(--color-text-muted)]">Timestamp</span>
+                  <span className="text-[var(--color-text-secondary)] text-xs font-mono">
                     {new Date(selected.lastHeartbeatUtc).toLocaleString()}
                   </span>
                 </div>

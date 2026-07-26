@@ -26,7 +26,7 @@ export function CopyableId({ id, maxLength = 12, className }: Props) {
     <button
       onClick={handleCopy}
       className={clsx(
-        'group inline-flex items-center gap-1.5 font-mono text-xs text-gray-400 hover:text-gray-200 transition-colors',
+        'group inline-flex items-center gap-1.5 font-mono text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors',
         className
       )}
       title={copied ? t('common.copied') : t('common.copyId')}

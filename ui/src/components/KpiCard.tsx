@@ -32,7 +32,7 @@ export function KpiCard({
         <div className={`w-8 h-8 rounded-lg ${iconBg} flex items-center justify-center shrink-0`}>
           <Icon size={16} className={iconColor} />
         </div>
-        <span className="text-xs text-gray-400 uppercase tracking-wide font-medium">
+        <span className="text-xs text-[var(--color-text-secondary)] uppercase tracking-wide font-medium">
           {label}
         </span>
         {showPulse && (
@@ -42,12 +42,12 @@ export function KpiCard({
           </span>
         )}
       </div>
-      <p className={`text-2xl font-bold ${valueColor ?? 'text-gray-100'}`}>
+      <p className={`text-2xl font-bold ${valueColor ?? 'text-[var(--color-text-primary)]'}`}>
         {displayValue}
       </p>
-      <p className="text-xs text-gray-500 mt-1">{subtitle}</p>
+      <p className="text-xs text-[var(--color-text-muted)] mt-1">{subtitle}</p>
       {trend && (
-        <div className="flex items-center gap-1 mt-2 text-xs text-gray-500">
+        <div className="flex items-center gap-1 mt-2 text-xs text-[var(--color-text-muted)]">
           {trend.value > 0
             ? <TrendingUp size={12} className="text-success" />
             : <TrendingDown size={12} className="text-error" />

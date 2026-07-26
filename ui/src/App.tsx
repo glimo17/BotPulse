@@ -1,5 +1,4 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { useState } from 'react'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
 import { AppLayout } from '@/components/layout/AppLayout'
 import { DensityProvider } from '@/contexts/DensityContext'
@@ -15,15 +14,13 @@ import Metrics from '@/pages/Metrics'
 import Alerts from '@/pages/Alerts'
 
 export default function App() {
-  const [_cmdOpen, setCmdOpen] = useState(false)
-
   return (
     <DensityProvider>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route element={
           <ProtectedRoute>
-            <AppLayout onCommandPaletteOpen={() => setCmdOpen(true)} />
+            <AppLayout />
           </ProtectedRoute>
         }>
           <Route path="/dashboard" element={<Dashboard />} />

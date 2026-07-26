@@ -67,31 +67,31 @@ export default function Metrics() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-xl font-bold text-gray-100">{t('metrics.title')}</h1>
-        <p className="text-sm text-gray-500 mt-0.5">{t('metrics.subtitle')}</p>
+        <h1 className="text-xl font-bold text-[var(--color-text-primary)]">{t('metrics.title')}</h1>
+        <p className="text-sm text-[var(--color-text-muted)] mt-0.5">{t('metrics.subtitle')}</p>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         <div className="card p-4">
-          <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">{t('metrics.successRate')}</p>
-          <p className="text-3xl font-bold text-gray-100">{latestRate !== null ? `${latestRate}%` : '—'}</p>
-          <p className="text-xs text-gray-500 mt-1">{t('metrics.lastHour')}</p>
+          <p className="text-xs text-[var(--color-text-secondary)] uppercase tracking-wide mb-1">{t('metrics.successRate')}</p>
+          <p className="text-3xl font-bold text-[var(--color-text-primary)]">{latestRate !== null ? `${latestRate}%` : '—'}</p>
+          <p className="text-xs text-[var(--color-text-muted)] mt-1">{t('metrics.lastHour')}</p>
         </div>
         <div className="card p-4">
-          <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">{t('metrics.jobsToday')}</p>
-          <p className="text-3xl font-bold text-gray-100">{totalToday}</p>
-          <p className="text-xs text-gray-500 mt-1">{t('metrics.totalAccumulated')}</p>
+          <p className="text-xs text-[var(--color-text-secondary)] uppercase tracking-wide mb-1">{t('metrics.jobsToday')}</p>
+          <p className="text-3xl font-bold text-[var(--color-text-primary)]">{totalToday}</p>
+          <p className="text-xs text-[var(--color-text-muted)] mt-1">{t('metrics.totalAccumulated')}</p>
         </div>
         <div className="card p-4 col-span-2 md:col-span-1">
-          <p className="text-xs text-gray-400 uppercase tracking-wide mb-1">{t('metrics.exceptions')}</p>
-          <p className="text-3xl font-bold text-gray-100">{breakdown.total}</p>
-          <p className="text-xs text-gray-500 mt-1">B:{breakdown.businessExceptions} / S:{breakdown.systemExceptions}</p>
+          <p className="text-xs text-[var(--color-text-secondary)] uppercase tracking-wide mb-1">{t('metrics.exceptions')}</p>
+          <p className="text-3xl font-bold text-[var(--color-text-primary)]">{breakdown.total}</p>
+          <p className="text-xs text-[var(--color-text-muted)] mt-1">B:{breakdown.businessExceptions} / S:{breakdown.systemExceptions}</p>
         </div>
       </div>
 
       {rateData.length > 0 && (
         <div className="card p-4">
-          <h2 className="text-sm font-medium text-gray-200 mb-4">{t('metrics.successRateChart')}</h2>
+          <h2 className="text-sm font-medium text-[var(--color-text-primary)] mb-4">{t('metrics.successRateChart')}</h2>
           <ResponsiveContainer width="100%" height={180}>
             <LineChart data={rateData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#2c3235" />
@@ -106,7 +106,7 @@ export default function Metrics() {
 
       {totalData.length > 0 && (
         <div className="card p-4">
-          <h2 className="text-sm font-medium text-gray-200 mb-4">{t('metrics.jobsPerHour')}</h2>
+          <h2 className="text-sm font-medium text-[var(--color-text-primary)] mb-4">{t('metrics.jobsPerHour')}</h2>
           <ResponsiveContainer width="100%" height={180}>
             <BarChart data={totalData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#2c3235" />
@@ -123,7 +123,7 @@ export default function Metrics() {
       {/* Exception Breakdown Donut */}
       {breakdown.total > 0 ? (
         <div className="card p-4">
-          <h2 className="text-sm font-medium text-gray-200 mb-4">{t('metrics.exceptionBreakdown')}</h2>
+          <h2 className="text-sm font-medium text-[var(--color-text-primary)] mb-4">{t('metrics.exceptionBreakdown')}</h2>
           <ResponsiveContainer width="100%" height={220}>
             <PieChart>
               <Pie
@@ -153,13 +153,13 @@ export default function Metrics() {
           </ResponsiveContainer>
         </div>
       ) : jobsMetrics.length > 0 ? (
-        <div className="card p-6 text-center text-gray-500 text-sm">
+        <div className="card p-6 text-center text-[var(--color-text-muted)] text-sm">
           {t('metrics.noExceptions')}
         </div>
       ) : null}
 
       {rateData.length === 0 && totalData.length === 0 && jobsMetrics.length === 0 && (
-        <div className="card p-8 text-center text-gray-500 text-sm">
+        <div className="card p-8 text-center text-[var(--color-text-muted)] text-sm">
           {t('metrics.noMetrics')}
         </div>
       )}

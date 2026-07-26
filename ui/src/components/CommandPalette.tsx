@@ -89,18 +89,18 @@ export function CommandPalette({ open, onClose }: Props) {
 
       {/* Palette */}
       <div className="fixed top-[20%] left-1/2 -translate-x-1/2 w-full max-w-xl z-50 px-4">
-        <div className="bg-gray-900 border border-gray-700 rounded-xl shadow-2xl overflow-hidden">
+        <div className="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-xl shadow-2xl overflow-hidden">
           {/* Search input */}
-          <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-700">
-            <Search size={16} className="text-gray-500 shrink-0" />
+          <div className="flex items-center gap-3 px-4 py-3 border-b border-[var(--color-border)]">
+            <Search size={16} className="text-[var(--color-text-muted)] shrink-0" />
             <input
               id="cmd-input"
               value={query}
               onChange={e => setQuery(e.target.value)}
               placeholder={t('common.search')}
-              className="flex-1 bg-transparent text-gray-100 placeholder-gray-500 outline-none text-sm"
+              className="flex-1 bg-transparent text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] outline-none text-sm"
             />
-            <kbd className="text-gray-500 text-[10px] font-mono bg-gray-800 px-1.5 py-0.5 rounded border border-gray-600">ESC</kbd>
+            <kbd className="text-[var(--color-text-muted)] text-[10px] font-mono bg-[var(--color-bg-hover)] px-1.5 py-0.5 rounded border border-[var(--color-border)]">ESC</kbd>
           </div>
 
           {/* Results */}
@@ -108,13 +108,13 @@ export function CommandPalette({ open, onClose }: Props) {
             {/* Pages */}
             {filteredPages.length > 0 && (
               <div>
-                <p className="px-4 py-1 text-[10px] text-gray-500 uppercase tracking-wider">Navegar a</p>
+                <p className="px-4 py-1 text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider">Navegar a</p>
                 {filteredPages.map(page => {
                   const Icon = page.icon
                   return (
                     <button key={page.path} onClick={() => handleSelect(page.path)}
-                      className="w-full flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:text-gray-100 hover:bg-gray-800 transition-colors text-left">
-                      <Icon size={14} className="text-gray-500 shrink-0" />
+                      className="w-full flex items-center gap-3 px-4 py-2 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)] transition-colors text-left">
+                      <Icon size={14} className="text-[var(--color-text-muted)] shrink-0" />
                       {page.label}
                     </button>
                   )
@@ -125,11 +125,11 @@ export function CommandPalette({ open, onClose }: Props) {
             {/* Robots */}
             {filteredRobots.length > 0 && (
               <div>
-                <p className="px-4 py-1 text-[10px] text-gray-500 uppercase tracking-wider mt-1">Robots</p>
+                <p className="px-4 py-1 text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider mt-1">Robots</p>
                 {filteredRobots.map(robot => (
                   <button key={robot.externalId} onClick={() => handleSelect('/robots')}
-                    className="w-full flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:text-gray-100 hover:bg-gray-800 transition-colors text-left">
-                    <Bot size={14} className="text-gray-500 shrink-0" />
+                    className="w-full flex items-center gap-3 px-4 py-2 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)] transition-colors text-left">
+                    <Bot size={14} className="text-[var(--color-text-muted)] shrink-0" />
                     <span className="flex-1">{robot.name}</span>
                     <span className={clsx('text-xs', robot.status === 'Online' ? 'text-success' : 'text-error')}>{robot.status}</span>
                   </button>
@@ -140,20 +140,20 @@ export function CommandPalette({ open, onClose }: Props) {
             {/* Recent jobs */}
             {filteredJobs.length > 0 && (
               <div>
-                <p className="px-4 py-1 text-[10px] text-gray-500 uppercase tracking-wider mt-1">{t('common.recentJobs')}</p>
+                <p className="px-4 py-1 text-[10px] text-[var(--color-text-muted)] uppercase tracking-wider mt-1">{t('common.recentJobs')}</p>
                 {filteredJobs.map(job => (
                   <button key={job.externalJobId} onClick={() => handleSelect('/jobs')}
-                    className="w-full flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:text-gray-100 hover:bg-gray-800 transition-colors text-left">
-                    <Briefcase size={14} className="text-gray-500 shrink-0" />
+                    className="w-full flex items-center gap-3 px-4 py-2 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)] transition-colors text-left">
+                    <Briefcase size={14} className="text-[var(--color-text-muted)] shrink-0" />
                     <span className="flex-1 font-mono text-xs">{job.externalJobId.substring(0, 14)}…</span>
-                    <span className="text-xs text-gray-500">{job.status?.value ?? '—'}</span>
+                    <span className="text-xs text-[var(--color-text-muted)]">{job.status?.value ?? '—'}</span>
                   </button>
                 ))}
               </div>
             )}
 
             {q && filteredPages.length === 0 && filteredRobots.length === 0 && filteredJobs.length === 0 && (
-              <p className="px-4 py-6 text-center text-sm text-gray-500">Sin resultados para "{query}"</p>
+              <p className="px-4 py-6 text-center text-sm text-[var(--color-text-muted)]">Sin resultados para "{query}"</p>
             )}
           </div>
         </div>

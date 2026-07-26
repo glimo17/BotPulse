@@ -20,35 +20,35 @@ export default function Processes() {
   return (
     <div className="space-y-4">
       <div>
-        <h1 className="text-xl font-bold text-gray-100">Procesos</h1>
-        <p className="text-sm text-gray-500 mt-0.5">{processes.length} procesos</p>
+        <h1 className="text-xl font-bold text-[var(--color-text-primary)]">Procesos</h1>
+        <p className="text-sm text-[var(--color-text-muted)] mt-0.5">{processes.length} procesos</p>
       </div>
       <div className="card overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-gray-700 bg-gray-900">
-                <th className={clsx('text-left text-xs text-gray-400 font-medium', cellPadding)}>Nombre</th>
-                <th className={clsx('text-left text-xs text-gray-400 font-medium hidden sm:table-cell', cellPadding)}>Versión</th>
-                <th className={clsx('text-left text-xs text-gray-400 font-medium hidden md:table-cell', cellPadding)}>Estado</th>
-                <th className={clsx('text-left text-xs text-gray-400 font-medium hidden lg:table-cell', cellPadding)}>Robots compatibles</th>
-                <th className={clsx('text-left text-xs text-gray-400 font-medium', cellPadding)}>ID</th>
+              <tr className="border-b border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
+                <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium', cellPadding)}>Nombre</th>
+                <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium hidden sm:table-cell', cellPadding)}>Versión</th>
+                <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium hidden md:table-cell', cellPadding)}>Estado</th>
+                <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium hidden lg:table-cell', cellPadding)}>Robots compatibles</th>
+                <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium', cellPadding)}>ID</th>
               </tr>
             </thead>
             <tbody>
               {isLoading ? (
-                <tr><td colSpan={5} className="px-4 py-8 text-center text-gray-500">{t('common.loadingProcesses')}</td></tr>
+                <tr><td colSpan={5} className="px-4 py-8 text-center text-[var(--color-text-muted)]">{t('common.loadingProcesses')}</td></tr>
               ) : processes.length === 0 ? (
-                <tr><td colSpan={5} className="px-4 py-8 text-center text-gray-500">{t('common.noData')}</td></tr>
+                <tr><td colSpan={5} className="px-4 py-8 text-center text-[var(--color-text-muted)]">{t('common.noData')}</td></tr>
               ) : processes.map(p => (
-                <tr key={p.externalId} className="border-b border-gray-800 hover:bg-gray-800/60 transition-colors">
-                  <td className={clsx('text-gray-200 font-medium', cellPadding)}>
+                <tr key={p.externalId} className="border-b border-[var(--color-border)] hover:bg-[var(--color-bg-hover)] transition-colors">
+                  <td className={clsx('text-[var(--color-text-primary)] font-medium', cellPadding)}>
                     <div>{p.name}</div>
-                    {p.description && <div className="text-xs text-gray-500 truncate max-w-[200px]">{p.description}</div>}
+                    {p.description && <div className="text-xs text-[var(--color-text-muted)] truncate max-w-[200px]">{p.description}</div>}
                   </td>
-                  <td className={clsx('text-gray-400 font-mono text-xs hidden sm:table-cell', cellPadding)}>{p.version}</td>
+                  <td className={clsx('text-[var(--color-text-secondary)] font-mono text-xs hidden sm:table-cell', cellPadding)}>{p.version}</td>
                   <td className={clsx('hidden md:table-cell', cellPadding)}><StatusBadge status={p.publicationStatus} /></td>
-                  <td className={clsx('text-gray-400 hidden lg:table-cell', cellPadding)}>{p.compatibleRobotCount}</td>
+                  <td className={clsx('text-[var(--color-text-secondary)] hidden lg:table-cell', cellPadding)}>{p.compatibleRobotCount}</td>
                   <td className={cellPadding}><CopyableId id={p.externalId} maxLength={12} /></td>
                 </tr>
               ))}

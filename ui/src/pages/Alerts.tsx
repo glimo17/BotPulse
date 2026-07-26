@@ -61,8 +61,8 @@ export default function Alerts() {
     <div className="space-y-4">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-xl font-bold text-gray-100">{t('alerts.title')}</h1>
-          <p className="text-sm text-gray-500 mt-0.5">
+          <h1 className="text-xl font-bold text-[var(--color-text-primary)]">{t('alerts.title')}</h1>
+          <p className="text-sm text-[var(--color-text-muted)] mt-0.5">
             {activeCount > 0 ? <span className="text-error">{activeCount} activas sin atender</span> : 'Sin alertas activas'}
           </p>
         </div>
@@ -73,21 +73,21 @@ export default function Alerts() {
           {SEV_FILTERS.map(s => (
             <button key={s} onClick={() => setSevFilter(s)}
               className={clsx('px-2.5 py-1 rounded-full text-xs border transition-colors',
-                sevFilter === s ? 'bg-accent/20 text-accent border-accent/40' : 'text-gray-400 border-gray-700 hover:text-gray-200 hover:bg-gray-800')}>
+                sevFilter === s ? 'bg-accent/20 text-accent border-accent/40' : 'text-[var(--color-text-secondary)] border-[var(--color-border)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)]')}>
               {s}
             </button>
           ))}
         </div>
-        <label className="flex items-center gap-2 text-xs text-gray-400 cursor-pointer">
+        <label className="flex items-center gap-2 text-xs text-[var(--color-text-secondary)] cursor-pointer">
           <input type="checkbox" checked={showAcked} onChange={e => setShowAcked(e.target.checked)} className="rounded accent-accent" />
           Mostrar reconocidas
         </label>
       </div>
 
       {isLoading ? (
-        <div className="card p-8 text-center text-gray-500 text-sm">{t('common.loadingAlerts')}</div>
+        <div className="card p-8 text-center text-[var(--color-text-muted)] text-sm">{t('common.loadingAlerts')}</div>
       ) : filtered.length === 0 ? (
-        <div className="card p-8 text-center text-gray-500 text-sm">
+        <div className="card p-8 text-center text-[var(--color-text-muted)] text-sm">
           {alerts.length === 0 ? 'Sin alertas registradas' : 'Sin alertas con los filtros aplicados'}
         </div>
       ) : (
@@ -97,10 +97,10 @@ export default function Alerts() {
               className={clsx('card p-4 flex items-start gap-3 transition-opacity',
                 SEV_STYLES[alert.severity] || '',
                 alert.acknowledged ? 'opacity-50' : '')}>
-              <div className="mt-0.5 shrink-0">{SEV_ICON[alert.severity] ?? <Info size={14} className="text-gray-500" />}</div>
+              <div className="mt-0.5 shrink-0">{SEV_ICON[alert.severity] ?? <Info size={14} className="text-[var(--color-text-muted)]" />}</div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm text-gray-200">{alert.conditionDescription}</p>
-                <div className="flex items-center gap-3 mt-1 text-xs text-gray-500">
+                <p className="text-sm text-[var(--color-text-primary)]">{alert.conditionDescription}</p>
+                <div className="flex items-center gap-3 mt-1 text-xs text-[var(--color-text-muted)]">
                   <span>{alert.affectedResourceType}/{alert.affectedResourceId}</span>
                   <span>·</span>
                   <span>{timeAgo(alert.raisedAtUtc)}</span>

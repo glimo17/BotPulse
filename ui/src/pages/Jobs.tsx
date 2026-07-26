@@ -74,11 +74,11 @@ export default function Jobs() {
       <div className="flex-1 min-w-0 space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold text-gray-100">{t('jobs.title')}</h1>
-            <p className="text-sm text-gray-500 mt-0.5">{total} jobs</p>
+            <h1 className="text-xl font-bold text-[var(--color-text-primary)]">{t('jobs.title')}</h1>
+            <p className="text-sm text-[var(--color-text-muted)] mt-0.5">{total} jobs</p>
           </div>
           <button onClick={() => void qc.invalidateQueries({ queryKey: ['jobs'] })}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-gray-400 hover:text-gray-200 bg-gray-800 hover:bg-gray-700 rounded-md border border-gray-700 transition-colors">
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] bg-[var(--color-bg-hover)] hover:bg-[var(--color-bg-hover)] rounded-md border border-[var(--color-border)] transition-colors">
             <RefreshCw size={13} />{t('common.refresh')}
           </button>
         </div>
@@ -87,7 +87,7 @@ export default function Jobs() {
           {STATUS_OPTS.map(s => (
             <button key={s} onClick={() => { setStatus(s); setPage(1) }}
               className={clsx('px-2.5 py-1 rounded-full text-xs border transition-colors',
-                status === s ? 'bg-accent/20 text-accent border-accent/40' : 'text-gray-400 border-gray-700 hover:text-gray-200 hover:bg-gray-800')}>
+                status === s ? 'bg-accent/20 text-accent border-accent/40' : 'text-[var(--color-text-secondary)] border-[var(--color-border)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)]')}>
               {s}
             </button>
           ))}
@@ -97,31 +97,31 @@ export default function Jobs() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-gray-700 bg-gray-900">
-                  <th className={clsx('text-left text-xs text-gray-400 font-medium', cellPadding)}>ID</th>
-                  <th className={clsx('text-left text-xs text-gray-400 font-medium hidden md:table-cell', cellPadding)}>Proceso</th>
-                  <th className={clsx('text-left text-xs text-gray-400 font-medium hidden lg:table-cell', cellPadding)}>Robot</th>
-                  <th className={clsx('text-left text-xs text-gray-400 font-medium', cellPadding)}>Estado</th>
-                  <th className={clsx('text-left text-xs text-gray-400 font-medium hidden md:table-cell', cellPadding)}>Inicio</th>
-                  <th className={clsx('text-left text-xs text-gray-400 font-medium', cellPadding)}>Duración</th>
-                  {isOperator && <th className={clsx('text-left text-xs text-gray-400 font-medium', cellPadding)}>Acciones</th>}
+                <tr className="border-b border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
+                  <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium', cellPadding)}>ID</th>
+                  <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium hidden md:table-cell', cellPadding)}>Proceso</th>
+                  <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium hidden lg:table-cell', cellPadding)}>Robot</th>
+                  <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium', cellPadding)}>Estado</th>
+                  <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium hidden md:table-cell', cellPadding)}>Inicio</th>
+                  <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium', cellPadding)}>Duración</th>
+                  {isOperator && <th className={clsx('text-left text-xs text-[var(--color-text-secondary)] font-medium', cellPadding)}>Acciones</th>}
                 </tr>
               </thead>
               <tbody>
                 {isLoading ? (
-                <tr><td colSpan={7} className="px-4 py-8 text-center text-gray-500">{t('common.loadingJobs')}</td></tr>
+                <tr><td colSpan={7} className="px-4 py-8 text-center text-[var(--color-text-muted)]">{t('common.loadingJobs')}</td></tr>
                 ) : jobs.length === 0 ? (
-                  <tr><td colSpan={7} className="px-4 py-8 text-center text-gray-500">{t('common.noData')}</td></tr>
+                  <tr><td colSpan={7} className="px-4 py-8 text-center text-[var(--color-text-muted)]">{t('common.noData')}</td></tr>
                 ) : jobs.map(job => (
                   <tr key={job.externalJobId} onClick={() => setSelected(job)}
-                    className={clsx('border-b border-gray-800 hover:bg-gray-800/60 cursor-pointer transition-colors',
-                      selected?.externalJobId === job.externalJobId ? 'bg-gray-800/80' : '')}>
+                    className={clsx('border-b border-[var(--color-border)] hover:bg-[var(--color-bg-hover)] cursor-pointer transition-colors',
+                      selected?.externalJobId === job.externalJobId ? 'bg-[var(--color-bg-hover)]' : '')}>
                     <td className={cellPadding}><CopyableId id={job.externalJobId} maxLength={10} /></td>
-                    <td className={clsx('text-gray-300 hidden md:table-cell max-w-[160px] truncate', cellPadding)}>{job.processExternalId}</td>
+                    <td className={clsx('text-[var(--color-text-secondary)] hidden md:table-cell max-w-[160px] truncate', cellPadding)}>{job.processExternalId}</td>
                     <td className={clsx('hidden lg:table-cell', cellPadding)}><CopyableId id={job.robotExternalId} maxLength={8} /></td>
                     <td className={cellPadding}><StatusBadge status={job.status?.value ?? '—'} showDot /></td>
-                    <td className={clsx('text-gray-400 hidden md:table-cell text-xs', cellPadding)}>{fmtTime(job.startTimeUtc)}</td>
-                    <td className={clsx('text-gray-400 font-mono text-xs', cellPadding)}>{formatDuration(job.duration)}</td>
+                    <td className={clsx('text-[var(--color-text-secondary)] hidden md:table-cell text-xs', cellPadding)}>{fmtTime(job.startTimeUtc)}</td>
+                    <td className={clsx('text-[var(--color-text-secondary)] font-mono text-xs', cellPadding)}>{formatDuration(job.duration)}</td>
                     {isOperator && (
                       <td className={cellPadding} onClick={e => e.stopPropagation()}>
                         <div className="flex gap-1">
@@ -131,7 +131,7 @@ export default function Jobs() {
                           )}
                           {job.status?.value === 'Pending' && (
                             <button onClick={() => cancel.mutate(job.externalJobId)} title="Cancel"
-                              className="p-1 text-gray-400 hover:bg-gray-700 rounded transition-colors"><XCircle size={12} /></button>
+                              className="p-1 text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-hover)] rounded transition-colors"><XCircle size={12} /></button>
                           )}
                           {(job.status?.value === 'Failed' || job.status?.value === 'Stopped') && (
                             <button onClick={() => retry.mutate(job.externalJobId)} title="Retry"
@@ -147,13 +147,13 @@ export default function Jobs() {
             </table>
           </div>
           {pages > 1 && (
-            <div className="flex items-center justify-between px-4 py-2 border-t border-gray-700">
-              <span className="text-xs text-gray-500">Página {page} de {pages}</span>
+            <div className="flex items-center justify-between px-4 py-2 border-t border-[var(--color-border)]">
+              <span className="text-xs text-[var(--color-text-muted)]">Página {page} de {pages}</span>
               <div className="flex gap-1">
                 <button onClick={() => setPage(p => Math.max(1, p-1))} disabled={page === 1}
-                  className="px-2 py-1 text-xs text-gray-400 hover:text-gray-200 disabled:opacity-40 bg-gray-800 rounded border border-gray-700">Ant</button>
+                  className="px-2 py-1 text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] disabled:opacity-40 bg-[var(--color-bg-hover)] rounded border border-[var(--color-border)]">Ant</button>
                 <button onClick={() => setPage(p => Math.min(pages, p+1))} disabled={page === pages}
-                  className="px-2 py-1 text-xs text-gray-400 hover:text-gray-200 disabled:opacity-40 bg-gray-800 rounded border border-gray-700">Sig</button>
+                  className="px-2 py-1 text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] disabled:opacity-40 bg-[var(--color-bg-hover)] rounded border border-[var(--color-border)]">Sig</button>
               </div>
             </div>
           )}
@@ -163,25 +163,25 @@ export default function Jobs() {
       {selected && (
         <div className="w-80 shrink-0">
           <div className="card">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-gray-700">
-              <span className="text-sm font-medium text-gray-200">Detalle del Job</span>
-              <button onClick={() => setSelected(null)} className="text-gray-500 hover:text-gray-300"><X size={15} /></button>
+            <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)]">
+              <span className="text-sm font-medium text-[var(--color-text-primary)]">Detalle del Job</span>
+              <button onClick={() => setSelected(null)} className="text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)]"><X size={15} /></button>
             </div>
             <div className="p-4 space-y-3 text-sm">
               <div><StatusBadge status={selected.status?.value ?? '—'} showDot /></div>
-              <div className="flex justify-between"><span className="text-gray-500">Job ID</span><CopyableId id={selected.externalJobId} maxLength={16} /></div>
-              <div className="flex justify-between"><span className="text-gray-500">Proceso</span><span className="text-gray-300 text-xs text-right max-w-[150px] truncate">{selected.processExternalId}</span></div>
-              <div className="flex justify-between"><span className="text-gray-500">Robot</span><CopyableId id={selected.robotExternalId} maxLength={12} /></div>
-              <div className="flex justify-between"><span className="text-gray-500">Inicio</span><span className="text-gray-300 text-xs">{fmtTime(selected.startTimeUtc)}</span></div>
-              <div className="flex justify-between"><span className="text-gray-500">Duración</span><span className="text-gray-300 font-mono">{formatDuration(selected.duration)}</span></div>
+              <div className="flex justify-between"><span className="text-[var(--color-text-muted)]">Job ID</span><CopyableId id={selected.externalJobId} maxLength={16} /></div>
+              <div className="flex justify-between"><span className="text-[var(--color-text-muted)]">Proceso</span><span className="text-[var(--color-text-secondary)] text-xs text-right max-w-[150px] truncate">{selected.processExternalId}</span></div>
+              <div className="flex justify-between"><span className="text-[var(--color-text-muted)]">Robot</span><CopyableId id={selected.robotExternalId} maxLength={12} /></div>
+              <div className="flex justify-between"><span className="text-[var(--color-text-muted)]">Inicio</span><span className="text-[var(--color-text-secondary)] text-xs">{fmtTime(selected.startTimeUtc)}</span></div>
+              <div className="flex justify-between"><span className="text-[var(--color-text-muted)]">Duración</span><span className="text-[var(--color-text-secondary)] font-mono">{formatDuration(selected.duration)}</span></div>
               {selected.errorMessage && (
                 <div className="mt-3 p-3 bg-error/10 border border-error/20 rounded-md">
                   <p className="text-xs text-error font-medium mb-1">{selected.errorType || 'Error'}</p>
-                  <p className="text-xs text-gray-400">{selected.errorMessage}</p>
+                  <p className="text-xs text-[var(--color-text-secondary)]">{selected.errorMessage}</p>
                 </div>
               )}
               {isOperator && (
-                <div className="flex gap-2 mt-4 pt-3 border-t border-gray-700">
+                <div className="flex gap-2 mt-4 pt-3 border-t border-[var(--color-border)]">
                   {selected.status?.value === 'Running' && (
                     <button onClick={() => stop.mutate(selected.externalJobId)}
                       className="flex-1 flex items-center justify-center gap-1.5 py-1.5 text-xs bg-error/20 text-error hover:bg-error/30 rounded border border-error/30 transition-colors">
@@ -190,7 +190,7 @@ export default function Jobs() {
                   )}
                   {selected.status?.value === 'Pending' && (
                     <button onClick={() => cancel.mutate(selected.externalJobId)}
-                      className="flex-1 flex items-center justify-center gap-1.5 py-1.5 text-xs bg-gray-700 text-gray-300 hover:bg-gray-600 rounded border border-gray-600 transition-colors">
+                      className="flex-1 flex items-center justify-center gap-1.5 py-1.5 text-xs bg-[var(--color-bg-hover)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-hover)] rounded border border-[var(--color-border)] transition-colors">
                       <XCircle size={12} />Cancel
                     </button>
                   )}
