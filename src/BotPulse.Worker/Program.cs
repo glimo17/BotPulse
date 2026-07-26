@@ -1,3 +1,4 @@
+using BotPulse.Core.Application.Alerts;
 using BotPulse.Core.Application.Metrics;
 using BotPulse.Infrastructure.DependencyInjection;
 using BotPulse.Infrastructure.Logging;
@@ -27,12 +28,21 @@ var host = Host.CreateDefaultBuilder(args)
             o => context.Configuration.GetSection("Synchronization:LogSync").Bind(o));
         services.Configure<SynchronizationOptions>("MetricsCollection",
             o => context.Configuration.GetSection("Synchronization:MetricsCollection").Bind(o));
+        services.Configure<SynchronizationOptions>("AlertEvaluation",
+            o => context.Configuration.GetSection("Synchronization:AlertEvaluation").Bind(o));
 
         // Individual sync services (scoped-per-trigger via IServiceScopeFactory)
         services.AddSingleton<ISynchronizationService, JobSynchronizationService>();
         services.AddSingleton<ISynchronizationService, QueueItemSynchronizationService>();
         services.AddSingleton<ISynchronizationService, LogSynchronizationService>();
         services.AddSingleton<ISynchronizationService, MetricsCollectionService>();
+        services.AddSingleton<ISynchronizationService, AlertEvaluationService>();
+
+        // Alert Engine services
+        services.AddScoped<AlertEngine>();
+        services.AddScoped<EscalationEngine>();
+        services.AddScoped<AlertAcknowledgmentService>();
+        services.AddScoped<AlertRuleService>();
 
         // Orchestrator as IHostedService
         services.AddSingleton<SynchronizationOrchestrator>();
