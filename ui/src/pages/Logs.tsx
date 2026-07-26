@@ -77,7 +77,7 @@ export default function Logs() {
             </thead>
             <tbody>
               {isLoading ? (
-                <tr><td colSpan={4} className="px-4 py-8 text-center text-gray-500">Cargando logs...</td></tr>
+                <tr><td colSpan={4} className="px-4 py-8 text-center text-gray-500">{t('common.loadingLogs')}</td></tr>
               ) : logs.length === 0 ? (
                 <tr><td colSpan={4} className="px-4 py-8 text-center text-gray-500">{t('common.noData')}</td></tr>
               ) : logs.map(log => (

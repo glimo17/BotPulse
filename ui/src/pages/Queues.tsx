@@ -20,7 +20,7 @@ export default function Queues() {
         <p className="text-sm text-gray-500 mt-0.5">{queues.length} colas</p>
       </div>
       {isLoading ? (
-        <div className="card p-8 text-center text-gray-500 text-sm">Cargando colas...</div>
+        <div className="card p-8 text-center text-gray-500 text-sm">{t('common.loadingQueues')}</div>
       ) : queues.length === 0 ? (
         <div className="card p-8 text-center text-gray-500 text-sm">{t('common.noData')}</div>
       ) : (

@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next'
 import es from './es.json'
 import en from './en.json'
 
-const savedLang = localStorage.getItem('botpulse-lang') || 'es'
+const savedLang = localStorage.getItem('botpulse-lang') || 'en'
 
 i18n
   .use(initReactI18next)
@@ -13,7 +13,7 @@ i18n
       en: { translation: en },
     },
     lng: savedLang,
-    fallbackLng: 'es',
+    fallbackLng: 'en',
     interpolation: { escapeValue: false },
   })
 

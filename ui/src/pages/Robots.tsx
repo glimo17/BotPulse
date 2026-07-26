@@ -109,7 +109,7 @@ export default function Robots() {
               </thead>
               <tbody>
                 {isLoading ? (
-                  <tr><td colSpan={7} className="px-4 py-8 text-center text-gray-500 text-sm">Cargando robots...</td></tr>
+                  <tr><td colSpan={7} className="px-4 py-8 text-center text-gray-500 text-sm">{t('common.loadingRobots')}</td></tr>
                 ) : filtered.length === 0 ? (
                   <tr><td colSpan={7} className="px-4 py-8 text-center text-gray-500 text-sm">{t('common.noData')}</td></tr>
                 ) : (

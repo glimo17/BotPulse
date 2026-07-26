@@ -37,7 +37,7 @@ export default function Processes() {
             </thead>
             <tbody>
               {isLoading ? (
-                <tr><td colSpan={5} className="px-4 py-8 text-center text-gray-500">Cargando procesos...</td></tr>
+                <tr><td colSpan={5} className="px-4 py-8 text-center text-gray-500">{t('common.loadingProcesses')}</td></tr>
               ) : processes.length === 0 ? (
                 <tr><td colSpan={5} className="px-4 py-8 text-center text-gray-500">{t('common.noData')}</td></tr>
               ) : processes.map(p => (

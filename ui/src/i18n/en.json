@@ -25,7 +25,15 @@
     "online": "Online",
     "offline": "Offline",
     "connected": "Connected",
-    "disconnected": "Disconnected"
+    "disconnected": "Disconnected",
+    "loadingAlerts": "Loading alerts...",
+    "loadingJobs": "Loading jobs...",
+    "loadingLogs": "Loading logs...",
+    "loadingMachines": "Loading machines...",
+    "loadingProcesses": "Loading processes...",
+    "loadingQueues": "Loading queues...",
+    "loadingRobots": "Loading robots...",
+    "recentJobs": "Recent jobs"
   },
   "auth": {
     "login": "Login",
@@ -47,6 +55,48 @@
     "logs": "Logs",
     "metrics": "Metrics",
     "alerts": "Alerts"
+  },
+  "dashboard": {
+    "subtitle": "RPA Operations Platform",
+    "robotsStatus": "Robot Status",
+    "recentJobs": "Recent Jobs",
+    "total": "total",
+    "loadingRobots": "Loading robots...",
+    "noRobots": "No robots in this folder",
+    "noRecentJobs": "No recent jobs"
+  },
+  "kpi": {
+    "successRate": "Success Rate",
+    "jobsExecuted": "Jobs Executed",
+    "fleetAvailability": "Availability",
+    "criticalAlerts": "Critical Alerts",
+    "avgCycleTime": "Avg Cycle Time",
+    "robotUtilization": "Utilization",
+    "queueBacklog": "Queue Backlog",
+    "mtta": "MTTA",
+    "successOf": "{{count}} successful of {{total}}",
+    "okFailStop": "{{ok}} ok · {{fail}} fail · {{stop}} stop",
+    "offlineOf": "{{offline}} offline of {{total}}",
+    "unacknowledged": "{{count}} unacknowledged",
+    "avgExecDuration": "Average execution duration",
+    "busyOf": "{{busy}} busy of {{total}}",
+    "activeQueues": "{{count}} active queues",
+    "noAcknowledgedAlerts": "No acknowledged alerts",
+    "exceptionBreakdown": "B:{{business}} / S:{{system}}"
+  },
+  "metrics": {
+    "title": "Metrics",
+    "subtitle": "RPA operations in real-time",
+    "successRate": "Success rate",
+    "lastHour": "Last hour",
+    "jobsToday": "Jobs today",
+    "totalAccumulated": "Total accumulated",
+    "exceptions": "Exceptions",
+    "successRateChart": "Success Rate (%)",
+    "jobsPerHour": "Jobs per Hour",
+    "exceptionBreakdown": "Exception Breakdown",
+    "noExceptions": "No exceptions in this period",
+    "noMetrics": "No metrics data. Start the Worker to begin collecting data."
   },
   "jobs": {
     "title": "Jobs",

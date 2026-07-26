@@ -109,7 +109,7 @@ export default function Jobs() {
               </thead>
               <tbody>
                 {isLoading ? (
-                  <tr><td colSpan={7} className="px-4 py-8 text-center text-gray-500">Cargando jobs...</td></tr>
+                <tr><td colSpan={7} className="px-4 py-8 text-center text-gray-500">{t('common.loadingJobs')}</td></tr>
                 ) : jobs.length === 0 ? (
                   <tr><td colSpan={7} className="px-4 py-8 text-center text-gray-500">{t('common.noData')}</td></tr>
                 ) : jobs.map(job => (

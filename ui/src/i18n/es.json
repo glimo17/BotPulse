@@ -25,7 +25,15 @@
     "online": "En línea",
     "offline": "Sin conexión",
     "connected": "Conectado",
-    "disconnected": "Desconectado"
+    "disconnected": "Desconectado",
+    "loadingAlerts": "Cargando alertas...",
+    "loadingJobs": "Cargando jobs...",
+    "loadingLogs": "Cargando logs...",
+    "loadingMachines": "Cargando máquinas...",
+    "loadingProcesses": "Cargando procesos...",
+    "loadingQueues": "Cargando colas...",
+    "loadingRobots": "Cargando robots...",
+    "recentJobs": "Jobs recientes"
   },
   "auth": {
     "login": "Iniciar sesión",
@@ -47,6 +55,48 @@
     "logs": "Logs",
     "metrics": "Métricas",
     "alerts": "Alertas"
+  },
+  "dashboard": {
+    "subtitle": "Plataforma de operaciones RPA",
+    "robotsStatus": "Estado de Robots",
+    "recentJobs": "Jobs Recientes",
+    "total": "total",
+    "loadingRobots": "Cargando robots...",
+    "noRobots": "No hay robots en este folder",
+    "noRecentJobs": "Sin jobs recientes"
+  },
+  "kpi": {
+    "successRate": "Tasa de Éxito",
+    "jobsExecuted": "Jobs Ejecutados",
+    "fleetAvailability": "Disponibilidad",
+    "criticalAlerts": "Alertas Críticas",
+    "avgCycleTime": "Ciclo Promedio",
+    "robotUtilization": "Utilización",
+    "queueBacklog": "Backlog Colas",
+    "mtta": "MTTA",
+    "successOf": "{{count}} exitosos de {{total}}",
+    "okFailStop": "{{ok}} ok · {{fail}} fail · {{stop}} stop",
+    "offlineOf": "{{offline}} offline de {{total}}",
+    "unacknowledged": "{{count}} sin atender",
+    "avgExecDuration": "Duración media de ejecución",
+    "busyOf": "{{busy}} ocupados de {{total}}",
+    "activeQueues": "{{count}} colas activas",
+    "noAcknowledgedAlerts": "Sin alertas reconocidas",
+    "exceptionBreakdown": "B:{{business}} / S:{{system}}"
+  },
+  "metrics": {
+    "title": "Métricas",
+    "subtitle": "Operaciones RPA en tiempo real",
+    "successRate": "Tasa de éxito",
+    "lastHour": "Última hora",
+    "jobsToday": "Jobs hoy",
+    "totalAccumulated": "Total acumulado",
+    "exceptions": "Excepciones",
+    "successRateChart": "Tasa de Éxito (%)",
+    "jobsPerHour": "Jobs por Hora",
+    "exceptionBreakdown": "Desglose de Excepciones",
+    "noExceptions": "Sin excepciones en el período",
+    "noMetrics": "Sin datos de métricas. Inicia el Worker para comenzar a recolectar datos."
   },
   "jobs": {
     "title": "Jobs",

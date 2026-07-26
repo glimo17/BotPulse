@@ -114,7 +114,7 @@ export default function Dashboard() {
       <div className="flex items-start justify-between">
         <div>
           <h1 className="text-xl font-bold text-gray-100">{t('nav.dashboard')}</h1>
-          <p className="text-sm text-gray-500 mt-0.5">Plataforma de operaciones RPA</p>
+          <p className="text-sm text-gray-500 mt-0.5">{t('dashboard.subtitle')}</p>
         </div>
         <div className="flex items-center gap-2 text-xs text-gray-500">
           <span>{paused ? 'Pausado' : t('common.refreshIn', { seconds: countdown })}</span>
@@ -130,35 +130,35 @@ export default function Dashboard() {
       {/* KPI Row 1 */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <KpiCard
-          label="Tasa de Éxito"
+          label={t('kpi.successRate')}
           value={successRate !== null ? `${successRate}%` : null}
-          subtitle={`${successCount} exitosos de ${jobs.length}`}
+          subtitle={t('kpi.successOf', { count: successCount, total: jobs.length })}
           icon={Activity}
           iconColor="text-success"
           valueColor={successRateColor}
           href="/jobs"
         />
         <KpiCard
-          label="Jobs Ejecutados"
+          label={t('kpi.jobsExecuted')}
           value={jobs.length || null}
-          subtitle={`${successCount} ok · ${failedCount} fail · ${stoppedCount} stop`}
+          subtitle={t('kpi.okFailStop', { ok: successCount, fail: failedCount, stop: stoppedCount })}
           icon={Briefcase}
           iconColor="text-accent"
           href="/jobs"
         />
         <KpiCard
-          label="Disponibilidad"
+          label={t('kpi.fleetAvailability')}
           value={fleetAvail !== null ? `${fleetAvail}%` : null}
-          subtitle={`${robotList.filter(r => r.status === 'Offline').length} offline de ${robotList.length}`}
+          subtitle={t('kpi.offlineOf', { offline: robotList.filter(r => r.status === 'Offline').length, total: robotList.length })}
           icon={Server}
           iconColor="text-success"
           valueColor={fleetAvailColor}
           href="/robots"
         />
         <KpiCard
-          label="Alertas Críticas"
+          label={t('kpi.criticalAlerts')}
           value={criticalAlerts}
-          subtitle={`${unacknowledgedAll} sin atender`}
+          subtitle={t('kpi.unacknowledged', { count: unacknowledgedAll })}
           icon={Bell}
           iconColor="text-error"
           valueColor={criticalAlerts > 0 ? 'text-error' : 'text-gray-100'}
@@ -170,33 +170,33 @@ export default function Dashboard() {
       {/* KPI Row 2 */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <KpiCard
-          label="Ciclo Promedio"
+          label={t('kpi.avgCycleTime')}
           value={avgCycleTimeLabel}
-          subtitle="Duración media de ejecución"
+          subtitle={t('kpi.avgExecDuration')}
           icon={Clock}
           iconColor="text-accent"
           href="/jobs"
         />
         <KpiCard
-          label="Utilización"
+          label={t('kpi.robotUtilization')}
           value={utilization.rate !== null ? `${utilization.rate}%` : null}
-          subtitle={`${utilization.busyCount} ocupados de ${utilization.totalCount}`}
+          subtitle={t('kpi.busyOf', { busy: utilization.busyCount, total: utilization.totalCount })}
           icon={Bot}
           iconColor="text-warning"
           href="/robots"
         />
         <KpiCard
-          label="Backlog Colas"
+          label={t('kpi.queueBacklog')}
           value={queueBacklog}
-          subtitle={`${queueList.length} colas activas`}
+          subtitle={t('kpi.activeQueues', { count: queueList.length })}
           icon={ListOrdered}
           iconColor="text-warning"
           href="/queues"
         />
         <KpiCard
-          label="MTTA"
+          label={t('kpi.mtta')}
           value={mttaLabel}
-          subtitle={excBreakdown.total > 0 ? `B:${excBreakdown.businessExceptions} / S:${excBreakdown.systemExceptions}` : 'Sin alertas reconocidas'}
+          subtitle={excBreakdown.total > 0 ? t('kpi.exceptionBreakdown', { business: excBreakdown.businessExceptions, system: excBreakdown.systemExceptions }) : t('kpi.noAcknowledgedAlerts')}
           icon={Timer}
           iconColor="text-accent"
           href="/alerts"
@@ -208,14 +208,14 @@ export default function Dashboard() {
         {/* Robots mini-grid */}
         <div className="card">
           <div className="px-4 py-3 border-b border-gray-700 flex items-center justify-between">
-            <span className="text-sm font-medium text-gray-200">Estado de Robots</span>
+            <span className="text-sm font-medium text-gray-200">{t('dashboard.robotsStatus')}</span>
             <span className="text-xs text-gray-500">{robotList.length} total</span>
           </div>
           <div className="p-3 grid grid-cols-1 gap-2 max-h-64 overflow-y-auto">
             {!robots ? (
-              <p className="text-xs text-gray-500 p-2">Cargando robots...</p>
+              <p className="text-xs text-gray-500 p-2">{t('dashboard.loadingRobots')}</p>
             ) : robotList.length === 0 ? (
-              <p className="text-xs text-gray-500 p-2">No hay robots en este folder</p>
+              <p className="text-xs text-gray-500 p-2">{t('dashboard.noRobots')}</p>
             ) : (
               robotList.map(robot => (
                 <div key={robot.externalId} className="flex items-center justify-between px-3 py-2 bg-gray-800 rounded-md">
@@ -233,7 +233,7 @@ export default function Dashboard() {
         {/* Recent jobs table */}
         <div className="card">
           <div className="px-4 py-3 border-b border-gray-700 flex items-center justify-between">
-            <span className="text-sm font-medium text-gray-200">Jobs Recientes</span>
+            <span className="text-sm font-medium text-gray-200">{t('dashboard.recentJobs')}</span>
             <span className="text-xs text-gray-500">{jobsData?.total ?? 0} total</span>
           </div>
           <div className="overflow-x-auto max-h-64 overflow-y-auto">
@@ -248,7 +248,7 @@ export default function Dashboard() {
               </thead>
               <tbody>
                 {jobs.length === 0 ? (
-                  <tr><td colSpan={4} className="px-3 py-4 text-center text-gray-500">Sin jobs recientes</td></tr>
+                  <tr><td colSpan={4} className="px-3 py-4 text-center text-gray-500">{t('dashboard.noRecentJobs')}</td></tr>
                 ) : (
                   jobs.slice(0, 15).map(job => (
                     <tr key={job.externalJobId} className="border-b border-gray-800 hover:bg-gray-800/50 transition-colors">

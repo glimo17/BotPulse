@@ -29,7 +29,7 @@ export default function Machines() {
         <p className="text-sm text-gray-500 mt-0.5">{machines.length} máquinas</p>
       </div>
       {isLoading ? (
-        <div className="card p-8 text-center text-gray-500 text-sm">Cargando máquinas...</div>
+        <div className="card p-8 text-center text-gray-500 text-sm">{t('common.loadingMachines')}</div>
       ) : machines.length === 0 ? (
         <div className="card p-8 text-center text-gray-500 text-sm">{t('common.noData')}</div>
       ) : (

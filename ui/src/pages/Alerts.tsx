@@ -85,7 +85,7 @@ export default function Alerts() {
       </div>
 
       {isLoading ? (
-        <div className="card p-8 text-center text-gray-500 text-sm">Cargando alertas...</div>
+        <div className="card p-8 text-center text-gray-500 text-sm">{t('common.loadingAlerts')}</div>
       ) : filtered.length === 0 ? (
         <div className="card p-8 text-center text-gray-500 text-sm">
           {alerts.length === 0 ? 'Sin alertas registradas' : 'Sin alertas con los filtros aplicados'}
