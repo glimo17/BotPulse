@@ -5,13 +5,14 @@ import { AppLayout } from '@/components/layout/AppLayout'
 import { DensityProvider } from '@/contexts/DensityContext'
 import Login from '@/pages/Login'
 import Dashboard from '@/pages/Dashboard'
-
-// Placeholder pages
-const Placeholder = ({ name }: { name: string }) => (
-  <div className="card p-8 text-center">
-    <p className="text-gray-400 text-sm">{name} — próximamente</p>
-  </div>
-)
+import Robots from '@/pages/Robots'
+import Machines from '@/pages/Machines'
+import Processes from '@/pages/Processes'
+import Jobs from '@/pages/Jobs'
+import Queues from '@/pages/Queues'
+import Logs from '@/pages/Logs'
+import Metrics from '@/pages/Metrics'
+import Alerts from '@/pages/Alerts'
 
 export default function App() {
   const [_cmdOpen, setCmdOpen] = useState(false)
@@ -26,14 +27,14 @@ export default function App() {
           </ProtectedRoute>
         }>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/robots"    element={<Placeholder name="Robots" />} />
-          <Route path="/machines"  element={<Placeholder name="Machines" />} />
-          <Route path="/processes" element={<Placeholder name="Processes" />} />
-          <Route path="/jobs"      element={<Placeholder name="Jobs" />} />
-          <Route path="/queues"    element={<Placeholder name="Queues" />} />
-          <Route path="/logs"      element={<Placeholder name="Logs" />} />
-          <Route path="/metrics"   element={<Placeholder name="Metrics" />} />
-          <Route path="/alerts"    element={<Placeholder name="Alerts" />} />
+          <Route path="/robots"    element={<Robots />} />
+          <Route path="/machines"  element={<Machines />} />
+          <Route path="/processes" element={<Processes />} />
+          <Route path="/jobs"      element={<Jobs />} />
+          <Route path="/queues"    element={<Queues />} />
+          <Route path="/logs"      element={<Logs />} />
+          <Route path="/metrics"   element={<Metrics />} />
+          <Route path="/alerts"    element={<Alerts />} />
         </Route>
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
