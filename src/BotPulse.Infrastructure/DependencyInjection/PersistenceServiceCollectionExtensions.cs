@@ -34,6 +34,7 @@ public static class PersistenceServiceCollectionExtensions
         services.AddScoped<IAlertRuleRepository, AlertRuleRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IDashboardLayoutRepository, DashboardLayoutRepository>();
+        services.AddScoped<IMetricsRepository, MetricsRepository>();
 
         // Unit of Work + Audit
         services.AddScoped<IUnitOfWork, UnitOfWork>();
