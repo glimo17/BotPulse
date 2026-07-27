@@ -9,5 +9,5 @@ public sealed class Role
     public string Name { get; set; } = string.Empty;
     public bool IsSystem { get; set; }
     public List<UserRole> UserRoles { get; set; } = new();
-    public List<RolePermission> Permissions { get; set; } = new();
+    public List<RolePermissionEntry> Permissions { get; set; } = new();
 }
