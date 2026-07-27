@@ -22,6 +22,8 @@ public sealed class BotPulseDbContext : DbContext
     public DbSet<AlertRule> AlertRules => Set<AlertRule>();
     public DbSet<DashboardLayout> DashboardLayouts => Set<DashboardLayout>();
     public DbSet<AuditRecord> AuditRecords => Set<AuditRecord>();
+    public DbSet<BotPulse.Infrastructure.Persistence.Entities.Role> Roles => Set<BotPulse.Infrastructure.Persistence.Entities.Role>();
+    public DbSet<BotPulse.Infrastructure.Persistence.Entities.UserRole> UserRoles => Set<BotPulse.Infrastructure.Persistence.Entities.UserRole>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
