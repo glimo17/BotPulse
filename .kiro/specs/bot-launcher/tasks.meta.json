@@ -1,0 +1,118 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Crear página `ui/src/pages/Launcher.tsx`": [
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089095445
+      },
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089103266
+      },
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089439254
+      }
+    ],
+    "2. Implementar `ProcessSelector` como componente interno": [
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089095594
+      },
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089440201
+      }
+    ],
+    "3. Implementar `RobotSelector` como componente interno": [
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089095695
+      },
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089440859
+      }
+    ],
+    "4. Implementar `ParameterForm` para tipos String, Int32, Boolean, DateTime": [
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089095791
+      },
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089441714
+      }
+    ],
+    "5. Implementar LaunchButton con estado de loading": [
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089095894
+      },
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089442498
+      }
+    ],
+    "6. Implementar panel Recent Jobs con auto-refresh": [
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089096010
+      },
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089447910
+      }
+    ],
+    "7. Registrar ruta `/launcher` en el router y añadir entrada en sidebar": [
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089096136
+      },
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089449203
+      }
+    ],
+    "8. Verificar build TypeScript: `npm run build`": [
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089096246
+      },
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089449564
+      }
+    ],
+    "9. Commit: `feat: Bot Launcher - one-click unattended bot execution`": [
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089096351
+      },
+      {
+        "executionId": "9e53674d-bfec-43e7-b0f1-571019704e14",
+        "chatSessionId": "sess_d867d281-0308-46e1-a48a-c23e18456825",
+        "timestamp": 1785089450689
+      }
+    ]
+  }
+}
