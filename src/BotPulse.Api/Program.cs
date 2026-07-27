@@ -133,19 +133,31 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 var userRepo = services.GetService<IUserRepository>();
                 var authService = services.GetService<BotPulse.Authorization.IAuthorizationService>();
 
-                if (userRepo == null || authService == null) return;
+                if (userRepo == null || authService == null)
+                {
+                    return;
+                }
 
                 var principal = ctx.Principal;
                 var externalId = principal?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                 var provider = principal?.FindFirst("auth_provider")?.Value;
 
-                if (string.IsNullOrEmpty(externalId) || string.IsNullOrEmpty(provider)) return;
+                if (string.IsNullOrEmpty(externalId) || string.IsNullOrEmpty(provider))
+                {
+                    return;
+                }
 
                 var user = await userRepo.FindByExternalIdAsync(provider, externalId);
-                if (user == null) return;
+                if (user == null)
+                {
+                    return;
+                }
 
                 var permissions = await authService.GetPermissionsAsync(user.Id);
-                if (permissions == null) return;
+                if (permissions == null)
+                {
+                    return;
+                }
 
                 if (principal?.Identity is ClaimsIdentity id)
                 {
