@@ -35,6 +35,10 @@ public static class PersistenceServiceCollectionExtensions
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IDashboardLayoutRepository, DashboardLayoutRepository>();
         services.AddScoped<IMetricsRepository, MetricsRepository>();
+        services.AddScoped<BotPulse.Authorization.Repositories.IRoleRepository, RoleRepository>();
+
+        // Authorization service (RBAC)
+        services.AddScoped<BotPulse.Authorization.IAuthorizationService, BotPulse.Authorization.Services.RbacAuthorizationService>();
 
         // Unit of Work + Audit
         services.AddScoped<IUnitOfWork, UnitOfWork>();

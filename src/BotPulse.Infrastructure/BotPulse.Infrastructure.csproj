@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BotPulse.Core\BotPulse.Core.csproj" />
+    <ProjectReference Include="..\BotPulse.Authorization\BotPulse.Authorization.csproj" />
   </ItemGroup>
 
   <ItemGroup>
