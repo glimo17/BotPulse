@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BotPulse.Authorization
+namespace BotPulse.Authorization;
+
+public interface IAuthorizationService
 {
-    public interface IAuthorizationService
-    {
-        Task<IEnumerable<string>> GetPermissionsAsync(System.Guid userId);
-    }
+    Task<IEnumerable<string>> GetPermissionsAsync(System.Guid userId);
 }

@@ -1,11 +1,10 @@
 using System;
 
-namespace BotPulse.Infrastructure.Persistence.Entities
+namespace BotPulse.Infrastructure.Persistence.Entities;
+
+public sealed class UserRole
 {
-    internal sealed class UserRole
-    {
-        public Guid UserId { get; set; }
-        public Guid RoleId { get; set; }
-        public Role? Role { get; set; }
-    }
+    public Guid UserId { get; set; }
+    public Guid RoleId { get; set; }
+    public Role? Role { get; set; }
 }
