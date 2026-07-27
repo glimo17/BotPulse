@@ -3,8 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace BotPulse.Infrastructure.Migrations
-{
+namespace BotPulse.Infrastructure.Migrations;
+
     /// <inheritdoc />
     public partial class AddRbac : Migration
     {

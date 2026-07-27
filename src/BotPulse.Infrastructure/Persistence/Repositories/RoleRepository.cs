@@ -18,14 +18,22 @@ internal sealed class RoleRepository : IRoleRepository
     public async Task<AuthRole?> GetByIdAsync(Guid id)
     {
         var entity = await _ctx.Roles.Include(r => r.Permissions).FirstOrDefaultAsync(r => r.Id == id);
-        if (entity == null) return null;
+        if (entity == null)
+        {
+            return null;
+        }
+
         return MapToRole(entity);
     }
 
     public async Task<AuthRole?> GetByNameAsync(string name)
     {
         var entity = await _ctx.Roles.Include(r => r.Permissions).FirstOrDefaultAsync(r => r.Name == name);
-        if (entity == null) return null;
+        if (entity == null)
+        {
+            return null;
+        }
+
         return MapToRole(entity);
     }
 
@@ -47,7 +55,10 @@ internal sealed class RoleRepository : IRoleRepository
     public async Task UpdateAsync(AuthRole role)
     {
         var entity = await _ctx.Roles.Include(r => r.Permissions).FirstOrDefaultAsync(r => r.Id == role.Id);
-        if (entity == null) throw new InvalidOperationException("Role not found");
+        if (entity == null)
+        {
+            throw new InvalidOperationException("Role not found");
+        }
 
         entity.Name = role.Name;
         entity.IsSystem = role.IsSystemRole;
