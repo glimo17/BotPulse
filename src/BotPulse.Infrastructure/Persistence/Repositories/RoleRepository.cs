@@ -1,9 +1,10 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using BotPulse.Authorization.Entities;
 using BotPulse.Authorization.Repositories;
 using BotPulse.Infrastructure.Persistence.Entities;
+using AuthRole = BotPulse.Authorization.Entities.Role;
+using PersistRole = BotPulse.Infrastructure.Persistence.Entities.Role;
 using Microsoft.EntityFrameworkCore;
 
 namespace BotPulse.Infrastructure.Persistence.Repositories;
@@ -14,24 +15,23 @@ internal sealed class RoleRepository : IRoleRepository
 
     public RoleRepository(BotPulseDbContext ctx) => _ctx = ctx;
 
-    public async Task<Role?> GetByIdAsync(Guid id)
+    public async Task<AuthRole?> GetByIdAsync(Guid id)
     {
         var entity = await _ctx.Roles.Include(r => r.Permissions).FirstOrDefaultAsync(r => r.Id == id);
         if (entity == null) return null;
-
         return MapToRole(entity);
     }
 
-    public async Task<Role?> GetByNameAsync(string name)
+    public async Task<AuthRole?> GetByNameAsync(string name)
     {
         var entity = await _ctx.Roles.Include(r => r.Permissions).FirstOrDefaultAsync(r => r.Name == name);
         if (entity == null) return null;
         return MapToRole(entity);
     }
 
-    public async Task CreateAsync(Role role)
+    public async Task CreateAsync(AuthRole role)
     {
-        var entity = new BotPulse.Infrastructure.Persistence.Entities.Role
+        var entity = new PersistRole
         {
             Id = role.Id,
             Name = role.Name,
@@ -44,7 +44,7 @@ internal sealed class RoleRepository : IRoleRepository
         await _ctx.SaveChangesAsync();
     }
 
-    public async Task UpdateAsync(Role role)
+    public async Task UpdateAsync(AuthRole role)
     {
         var entity = await _ctx.Roles.Include(r => r.Permissions).FirstOrDefaultAsync(r => r.Id == role.Id);
         if (entity == null) throw new InvalidOperationException("Role not found");
@@ -60,9 +60,9 @@ internal sealed class RoleRepository : IRoleRepository
         await _ctx.SaveChangesAsync();
     }
 
-    private static Role MapToRole(BotPulse.Infrastructure.Persistence.Entities.Role e)
+    private static AuthRole MapToRole(PersistRole e)
     {
-        return new Role
+        return new AuthRole
         {
             Id = e.Id,
             Name = e.Name,
