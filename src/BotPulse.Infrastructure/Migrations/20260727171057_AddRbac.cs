@@ -79,4 +79,3 @@ namespace BotPulse.Infrastructure.Migrations;
                 name: "roles");
         }
     }
-}
