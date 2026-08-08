@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { ProtectedRoute } from '@/components/ProtectedRoute'
 import { AppLayout } from '@/components/layout/AppLayout'
+import { AdminRoute } from '@/components/AdminRoute'
 import { DensityProvider } from '@/contexts/DensityContext'
 import Login from '@/pages/Login'
 import Dashboard from '@/pages/Dashboard'
@@ -13,6 +14,10 @@ import Logs from '@/pages/Logs'
 import Metrics from '@/pages/Metrics'
 import Alerts from '@/pages/Alerts'
 import Launcher from '@/pages/Launcher'
+import AdminDashboard from '@/pages/AdminDashboard'
+import AdminRoles from '@/pages/AdminRoles'
+import AdminUsers from '@/pages/AdminUsers'
+import AdminSettings from '@/pages/AdminSettings'
 
 export default function App() {
   return (
@@ -34,6 +39,10 @@ export default function App() {
           <Route path="/logs"      element={<Logs />} />
           <Route path="/metrics"   element={<Metrics />} />
           <Route path="/alerts"    element={<Alerts />} />
+          <Route path="/admin"          element={<AdminRoute><AdminDashboard /></AdminRoute>} />
+          <Route path="/admin/roles"    element={<AdminRoute><AdminRoles /></AdminRoute>} />
+          <Route path="/admin/users"    element={<AdminRoute><AdminUsers /></AdminRoute>} />
+          <Route path="/admin/settings" element={<AdminRoute><AdminSettings /></AdminRoute>} />
         </Route>
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>

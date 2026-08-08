@@ -6,11 +6,15 @@ interface User {
   userName: string
   email: string
   roles: string[]
+  permissions: string[]
 }
 
 interface AuthContextType {
   user: User | null
   isAuthenticated: boolean
+  isAdmin: boolean
+  hasPermission: (permission: string) => boolean
+  hasAnyPermission: (...permissions: string[]) => boolean
   login: (username: string, password: string) => Promise<void>
   logout: () => void
 }
@@ -38,8 +42,26 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     api.post('/auth/logout').catch(() => {})
   }, [])
 
+  const isAdmin = !!user?.roles?.some(role => role === 'Administrator')
+
+  const hasPermission = useCallback((permission: string): boolean => {
+    return !!user?.permissions?.includes(permission)
+  }, [user])
+
+  const hasAnyPermission = useCallback((...permissions: string[]): boolean => {
+    return permissions.some(p => user?.permissions?.includes(p))
+  }, [user])
+
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated: !!user, login, logout }}>
+    <AuthContext.Provider value={{
+      user,
+      isAuthenticated: !!user,
+      isAdmin,
+      hasPermission,
+      hasAnyPermission,
+      login,
+      logout,
+    }}>
       {children}
     </AuthContext.Provider>
   )
