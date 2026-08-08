@@ -1,4 +1,5 @@
 using System.Security.Cryptography;
+using BotPulse.Core.Abstractions.Authentication;
 using Konscious.Security.Cryptography;
 
 namespace BotPulse.Infrastructure.Authentication;
@@ -7,13 +8,19 @@ namespace BotPulse.Infrastructure.Authentication;
 /// Password hasher using Argon2id with OWASP-recommended parameters.
 /// t=3, m=64MiB, p=1. Uses FixedTimeEquals for timing-attack resistance.
 /// </summary>
-internal sealed class Argon2idPasswordHasher
+public sealed class Argon2idPasswordHasher : IPasswordHasher
 {
     private const int SaltSize = 16;
     private const int HashSize = 32;
     private const int Iterations = 3;
     private const int MemorySize = 65536; // 64 MiB in KiB
     private const int DegreeOfParallelism = 1;
+
+    /// <summary>Hashes a plaintext password and returns a storable string (instance method for DI).</summary>
+    string IPasswordHasher.Hash(string password) => Hash(password);
+
+    /// <summary>Verifies a password against a stored hash (instance method for DI).</summary>
+    bool IPasswordHasher.Verify(string password, string storedHash) => Verify(password, storedHash);
 
     /// <summary>Hashes a plaintext password and returns a storable string.</summary>
     public static string Hash(string password)

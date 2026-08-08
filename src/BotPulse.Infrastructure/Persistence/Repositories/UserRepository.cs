@@ -18,6 +18,22 @@ internal sealed class UserRepository : GenericRepository<User>, IUserRepository
         await Context.Users
             .FirstOrDefaultAsync(u => u.AuthProvider == authProvider && u.ExternalId == externalId, ct)
             .ConfigureAwait(false);
+
+    public async Task<User?> FindByEmailAsync(string email, CancellationToken ct = default) =>
+        await Context.Users
+            .FirstOrDefaultAsync(u => u.Email == email, ct)
+            .ConfigureAwait(false);
+
+    public async Task<IReadOnlyList<User>> GetAllAsync(CancellationToken ct = default) =>
+        await Context.Users
+            .OrderBy(u => u.UserName)
+            .ToListAsync(ct)
+            .ConfigureAwait(false);
+
+    public async Task<User?> GetByIdAsync(Guid id, CancellationToken ct = default) =>
+        await Context.Users
+            .FirstOrDefaultAsync(u => u.Id == id, ct)
+            .ConfigureAwait(false);
 }
 
 /// <summary>EF Core implementation of IDashboardLayoutRepository.</summary>

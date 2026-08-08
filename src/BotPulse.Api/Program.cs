@@ -164,6 +164,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
                 if (principal?.Identity is ClaimsIdentity id)
                 {
+                    // Add internal user ID claim for use in controllers
+                    id.AddClaim(new Claim("internal_user_id", user.Id.ToString()));
+
                     foreach (var p in permissions)
                     {
                         id.AddClaim(new Claim("permission", p));

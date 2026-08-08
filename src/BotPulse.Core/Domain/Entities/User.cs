@@ -19,7 +19,13 @@ public sealed class User
     public DateTime CreatedAtUtc { get; private set; }
     public DateTime UpdatedAtUtc { get; private set; }
 
-    public static User Create(string externalId, string userName, string email, UserRole role, string authProvider, string? passwordHash = null)
+    public static User Create(
+        string externalId,
+        string userName,
+        string email,
+        UserRole role,
+        string authProvider,
+        string? passwordHash = null)
     {
         return new User
         {
@@ -42,6 +48,30 @@ public sealed class User
         UpdatedAtUtc = DateTime.UtcNow;
     }
 
+    public void Activate()
+    {
+        IsActive = true;
+        UpdatedAtUtc = DateTime.UtcNow;
+    }
+
+    public void Deactivate()
+    {
+        IsActive = false;
+        UpdatedAtUtc = DateTime.UtcNow;
+    }
+
+    public void UpdateProfile(string userName, string email)
+    {
+        UserName = userName;
+        Email = email;
+        UpdatedAtUtc = DateTime.UtcNow;
+    }
+
+    public void SetPasswordHash(string passwordHash)
+    {
+        PasswordHash = passwordHash;
+        UpdatedAtUtc = DateTime.UtcNow;
+    }
+
     public void RecordLogin() => LastLoginUtc = DateTime.UtcNow;
-    public void Deactivate() => IsActive = false;
 }

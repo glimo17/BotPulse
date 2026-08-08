@@ -30,8 +30,9 @@ public static class InfrastructureServiceCollectionExtensions
         services.AddSingleton<IValidateOptions<JwtOptions>, JwtOptionsValidator>();
         services.AddSingleton<ISessionTokenService, JwtSessionTokenService>();
 
-        // Password hasher (no longer needs DI injection - methods are static)
-        // Argon2idPasswordHasher is used directly via static calls in LocalAuthenticationProvider
+        // Password hasher
+        services.AddSingleton<BotPulse.Core.Abstractions.Authentication.IPasswordHasher,
+            BotPulse.Infrastructure.Authentication.Argon2idPasswordHasher>();
 
         // Pluggable authentication
         AddPluggableAuthentication(services, configuration);
