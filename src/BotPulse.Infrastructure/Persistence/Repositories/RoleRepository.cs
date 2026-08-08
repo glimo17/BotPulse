@@ -15,6 +15,12 @@ internal sealed class RoleRepository : IRoleRepository
 
     public RoleRepository(BotPulseDbContext ctx) => _ctx = ctx;
 
+    public async Task<IReadOnlyCollection<AuthRole>> GetAllAsync()
+    {
+        var entities = await _ctx.Roles.Include(r => r.Permissions).ToListAsync();
+        return entities.Select(MapToRole).ToList();
+    }
+
     public async Task<AuthRole?> GetByIdAsync(Guid id)
     {
         var entity = await _ctx.Roles.Include(r => r.Permissions).FirstOrDefaultAsync(r => r.Id == id);
@@ -35,6 +41,15 @@ internal sealed class RoleRepository : IRoleRepository
         }
 
         return MapToRole(entity);
+    }
+
+    public async Task<IReadOnlyCollection<string>> GetPermissionsForUserAsync(Guid userId)
+    {
+        return await _ctx.UserRoles
+            .Where(ur => ur.UserId == userId && ur.Role != null)
+            .SelectMany(ur => ur.Role!.Permissions.Select(p => p.Permission))
+            .Distinct()
+            .ToListAsync();
     }
 
     public async Task CreateAsync(AuthRole role)
@@ -63,12 +78,35 @@ internal sealed class RoleRepository : IRoleRepository
         entity.Name = role.Name;
         entity.IsSystem = role.IsSystemRole;
 
-        // Replace permissions
         _ctx.RemoveRange(entity.Permissions);
         entity.Permissions = role.Permissions.Select(p => new RolePermissionEntry { RoleId = entity.Id, Permission = p }).ToList();
 
         _ctx.Roles.Update(entity);
         await _ctx.SaveChangesAsync();
+    }
+
+    public async Task DeleteAsync(Guid id)
+    {
+        var entity = await _ctx.Roles.FindAsync(id);
+        if (entity == null)
+        {
+            return;
+        }
+
+        _ctx.Roles.Remove(entity);
+        await _ctx.SaveChangesAsync();
+    }
+
+    public async Task<IReadOnlyCollection<AuthRole>> GetRolesByUserIdAsync(Guid userId)
+    {
+        var roles = await _ctx.UserRoles
+            .Where(ur => ur.UserId == userId)
+            .Include(ur => ur.Role)
+            .ThenInclude(r => r!.Permissions)
+            .Select(ur => ur.Role!)
+            .ToListAsync();
+
+        return roles.Select(MapToRole).ToList();
     }
 
     private static AuthRole MapToRole(PersistRole e)
@@ -77,8 +115,11 @@ internal sealed class RoleRepository : IRoleRepository
         {
             Id = e.Id,
             Name = e.Name,
+            Description = e.Description ?? string.Empty,
             IsSystemRole = e.IsSystem,
-            Permissions = e.Permissions.Select(p => p.Permission).ToList()
+            Permissions = e.Permissions.Select(p => p.Permission).ToList(),
+            CreatedAtUtc = e.CreatedAtUtc,
+            UpdatedAtUtc = e.UpdatedAtUtc
         };
     }
 }

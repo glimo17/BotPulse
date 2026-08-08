@@ -11,6 +11,7 @@ public interface IRoleRepository
     Task<Role?> GetByIdAsync(Guid id);
     Task<Role?> GetByNameAsync(string name);
     Task<IReadOnlyCollection<string>> GetPermissionsForUserAsync(Guid userId);
+    Task<IReadOnlyCollection<Role>> GetRolesByUserIdAsync(Guid userId);
     Task CreateAsync(Role role);
     Task UpdateAsync(Role role);
     Task DeleteAsync(Guid id);
