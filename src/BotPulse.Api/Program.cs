@@ -15,11 +15,14 @@ using BotPulse.Infrastructure.Logging;
 using BotPulse.Providers.UiPath.DependencyInjection;
 using BotPulse.Providers.Demo.DependencyInjection;
 using BotPulse.Api.Middleware;
+using BotPulse.Api.Authorization;
+using BotPulse.Authorization.Permissions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using BotPulse.Core.Abstractions.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -172,12 +175,26 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization(opt =>
 {
-    opt.AddPolicy("RequireOperator", p => p.RequireRole("Operator", "Administrator"));
+    // Legacy role-based policies (kept for backward compatibility during migration)
+    opt.AddPolicy("RequireOperator",      p => p.RequireRole("Operator", "Administrator"));
     opt.AddPolicy("RequireAdministrator", p => p.RequireRole("Administrator"));
-    opt.AddPolicy("ViewAssets", p => p.RequireRole("Administrator"));
-    opt.AddPolicy("ManageAlertRules", p => p.RequireRole("Administrator"));
-    opt.AddPolicy("JobActions", p => p.RequireRole("Operator", "Administrator"));
+    opt.AddPolicy("ViewAssets",           p => p.RequireRole("Administrator"));
+    opt.AddPolicy("ManageAlertRules",     p => p.RequireRole("Administrator"));
+    opt.AddPolicy("JobActions",           p => p.RequireRole("Operator", "Administrator"));
+
+    // Permission-based policies — one per PermissionCatalog constant
+    foreach (var permission in PermissionCatalog.All)
+    {
+        opt.AddPolicy(permission, policy =>
+            policy.Requirements.Add(new PermissionRequirement(permission)));
+    }
 });
+
+// Register permission authorization handler
+builder.Services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
+
+// IHttpContextAccessor required by HttpContextAuthorizationContextAccessor
+builder.Services.AddHttpContextAccessor();
 
 // Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
@@ -251,6 +268,7 @@ if (!app.Environment.IsDevelopment())
 app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseMiddleware<AuthorizationContextMiddleware>();
 app.UseMiddleware<AuditMiddleware>();
 
 app.MapControllers();

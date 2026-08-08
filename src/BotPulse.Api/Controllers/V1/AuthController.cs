@@ -50,12 +50,15 @@ public sealed class AuthController : ControllerBase
     [Authorize]
     public IActionResult Me()
     {
-        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var userId   = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         var userName = User.FindFirst(ClaimTypes.Name)?.Value;
-        var email = User.FindFirst(ClaimTypes.Email)?.Value;
-        var roles = User.FindAll(ClaimTypes.Role).Select(c => c.Value).ToList();
+        var email    = User.FindFirst(ClaimTypes.Email)?.Value;
+        var roles    = User.FindAll(ClaimTypes.Role).Select(c => c.Value).ToList();
 
-        return Ok(new { userId, userName, email, roles });
+        // Permissions added to claims by OnTokenValidated in Program.cs
+        var permissions = User.FindAll("permission").Select(c => c.Value).ToList();
+
+        return Ok(new { userId, userName, email, roles, permissions });
     }
 }
 
