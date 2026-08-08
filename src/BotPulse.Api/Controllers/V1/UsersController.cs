@@ -1,4 +1,5 @@
 using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -9,7 +10,6 @@ using BotPulse.Authorization.Repositories;
 using BotPulse.Core.Abstractions.Authentication;
 using BotPulse.Core.Abstractions.Persistence;
 using BotPulse.Core.Domain.Entities;
-using BotPulse.Core.Domain.ValueObjects;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RbacAuthorizationService = BotPulse.Authorization.IAuthorizationService;
@@ -96,11 +96,11 @@ public sealed class UsersController : ControllerBase
 
         var passwordHash = _passwordHasher.Hash(request.Password);
 
-        var user = User.Create(
+        var user = BotPulse.Core.Domain.Entities.User.Create(
             externalId: Guid.NewGuid().ToString(),
             userName: request.UserName,
             email: request.Email,
-            role: UserRole.Viewer,
+            role: BotPulse.Core.Domain.ValueObjects.UserRole.Viewer,
             authProvider: "Local",
             passwordHash: passwordHash);
 
