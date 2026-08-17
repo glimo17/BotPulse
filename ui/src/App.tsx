@@ -14,6 +14,7 @@ import Logs from '@/pages/Logs'
 import Metrics from '@/pages/Metrics'
 import Alerts from '@/pages/Alerts'
 import Launcher from '@/pages/Launcher'
+import AdminCenter from '@/pages/AdminCenter'
 import AdminDashboard from '@/pages/AdminDashboard'
 import AdminRoles from '@/pages/AdminRoles'
 import AdminUsers from '@/pages/AdminUsers'
@@ -39,10 +40,12 @@ export default function App() {
           <Route path="/logs"      element={<Logs />} />
           <Route path="/metrics"   element={<Metrics />} />
           <Route path="/alerts"    element={<Alerts />} />
-          <Route path="/admin"          element={<AdminRoute><AdminDashboard /></AdminRoute>} />
-          <Route path="/admin/roles"    element={<AdminRoute><AdminRoles /></AdminRoute>} />
-          <Route path="/admin/users"    element={<AdminRoute><AdminUsers /></AdminRoute>} />
-          <Route path="/admin/settings" element={<AdminRoute><AdminSettings /></AdminRoute>} />
+          <Route path="/admin" element={<AdminRoute><AdminCenter /></AdminRoute>}>
+            <Route index          element={<AdminDashboard />} />
+            <Route path="users"    element={<AdminUsers />} />
+            <Route path="roles"    element={<AdminRoles />} />
+            <Route path="settings" element={<AdminSettings />} />
+          </Route>
         </Route>
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>

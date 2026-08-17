@@ -3,11 +3,10 @@ import { useTranslation } from 'react-i18next'
 import {
   LayoutDashboard, Bot, Server, Workflow, Briefcase,
   ListOrdered, ScrollText, BarChart2, Bell, ChevronLeft, ActivitySquare, Rocket,
-  Settings2, Users, UserCog
+  Settings2
 } from 'lucide-react'
 import { clsx } from 'clsx'
 import { useAuth } from '@/contexts/AuthContext'
-import { PermissionGate } from '@/components/PermissionGate'
 
 const NAV_ITEMS = [
   { key: 'dashboard', icon: LayoutDashboard, path: '/dashboard' },
@@ -22,14 +21,7 @@ const NAV_ITEMS = [
   { key: 'alerts',    icon: Bell,            path: '/alerts'    },
 ]
 
-const ADMIN_NAV_GROUP = {
-  parent: { key: 'admin.dashboard', icon: LayoutDashboard, path: '/admin' },
-  children: [
-    { key: 'admin.users',    icon: UserCog,  path: '/admin/users',    permission: 'Users.View'    },
-    { key: 'admin.roles',    icon: Users,    path: '/admin/roles',    permission: 'Roles.View'    },
-    { key: 'admin.settings', icon: Settings2, path: '/admin/settings', permission: 'Settings.View' },
-  ],
-}
+const ADMIN_NAV_ITEM = { key: 'admin.center', icon: Settings2, path: '/admin' }
 
 interface Props {
   collapsed: boolean
@@ -94,50 +86,24 @@ export function Sidebar({ collapsed, onToggle }: Props) {
             </div>
           )}
           <nav className="space-y-0.5">
-            <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg)] overflow-hidden shadow-sm">
-              <NavLink
-                to={ADMIN_NAV_GROUP.parent.path}
-                className={({ isActive }) => clsx(
-                  'flex items-center gap-3 mx-2 my-0.5 px-2.5 py-2 rounded-md text-sm transition-colors group relative font-semibold',
-                  isActive
-                    ? 'bg-[var(--color-accent)]/15 text-[var(--color-accent)] border-l-2 border-[var(--color-accent)] pl-[9px]'
-                    : 'text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)]'
-                )}
-                title={collapsed ? t(ADMIN_NAV_GROUP.parent.key) : undefined}
-              >
-                <ADMIN_NAV_GROUP.parent.icon size={16} className="shrink-0" />
-                {!collapsed && <span className="whitespace-nowrap">{t(ADMIN_NAV_GROUP.parent.key)}</span>}
-                {collapsed && (
-                  <div className="absolute left-full ml-2 px-2 py-1 bg-[var(--color-bg-hover)] text-[var(--color-text-primary)] text-xs rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 border border-[var(--color-border)]">
-                    {t(ADMIN_NAV_GROUP.parent.key)}
-                  </div>
-                )}
-              </NavLink>
-              <div className="border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
-                {ADMIN_NAV_GROUP.children.map(({ key, icon: Icon, path, permission }) => (
-                  <PermissionGate key={key} permission={permission}>
-                    <NavLink
-                      to={path}
-                      className={({ isActive }) => clsx(
-                        'flex items-center gap-3 mx-3 my-0.5 px-2.5 py-2 rounded-md text-sm transition-colors group relative',
-                        isActive
-                          ? 'bg-[var(--color-accent)]/15 text-[var(--color-accent)] border-l-2 border-[var(--color-accent)] pl-[9px]'
-                          : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)]'
-                      )}
-                      title={collapsed ? t(key) : undefined}
-                    >
-                      <Icon size={16} className="shrink-0" />
-                      {!collapsed && <span className="whitespace-nowrap">{t(key)}</span>}
-                      {collapsed && (
-                        <div className="absolute left-full ml-2 px-2 py-1 bg-[var(--color-bg-hover)] text-[var(--color-text-primary)] text-xs rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 border border-[var(--color-border)]">
-                          {t(key)}
-                        </div>
-                      )}
-                    </NavLink>
-                  </PermissionGate>
-                ))}
-              </div>
-            </div>
+            <NavLink
+              to={ADMIN_NAV_ITEM.path}
+              className={({ isActive }) => clsx(
+                'flex items-center gap-3 px-2.5 py-2 rounded-md text-sm transition-colors group relative font-semibold',
+                isActive
+                  ? 'bg-[var(--color-accent)]/15 text-[var(--color-accent)] border-l-2 border-[var(--color-accent)] pl-[9px]'
+                  : 'text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)]'
+              )}
+              title={collapsed ? t(ADMIN_NAV_ITEM.key) : undefined}
+            >
+              <ADMIN_NAV_ITEM.icon size={16} className="shrink-0" />
+              {!collapsed && <span className="whitespace-nowrap">{t(ADMIN_NAV_ITEM.key)}</span>}
+              {collapsed && (
+                <div className="absolute left-full ml-2 px-2 py-1 bg-[var(--color-bg-hover)] text-[var(--color-text-primary)] text-xs rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 border border-[var(--color-border)]">
+                  {t(ADMIN_NAV_ITEM.key)}
+                </div>
+              )}
+            </NavLink>
           </nav>
         </div>
       )}
