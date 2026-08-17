@@ -18,6 +18,7 @@ import AdminCenter from '@/pages/AdminCenter'
 import AdminDashboard from '@/pages/AdminDashboard'
 import AdminRoles from '@/pages/AdminRoles'
 import AdminUsers from '@/pages/AdminUsers'
+import AdminAudit from '@/pages/AdminAudit'
 import AdminSettings from '@/pages/AdminSettings'
 
 export default function App() {
@@ -44,6 +45,7 @@ export default function App() {
             <Route index          element={<AdminDashboard />} />
             <Route path="users"    element={<AdminUsers />} />
             <Route path="roles"    element={<AdminRoles />} />
+            <Route path="audit"    element={<AdminAudit />} />
             <Route path="settings" element={<AdminSettings />} />
           </Route>
         </Route>

@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { LayoutDashboard, UserCog, Users, Settings2 } from 'lucide-react'
+import { LayoutDashboard, UserCog, Users, Settings2, ScrollText } from 'lucide-react'
 import { clsx } from 'clsx'
 import { PermissionGate } from '@/components/PermissionGate'
 
@@ -8,6 +8,7 @@ const TABS = [
   { key: 'admin.overview', icon: LayoutDashboard, path: '/admin',          end: true,  permission: undefined },
   { key: 'admin.users',    icon: UserCog,         path: '/admin/users',    end: false, permission: 'Users.View' },
   { key: 'admin.roles',    icon: Users,           path: '/admin/roles',    end: false, permission: 'Roles.View' },
+  { key: 'admin.audit',    icon: ScrollText,      path: '/admin/audit',    end: false, permission: 'Audit.View' },
   { key: 'admin.settings', icon: Settings2,       path: '/admin/settings', end: false, permission: 'Settings.View' },
 ]
 

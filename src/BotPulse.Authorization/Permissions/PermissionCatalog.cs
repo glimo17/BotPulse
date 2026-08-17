@@ -1,7 +1,7 @@
 namespace BotPulse.Authorization.Permissions;
 
 /// <summary>
-/// Full catalog of 23 granular permissions used across BotPulse.
+/// Full catalog of granular permissions used across BotPulse.
 /// Each permission follows the format: Area.Action
 /// </summary>
 public static class PermissionCatalog
@@ -56,6 +56,9 @@ public static class PermissionCatalog
     // ─── Integrations ─────────────────────────────────────────────────────────
     public const string IntegrationsConfigure = "Integrations.Configure";
 
+    // ─── Audit ────────────────────────────────────────────────────────────────
+    public const string AuditView = "Audit.View";
+
     // ─── All permissions (used for Administrator role seeding) ────────────────
     public static readonly IReadOnlyList<string> All = new[]
     {
@@ -71,7 +74,8 @@ public static class PermissionCatalog
         UsersView, UsersCreate, UsersUpdate, UsersDelete,
         RolesView, RolesUpdate,
         SettingsView, SettingsEdit,
-        IntegrationsConfigure
+        IntegrationsConfigure,
+        AuditView
     };
 
     // ─── Operations Manager permission set ────────────────────────────────────
