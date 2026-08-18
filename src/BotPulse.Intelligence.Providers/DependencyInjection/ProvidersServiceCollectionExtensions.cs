@@ -23,10 +23,10 @@ namespace BotPulse.Intelligence.Providers.DependencyInjection;
 public static class ProvidersServiceCollectionExtensions
 {
     /// <summary>
-    /// Binds IntelligenceOptions and registers the configured embedding and
-    /// vector store providers. Chat provider wiring is added in Milestone 4.
-    /// Call AddIntelligence() after this to get the cached, public
-    /// IEmbeddingProvider registration.
+    /// Binds IntelligenceOptions and registers the configured chat, embedding,
+    /// and vector store providers. Call AddIntelligence() after this to get
+    /// the cached, public IEmbeddingProvider / IChatCompletionProvider
+    /// registrations.
     /// </summary>
     public static IServiceCollection AddIntelligenceProviders(
         this IServiceCollection services, IConfiguration configuration)
@@ -35,13 +35,39 @@ public static class ProvidersServiceCollectionExtensions
             configuration.GetSection(IntelligenceOptions.SectionName));
 
         var section = configuration.GetSection(IntelligenceOptions.SectionName);
+        var chatProvider = section["ChatProvider"] ?? "Ollama";
         var embeddingProvider = section["EmbeddingProvider"] ?? "Ollama";
         var vectorStore = section["VectorStore"] ?? "InMemory";
 
+        RegisterChatProvider(services, chatProvider);
         RegisterEmbeddingProvider(services, embeddingProvider);
         RegisterVectorStore(services, vectorStore);
 
         return services;
+    }
+
+    private static void RegisterChatProvider(IServiceCollection services, string provider)
+    {
+        services.AddHttpClient();
+
+        switch (provider)
+        {
+            case "OpenAI":
+                services.AddKeyedScoped<IChatCompletionProvider>(
+                    IntelligenceServiceKeys.RawChatProvider,
+                    (sp, _) => new OpenAIChatCompletionProvider(
+                        sp.GetRequiredService<IHttpClientFactory>().CreateClient(nameof(OpenAIChatCompletionProvider)),
+                        sp.GetRequiredService<IOptions<IntelligenceOptions>>()));
+                break;
+            case "Ollama":
+            default:
+                services.AddKeyedScoped<IChatCompletionProvider>(
+                    IntelligenceServiceKeys.RawChatProvider,
+                    (sp, _) => new OllamaChatCompletionProvider(
+                        sp.GetRequiredService<IHttpClientFactory>().CreateClient(nameof(OllamaChatCompletionProvider)),
+                        sp.GetRequiredService<IOptions<IntelligenceOptions>>()));
+                break;
+        }
     }
 
     private static void RegisterEmbeddingProvider(IServiceCollection services, string provider)
