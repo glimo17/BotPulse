@@ -59,6 +59,10 @@ public static class PermissionCatalog
     // ─── Audit ────────────────────────────────────────────────────────────────
     public const string AuditView = "Audit.View";
 
+    // ─── Intelligence (ADR-016 §11: consumed by, never bypassed by, the AI platform) ──
+    public const string IntelligenceView     = "Intelligence.View";
+    public const string IntelligenceDiagnose = "Intelligence.Diagnose";
+
     // ─── All permissions (used for Administrator role seeding) ────────────────
     public static readonly IReadOnlyList<string> All = new[]
     {
@@ -75,7 +79,8 @@ public static class PermissionCatalog
         RolesView, RolesUpdate,
         SettingsView, SettingsEdit,
         IntegrationsConfigure,
-        AuditView
+        AuditView,
+        IntelligenceView, IntelligenceDiagnose
     };
 
     // ─── Operations Manager permission set ────────────────────────────────────
@@ -89,7 +94,8 @@ public static class PermissionCatalog
         MachinesView,
         AssetsView,
         MetricsView,
-        AlertsView, AlertsAcknowledge
+        AlertsView, AlertsAcknowledge,
+        IntelligenceView, IntelligenceDiagnose
     };
 
     // ─── Viewer permission set ────────────────────────────────────────────────

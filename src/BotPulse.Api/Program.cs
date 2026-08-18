@@ -14,6 +14,8 @@ using BotPulse.Infrastructure.DependencyInjection;
 using BotPulse.Infrastructure.Logging;
 using BotPulse.Providers.UiPath.DependencyInjection;
 using BotPulse.Providers.Demo.DependencyInjection;
+using BotPulse.Intelligence.DependencyInjection;
+using BotPulse.Intelligence.Providers.DependencyInjection;
 using BotPulse.Api.Middleware;
 using BotPulse.Api.Authorization;
 using BotPulse.Authorization.Permissions;
@@ -47,6 +49,12 @@ else
 {
     builder.Services.AddDemoProvider();
 }
+
+// Intelligence Platform (ADR-016) — providers first, then core services
+// (AddIntelligence decorates the raw keyed providers registered above with
+// caching, so the order matters).
+builder.Services.AddIntelligenceProviders(builder.Configuration);
+builder.Services.AddIntelligence();
 
 // Application Services
 builder.Services.AddScoped<RobotQueryService>();
