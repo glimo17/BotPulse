@@ -4,6 +4,8 @@ using BotPulse.Authorization;
 using BotPulse.Authorization.Permissions;
 using BotPulse.Core.Abstractions.Persistence;
 using BotPulse.Intelligence.Contracts.Diagnostics;
+using BotPulse.Intelligence.Contracts.Knowledge;
+using BotPulse.Intelligence.Knowledge.Indexers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,17 +26,23 @@ public sealed class IntelligenceController : ControllerBase
     private readonly IJobRepository _jobRepository;
     private readonly IAuditRepository _auditRepository;
     private readonly IAuthorizationContextAccessor _authorizationContext;
+    private readonly IDiagnosisFeedbackStore _feedbackStore;
+    private readonly IKnowledgeBase _knowledgeBase;
 
     public IntelligenceController(
         IDiagnosticService diagnosticService,
         IJobRepository jobRepository,
         IAuditRepository auditRepository,
-        IAuthorizationContextAccessor authorizationContext)
+        IAuthorizationContextAccessor authorizationContext,
+        IDiagnosisFeedbackStore feedbackStore,
+        IKnowledgeBase knowledgeBase)
     {
         _diagnosticService = diagnosticService;
         _jobRepository = jobRepository;
         _auditRepository = auditRepository;
         _authorizationContext = authorizationContext;
+        _feedbackStore = feedbackStore;
+        _knowledgeBase = knowledgeBase;
     }
 
     /// <summary>
@@ -94,6 +102,44 @@ public sealed class IntelligenceController : ControllerBase
     }
 
     /// <summary>
+    /// Records operator feedback on a diagnosis (Requisito 5.5 feedback loop).
+    /// When validated, the resolution is indexed into the knowledge base so
+    /// future diagnoses of similar failures improve. Rejected diagnoses are
+    /// recorded but never indexed as trusted knowledge.
+    /// </summary>
+    [HttpPost("diagnose/{jobId}/feedback")]
+    [Authorize(Policy = PermissionCatalog.IntelligenceDiagnose)]
+    public async Task<IActionResult> SubmitFeedback(
+        string jobId, [FromBody] DiagnosisFeedbackRequest request, CancellationToken ct = default)
+    {
+        var orgId = _authorizationContext.Current?.OrganizationId;
+
+        var diagnosis = new DiagnosisResult(
+            RootCause: request.RootCause,
+            Impact: request.Impact,
+            ResolutionSteps: request.ResolutionSteps ?? Array.Empty<string>(),
+            Confidence: request.Confidence,
+            ReferencedKnowledgeIds: Array.Empty<string>());
+
+        await _feedbackStore.RecordAsync(
+            new DiagnosisFeedback(jobId, diagnosis, request.Validated, orgId), ct)
+            .ConfigureAwait(false);
+
+        // Close the learning loop: only validated resolutions become knowledge.
+        if (request.Validated)
+        {
+            var item = ResolutionIndexer.ToKnowledgeItem(jobId, diagnosis, orgId);
+            await _knowledgeBase.IndexAsync(item, ct).ConfigureAwait(false);
+        }
+
+        var correlationId = HttpContext.Items["CorrelationId"]?.ToString() ?? Guid.NewGuid().ToString();
+        await RecordAuditAsync(jobId, correlationId,
+            request.Validated ? "FeedbackValidated" : "FeedbackRejected").ConfigureAwait(false);
+
+        return Ok(new { jobId, validated = request.Validated });
+    }
+
+    /// <summary>
     /// Records every diagnosis attempt in the security audit log, regardless
     /// of outcome (ADR-016 §11: "All AI operations ... must be auditable").
     /// </summary>
@@ -114,3 +160,11 @@ public sealed class IntelligenceController : ControllerBase
             CorrelationId: correlationId)).ConfigureAwait(false);
     }
 }
+
+/// <summary>Operator feedback on a diagnosis, submitted from the AI Analysis panel.</summary>
+public sealed record DiagnosisFeedbackRequest(
+    bool Validated,
+    string RootCause,
+    string Impact,
+    string[]? ResolutionSteps,
+    double Confidence);

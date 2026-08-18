@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { RefreshCw, X, ChevronRight, Square, XCircle, RotateCcw } from 'lucide-react'
 import { StatusBadge } from '@/components/StatusBadge'
 import { CopyableId } from '@/components/CopyableId'
+import { AiAnalysisPanel } from '@/components/AiAnalysisPanel'
 import { useDensity } from '@/contexts/DensityContext'
 import { useAuth } from '@/contexts/AuthContext'
 import api from '@/lib/api'
@@ -179,6 +180,12 @@ export default function Jobs() {
                   <p className="text-xs text-error font-medium mb-1">{selected.errorType || 'Error'}</p>
                   <p className="text-xs text-[var(--color-text-secondary)]">{selected.errorMessage}</p>
                 </div>
+              )}
+              {selected.errorMessage && (
+                <AiAnalysisPanel
+                  providerName={selected.providerName}
+                  externalJobId={selected.externalJobId}
+                />
               )}
               {isOperator && (
                 <div className="flex gap-2 mt-4 pt-3 border-t border-[var(--color-border)]">

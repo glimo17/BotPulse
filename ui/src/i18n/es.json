@@ -125,6 +125,20 @@
     "stopped": "Detenido",
     "cancelled": "Cancelado"
   },
+  "ai": {
+    "title": "Análisis de IA",
+    "analyze": "Analizar con IA",
+    "analyzing": "Analizando...",
+    "confidence": "Confianza",
+    "rootCause": "Causa raíz",
+    "impact": "Impacto",
+    "resolutionSteps": "Pasos de resolución",
+    "helpful": "Útil",
+    "notHelpful": "No útil",
+    "thanksValidated": "Gracias — esta resolución se agregó a la base de conocimiento.",
+    "thanksRejected": "Gracias por el feedback.",
+    "error": "No se pudo generar un diagnóstico. Intenta de nuevo."
+  },
   "robots": {
     "title": "Robots",
     "machine": "Máquina",

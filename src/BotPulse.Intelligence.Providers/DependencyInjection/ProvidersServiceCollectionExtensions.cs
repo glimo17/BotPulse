@@ -1,7 +1,9 @@
 using BotPulse.Intelligence.Contracts.AI;
 using BotPulse.Intelligence.Contracts.Configuration;
+using BotPulse.Intelligence.Contracts.Diagnostics;
 using BotPulse.Intelligence.Contracts.Vector;
 using BotPulse.Intelligence.DependencyInjection;
+using BotPulse.Intelligence.Providers.Demo;
 using BotPulse.Intelligence.Providers.InMemory;
 using BotPulse.Intelligence.Providers.Ollama;
 using BotPulse.Intelligence.Providers.OpenAI;
@@ -52,6 +54,11 @@ public static class ProvidersServiceCollectionExtensions
 
         switch (provider)
         {
+            case "Demo":
+                services.AddKeyedScoped<IChatCompletionProvider>(
+                    IntelligenceServiceKeys.RawChatProvider,
+                    (_, _) => new DemoChatCompletionProvider());
+                break;
             case "OpenAI":
                 services.AddKeyedScoped<IChatCompletionProvider>(
                     IntelligenceServiceKeys.RawChatProvider,
@@ -76,6 +83,11 @@ public static class ProvidersServiceCollectionExtensions
 
         switch (provider)
         {
+            case "Demo":
+                services.AddKeyedScoped<IEmbeddingProvider>(
+                    IntelligenceServiceKeys.RawEmbeddingProvider,
+                    (_, _) => new DemoEmbeddingProvider());
+                break;
             case "OpenAI":
                 services.AddKeyedScoped<IEmbeddingProvider>(
                     IntelligenceServiceKeys.RawEmbeddingProvider,
@@ -100,10 +112,12 @@ public static class ProvidersServiceCollectionExtensions
         {
             case "PgVector":
                 services.AddScoped<IVectorStore, PgVectorStore>();
+                services.AddScoped<IDiagnosisFeedbackStore, PgDiagnosisFeedbackStore>();
                 break;
             case "InMemory":
             default:
                 services.AddSingleton<IVectorStore, InMemoryVectorStore>();
+                services.AddSingleton<IDiagnosisFeedbackStore, InMemoryDiagnosisFeedbackStore>();
                 break;
         }
     }

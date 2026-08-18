@@ -125,6 +125,20 @@
     "stopped": "Stopped",
     "cancelled": "Cancelled"
   },
+  "ai": {
+    "title": "AI Analysis",
+    "analyze": "Analyze with AI",
+    "analyzing": "Analyzing...",
+    "confidence": "Confidence",
+    "rootCause": "Root cause",
+    "impact": "Impact",
+    "resolutionSteps": "Resolution steps",
+    "helpful": "Helpful",
+    "notHelpful": "Not helpful",
+    "thanksValidated": "Thanks — this resolution was added to the knowledge base.",
+    "thanksRejected": "Thanks for the feedback.",
+    "error": "Could not generate a diagnosis. Try again."
+  },
   "robots": {
     "title": "Robots",
     "machine": "Machine",
