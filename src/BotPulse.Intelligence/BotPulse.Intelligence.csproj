@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BotPulse.Core\BotPulse.Core.csproj" />
     <ProjectReference Include="..\BotPulse.Intelligence.Contracts\BotPulse.Intelligence.Contracts.csproj" />
     <ProjectReference Include="..\BotPulse.Authorization\BotPulse.Authorization.csproj" />
   </ItemGroup>
@@ -15,6 +16,11 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
     <PackageReference Include="Microsoft.Extensions.Options" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="BotPulse.UnitTests" />
+    <InternalsVisibleTo Include="BotPulse.Intelligence.Providers" />
   </ItemGroup>
 
 </Project>

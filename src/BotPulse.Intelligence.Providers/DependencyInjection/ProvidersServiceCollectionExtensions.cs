@@ -1,12 +1,14 @@
 using BotPulse.Intelligence.Contracts.AI;
 using BotPulse.Intelligence.Contracts.Configuration;
 using BotPulse.Intelligence.Contracts.Vector;
+using BotPulse.Intelligence.DependencyInjection;
 using BotPulse.Intelligence.Providers.InMemory;
 using BotPulse.Intelligence.Providers.Ollama;
 using BotPulse.Intelligence.Providers.OpenAI;
 using BotPulse.Intelligence.Providers.PgVector;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace BotPulse.Intelligence.Providers.DependencyInjection;
 
@@ -15,12 +17,16 @@ namespace BotPulse.Intelligence.Providers.DependencyInjection;
 /// vector store) selected by the "Intelligence" configuration section.
 /// This is the only place that references concrete provider types — the rest
 /// of BotPulse only ever sees the Contracts abstractions (ADR-016 §4).
+/// The raw embedding provider is registered as a keyed service so that
+/// AddIntelligence can wrap it with caching without a circular resolution.
 /// </summary>
 public static class ProvidersServiceCollectionExtensions
 {
     /// <summary>
     /// Binds IntelligenceOptions and registers the configured embedding and
     /// vector store providers. Chat provider wiring is added in Milestone 4.
+    /// Call AddIntelligence() after this to get the cached, public
+    /// IEmbeddingProvider registration.
     /// </summary>
     public static IServiceCollection AddIntelligenceProviders(
         this IServiceCollection services, IConfiguration configuration)
@@ -40,16 +46,24 @@ public static class ProvidersServiceCollectionExtensions
 
     private static void RegisterEmbeddingProvider(IServiceCollection services, string provider)
     {
+        services.AddHttpClient();
+
         switch (provider)
         {
             case "OpenAI":
-                services.AddHttpClient<OpenAIEmbeddingProvider>();
-                services.AddScoped<IEmbeddingProvider, OpenAIEmbeddingProvider>();
+                services.AddKeyedScoped<IEmbeddingProvider>(
+                    IntelligenceServiceKeys.RawEmbeddingProvider,
+                    (sp, _) => new OpenAIEmbeddingProvider(
+                        sp.GetRequiredService<IHttpClientFactory>().CreateClient(nameof(OpenAIEmbeddingProvider)),
+                        sp.GetRequiredService<IOptions<IntelligenceOptions>>()));
                 break;
             case "Ollama":
             default:
-                services.AddHttpClient<OllamaEmbeddingProvider>();
-                services.AddScoped<IEmbeddingProvider, OllamaEmbeddingProvider>();
+                services.AddKeyedScoped<IEmbeddingProvider>(
+                    IntelligenceServiceKeys.RawEmbeddingProvider,
+                    (sp, _) => new OllamaEmbeddingProvider(
+                        sp.GetRequiredService<IHttpClientFactory>().CreateClient(nameof(OllamaEmbeddingProvider)),
+                        sp.GetRequiredService<IOptions<IntelligenceOptions>>()));
                 break;
         }
     }
